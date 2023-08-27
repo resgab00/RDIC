@@ -1,0 +1,113 @@
+﻿@model List<RDIC.Models.SubCategoria>
+
+@{
+    List<RDIC.Models.Categoria> Categoria = ViewData["Categoria"] as List<RDIC.Models.Categoria>;
+    int idCategoria = Convert.ToInt32(ViewData["idCategoria"].ToString());
+}
+
+
+<div class="col ml-4 mr-4 content">
+    <h1>Elenco subCategorie</h1>
+    <h3><label>Categoria</label></h3>
+    <select id="categoria" name="categoria" class="form-control">
+        @foreach (RDIC.Models.Categoria item in Categoria)
+        {
+            if (item.Id == idCategoria)
+            {
+                <option value="@item.Id" selected>@item.DescriptionIT</option>
+            }
+            else
+            {
+                <option value="@item.Id">@item.DescriptionIT</option>
+            }
+        }
+    </select>
+    <br />
+    <ol class="sortAdmin">
+        @foreach (RDIC.Models.SubCategoria item in Model)
+        {
+            <li>
+                <h4>@item.Order - @item.DescriptionIT </h4>
+                <input type="hidden" id="hddCatId" value="@item.Id" />
+            </li>
+        }
+    </ol>
+    <br />
+    <button id="productSave" type="button" onclick="updateSubOrderCat();" class="btn btn-primary">Salva</button><br /><br />
+    <br />
+    <div id="productError">
+        <img src="~/img/product-error.png" width="70" />
+        <label style="width:700px;font-size:large;color:#ff0000;">Errore durante il salvataggio. Riprovare in un secondo momento, se l'errore persiste contattare l'amministratore del sistema</label>
+    </div>
+    <div id="productOk">
+        <img src="~/img/product-ok.png" width="64" />
+        <label style="width:700px;font-size:large;">Salvataggio avvenuto con successo</label>
+    </div>
+    <div id="productLoader" class="loader07"></div>
+
+</div>
+<script>
+    function onInputFormChange() {
+        $('#productSave').attr('disabled', false);
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+    }
+    $(document).ready(function () {
+
+        $('#categoria').on('change', function (e) {
+            debugger
+            var optionSelected = $("option:selected", this);
+            var valueSelected = this.value;
+            var url = '@Url.Action("OrdinaSubCategoria")?idCategoria=' + valueSelected;
+
+            $.get(url, function (data) {
+                $("#AllProduct").html(data);
+            });
+        });
+
+        var group = $("ol.sortAdmin").sortable({
+            group: 'sortAdmin',
+            pullPlaceholder: false,
+            // animation on drop
+            onDrop: function ($item, container, _super) {
+                var $clonedItem = $('<li/>').css({ height: 0 });
+                $item.before($clonedItem);
+                $clonedItem.animate({ 'height': $item.height() });
+
+                $item.animate($clonedItem.position(), function () {
+                    $clonedItem.detach();
+                    _super($item, container);
+                });
+                onInputFormChange();
+            },
+            // set $item relative to cursor position
+            onDragStart: function ($item, container, _super) {
+                var offset = $item.offset(),
+                    pointer = container.rootGroup.pointer;
+
+                adjustment = {
+                    left: pointer.left - offset.left,
+                    top: pointer.top - offset.top
+                };
+
+                _super($item, container);
+            },
+            onDrag: function ($item, position) {
+                $item.css({
+                    left: position.left - adjustment.left,
+                    top: position.top - adjustment.top
+                });
+            }
+        });
+
+        //$("#frmUpdateProduct").on('input change', function () {
+        //});
+        $('#productSave').attr('disabled', true);
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+    });
+
+
+</script>

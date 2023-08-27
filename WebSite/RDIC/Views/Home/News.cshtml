@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+@{ 
+    string News = "News";
+
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        News = "News";
+    }
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        News = "News";
+    }
+
+}
+
+@section Content{
+    <link rel="stylesheet" type="text/css" href="~/Content/news.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/news_responsive.css">
+
+    <div class="container-fluid">
+        <div class="row inside_bkg"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="title">@News</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row title_separator"></div>
+    </div>
+    <div class="container content">
+        <div class="row">
+            @foreach (RDIC.Models.News item in Model)
+            {
+                string Titolo = item.TitoloIT;
+                string Description = item.DescriptionIT;
+                string Alt = item.Immagine.AltIT;
+                System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("it-IT");
+                if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+                {
+                    Titolo = item.TitoloEN;
+                    Description = item.DescriptionEN;
+                    Alt = item.Immagine.AltEN;
+                    System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
+
+                }
+                if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+                {
+                    Titolo = item.TitoloFR;
+                    Description = item.DescriptionFR;
+                    Alt = item.Immagine.AltFR;
+                    System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR");
+                }
+
+                <div class="col-5 news">
+                    <a href="~/Home/ExplodedNews?IdNews=@item.Id">
+                        <div class="img">
+                            <img src="~/@item.Immagine.FileName.Replace("~/","")" alt="@Alt" width="300">
+                        </div>
+                        <div class="date">@item.Data.ToLongDateString()</div>
+                        <div class="title">
+                            <h4>@Titolo</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col separator"></div>
+            }
+        </div>
+    </div>
+}

@@ -1,0 +1,28 @@
+@media screen and (max-width:800px){
+    .news{
+        width: 100%;
+        margin: 0 auto 40px;
+        flex: none;
+        max-width: 100%
+    }
+    .news .img{
+        height:auto;
+    }
+    .news .title h4 {
+        font-size: 1.5rem;
+    }
+    
+    .separator{display: none}
+    
+    .exploded_img_news{
+        margin: 0 auto!important;
+        flex: none;
+        max-width: 100%;
+    }
+    
+    .exploded_news{
+        margin: 20px 0 40px;
+        max-width: 100%;
+        flex:none;
+    }
+}

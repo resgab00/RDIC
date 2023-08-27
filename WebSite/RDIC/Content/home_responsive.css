@@ -1,0 +1,43 @@
+@media screen and (max-width:1024px){
+    .home_description{
+        flex: 0 0 50%;
+    }
+}
+
+@media screen and (max-width:800px){
+    #language{background-color: #fff;}
+    #main_carousel{
+        height: 300px;
+    }
+    .carousel-indicators li{
+        height: 7px;
+        width: 25px;
+    }
+    .carousel-indicators{bottom: 0;}
+    
+    .home_description{
+        max-width: 100%;
+        flex:none;
+    }
+    .home_description p {
+        line-height: 23px;
+        font-size: 16px;
+    }
+    
+    .last_items{margin-top: 20px;}
+    
+    .carousel-item img{max-width: 100%;}
+    
+    #item_carousel .carousel-item p{
+        width: 90%;
+        margin: 10px auto;
+    }
+    
+    .box_container .box{
+        flex: none;
+        max-width: 100%;
+    }
+    .box_container .box:nth-child(2){
+        margin: 20px auto!important;
+    }
+}

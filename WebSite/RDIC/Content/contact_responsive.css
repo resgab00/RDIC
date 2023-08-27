@@ -1,0 +1,18 @@
+@media screen and (max-width:800px){
+   .description,
+   .separator{display: none;}
+   .contact_form{
+       flex: none;
+       max-width: 100%;
+   }
+}
+
+@media screen and (max-width:600px){
+    #first_name,
+    #last_name{
+        width: 100%;
+        flex:none;
+    }
+    
+    #first_name{margin-bottom: 20px;}
+}

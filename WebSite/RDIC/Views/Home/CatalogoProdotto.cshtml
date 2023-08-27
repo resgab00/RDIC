@@ -1,0 +1,234 @@
+﻿
+@{
+    ViewBag.Title = "catalogo prodotto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+
+@{
+    string Testo01 = "Catalogo";
+    string Testo02 = "Catalogo Prodotti";
+
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        Testo01 = "Catalogue";
+        Testo02 = "Product catalogue";
+    }
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        Testo01 = "Catalogue";
+        Testo02 = "Catalogue des produits";
+    }
+
+    RDIC.Models.Categoria Categoria = ViewData["Categoria"] as RDIC.Models.Categoria;
+    RDIC.Models.SubCategoria SubCategoria = ViewData["SubCategoria"] as RDIC.Models.SubCategoria;
+
+    string CatDescription = Categoria.DescriptionIT;
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        CatDescription = Categoria.DescriptionEN;
+    }
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        CatDescription = Categoria.DescriptionFR;
+    }
+
+    string SubDescription = SubCategoria.DescriptionIT;
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        SubDescription = SubCategoria.DescriptionEN;
+    }
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        SubDescription = SubCategoria.DescriptionFR;
+    }
+
+    List<RDIC.Models.Prodotto> Prodottos = Model;
+
+}
+
+
+@section Content{
+    <link rel="stylesheet" type="text/css" href="~/Content/blueimp-gallery.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/catalogo.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/catalogo_responsive.css">
+
+    <div class="container-fluid">
+        <div class="row inside_bkg"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="title">@Testo02</h1>
+                <span class="crumbs"><a href="~/Home/Catalogo">@Testo01</a> >> <a href="~/Home/Catalogo?idCategoria=@Categoria.Id">@CatDescription</a> >> @SubDescription >></span>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row title_separator"></div>
+    </div>
+    @{
+        int CountProd = 0;
+    }
+    @foreach (RDIC.Models.Prodotto prod in Prodottos.Where(pro => pro.IdCategoria == Categoria.Id).Where(pro => pro.IdSubCategoria == SubCategoria.Id).ToList())
+    {
+        string Titolo = prod.TitoloIT;
+        string Description = prod.DescriptionIT;
+        if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+        {
+            Titolo = prod.TitoloEN;
+            Description = prod.DescriptionEN;
+        }
+        if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+        {
+            Titolo = prod.TitoloFR;
+            Description = prod.DescriptionFR;
+        }
+
+
+        if (((CountProd + 1) % 2 == 0)) //pari
+        {
+            @:<div class="container-fluid item">
+        }
+        <div class="container item">
+            <div class="row">
+                <div class="col-6 text"  id="item_@prod.Id">
+                    <div class="title"><h3>@Titolo</h3></div>
+                    <div class="description">
+                        @Html.Markdown(Description)
+                        <br><br>
+
+                        @if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+                        {
+                            foreach (RDIC.Models.Allegato all in prod.Allegati.Where(all => all.Language == "EN").ToList())
+                            {
+                                string DescriptionAll = all.Description;
+                                string FileNameAll = all.FileName;
+                                <a href="~/@FileNameAll.Replace("~/","")" target="_blank">@DescriptionAll</a><br>
+                            }
+                        }
+                        else if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+                        {
+                            foreach (RDIC.Models.Allegato all in prod.Allegati.Where(all => all.Language == "FR").ToList())
+                            {
+                                string DescriptionAll = all.Description;
+                                string FileNameAll = all.FileName;
+                                <a href="~/@FileNameAll.Replace("~/","")" target="_blank">@DescriptionAll</a><br>
+                            }
+                        }
+                        else
+                        {
+                            foreach (RDIC.Models.Allegato all in prod.Allegati.Where(all => all.Language == "IT").ToList())
+                            {
+                                string DescriptionAll = all.Description;
+                                string FileNameAll = all.FileName;
+                                <a href="~/@FileNameAll.Replace("~/","")" target="_blank">@DescriptionAll</a><br>
+                            }
+
+                        }
+                    </div>
+                </div>
+                <div class="col-5 img">
+                    <div id="item_carousel_id_@CountProd" class="carousel slide" data-bs-ride="carousel" style="max-width:300px;height:260px;">
+                        <div class="carousel-indicators">
+                            @{
+                                int conta = 0;
+                            }
+                            @foreach (RDIC.Models.Immagine img in prod.Immagini)
+                            {
+                                string ClassActive = conta == 0 ? "active" : "";
+                                <button type="button" data-bs-target="#item_carousel_id_@CountProd" data-bs-slide-to="@conta" class="custom_indicator @ClassActive" aria-current="true" aria-label="Slide @conta"></button>
+                                conta++;
+                            }
+                        </div>
+                        <div class="carousel-inner" id="lightbox_@CountProd">
+                            @{
+                                conta = 0;
+                            }
+                            @foreach (RDIC.Models.Immagine img in prod.Immagini)
+                            {
+                                string ClassActive = conta == 0 ? "active" : "";
+                                string AltImg = img.AltIT;
+                                if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+                                {
+                                    AltImg = img.AltEN;
+                                }
+                                if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+                                {
+                                    AltImg = img.AltFR;
+                                }
+                                <div class="carousel-item @ClassActive">
+                                    <a href="~/@img.FileName.Replace("~/","")">
+                                        <img src="~/@img.FileName.Replace("~/","")" alt="@AltImg" class="d-block w-100" style="max-width:300px;max-height:260px;">
+                                    </a>
+                                </div>
+                                conta++;
+                            }
+                        </div>
+                        @*<a class="carousel-control carousel-control-prev" href="#item_carousel_id_@CountProd" role="button" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control carousel-control-next" href="#item_carousel_id_@CountProd" role="button" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        if (((CountProd + 1) % 2 == 0)) //pari
+        {
+            @:</div>
+        }
+
+        CountProd++;
+    }
+
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+    </div>
+
+    <script src="~/Scripts/blueimp-gallery.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            var myCarousel = document.querySelector('.carousel')
+            var carousel = new bootstrap.Carousel(myCarousel, {
+                interval: 3000,
+                wrap: true
+            })
+
+            $('.carousel-item a').append('<i class="fa fa-search-plus" aria-hidden="true"></i>');
+
+            $('[id^=lightbox_]').click(function (event) {
+                event = event || window.event;
+                var target = event.target || event.srcElement,
+                    link = target.src ? target.parentNode : target,
+                    options = { index: link, event: event },
+                    links = this.getElementsByTagName('a');
+                blueimp.Gallery(links, options);
+            });
+        });
+    </script>
+}

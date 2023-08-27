@@ -1,0 +1,119 @@
+.carousel-indicators li{
+    height: 10px;
+    width: 50px;
+    cursor: pointer;
+}
+
+#newProd_carousel {
+    border: none !important;
+}
+#main_carousel {
+    padding: 0 !important;
+}
+.carousel {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    border-bottom: 20px solid #fdcc07;
+}
+.carousel-inner{height: 100%;text-align:center;}
+.carousel-item{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.carousel-item a{color: #fff;}
+.carousel-item p{font-weight: 300;}
+
+#item_carousel{
+    background-color: #0486c2;
+    color: #fff;
+    border:none;
+    padding-top: 15px;
+    padding-bottom: 50px;
+    height:auto;
+}
+#item_carousel .carousel-inner{
+    margin: 0 auto;
+    width: 410px;
+    max-width: 100%;
+}
+#item_carousel .carousel-item p{margin-top: 10px;}
+
+.home_description h2{margin-bottom: 30px;}
+.home_description p{
+    line-height:33px;
+    font-size:18px;
+}
+
+.box_container{padding: 70px 0;}
+.box_container .row{margin: 0 10px}
+.box{
+    background-color: #fff;
+    border: 1px solid #d2d2d2;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.box .section_title{
+    color: #fdcc07;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.box .section_title .fa{
+    font-size: 30px;
+    margin-right: 10px;
+}
+.box .title{
+    color: #0486c2;
+    font-weight: 500;
+    line-height: 19px;
+    margin: 10px 0 10px;
+    height:60px;
+}
+.box .box_content{
+    padding-bottom: 20px;
+    height:250px;
+}
+.box .box_content .img{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+.box .box_content .wide{width: 100%;}
+.box .box_content .img img{max-width: 100%;}
+.box .box_content .text{
+    display: inline-block;
+    vertical-align: top;
+    width: 55%;
+    margin-left: 3%;
+    text-align: justify;
+    font-size: 14px;
+}
+.box a.other_items{
+    font-size: 14px;
+    /*position: absolute;
+    right: 20px;
+    bottom: 5px;
+    text-align: right;
+    padding-top: 5px;
+    border-top: 1px solid #d2d2d2;    */
+    width: calc(100% - 40px);
+}
+.home_items {
+    width: 100%;
+    text-align: right;
+    border-top: 1px solid #d2d2d2;
+}
+
+.map {
+    text-align: center;
+    margin-top: 80px;
+}
+.map h2{font-size: 39px;}
+.map iframe{
+    width: 100%;
+    height:350px;
+}
+.map .col{padding: 0;}

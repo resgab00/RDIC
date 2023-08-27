@@ -1,0 +1,129 @@
+﻿@model RDIC.Models.News
+
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+
+@{
+    string News = "News";
+    string AllNews = "Tutte le news";
+
+
+
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+
+    string Titolo = Model.TitoloIT;
+    string Description = Model.DescriptionIT;
+    string Alt = Model.Immagine.AltIT;
+
+    System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("it-IT");
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        News = "News";
+        AllNews = "All news";
+        Titolo = Model.TitoloEN;
+        Description = Model.DescriptionEN;
+        Alt = Model.Immagine.AltEN;
+        System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
+    }
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        News = "News";
+        AllNews = "Toutes les nouvelles";
+        Titolo = Model.TitoloFR;
+        Description = Model.DescriptionFR;
+        Alt = Model.Immagine.AltFR;
+        System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR");
+    }
+
+}
+
+@section Content{
+    <link rel="stylesheet" type="text/css" href="~/Content/blueimp-gallery.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/news.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/news_responsive.css">
+
+    <div class="container-fluid">
+        <div class="row inside_bkg"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="title">@News</h1>
+                <span class="crumbs"><a href="~/Home/News">@AllNews >></a></span>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row title_separator"></div>
+    </div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-5 mr-4 exploded_img_news">
+                <div id="lightbox">
+                    <a href="~/@Model.Immagine.FileName.Replace("~/","")">
+                        <img src="~/@Model.Immagine.FileName.Replace("~/","")" alt="@Alt">
+                        <i class="fa fa-search-plus" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 exploded_news">
+                <div class="date">@Model.Data.ToLongDateString()</div>
+                <div class="title">
+                    <h2>@Titolo</h2>
+                </div>
+                <div class="text">
+                    @Html.Markdown(Description)
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+    </div>
+
+    <script src="~/Scripts/blueimp-gallery.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            var img_height = $('.exploded_img_news img').height();
+            console.log(img_height);
+            $('.exploded_img_news a').height(img_height);
+
+            $('#lightbox').click(function (event) {
+                event = event || window.event;
+                var target = event.target || event.srcElement,
+                    link = target.src ? target.parentNode : target,
+                    options = { index: link, event: event },
+                    links = this.getElementsByTagName('a');
+                blueimp.Gallery(links, options);
+            });
+        });
+    </script>
+}

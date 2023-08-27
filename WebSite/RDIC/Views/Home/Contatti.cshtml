@@ -1,0 +1,325 @@
+﻿@{
+    ViewBag.Title = "Contatti";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+
+@{
+    bool Inviato = false;
+    if (ViewData["Inviato"] != null)
+    {
+        Inviato = (bool)ViewData["Inviato"];
+    }
+
+    bool Error = false;
+    if (ViewData["Error"] != null)
+    {
+        Error = (bool)ViewData["Error"];
+    }
+
+    string Contatti = "Contatti";
+    string Testo01 = "Produzione e riparazione";
+    string Testo02 = "Strumenti di misurazione";
+    string Testo03 = @"Da 50 anni Termaf è leader nella produzione e <strong>riparazione di manometri</strong>, termometri, registratori di pressione, temperatura ed umidità, registratori di precipitazioni meteorologiche, barografi e capannine meteo.
+<br /><br />
+Produciamo <strong>strumenti personalizzati a campione</strong> o su disegno effettuando in tempi brevissimi calibrazioni con rilascio di <strong>rapporti di taratura</strong>.
+<br /><br />
+Tra i nostri prodotti annoveriamo: barografi; capannine meteorologiche; meteorografi; pluviografi; registratori di pressione; regolatori di pressione per strumenti di misura e precisione; strumenti di misura della temperatura; strumenti di misura di umidità, gravità, ph, conduttività e viscosità; strumenti di regolazione e controllo della temperatura; strumenti per la meteorologia; termoigrografi; termometri per uso industriale.";
+    string Testo04 = "Contattaci per un preventivo";
+    string Testo05 = "Per avere maggioriinformazioni sui nostri prodotti, conoscerne la disponibilità o richiedere un preventivo gratuito, compilate il form sottostante con i vostri dati oppure chiamate il numero di telefono che vedete qui in basso.";
+    string Testo06 = "Scrivi qui il tuo messaggio";
+    string Testo07 = "Nome";
+    string Testo08 = "Cognome";
+    string Testo09 = "Email";
+    string Testo10 = "Telefono";
+    string Testo11 = "Messaggio";
+    string Testo12 = "Ho letto <a href='PrivacyCookie' target='_blank'>l'informativa</a> e autorizzo il trattamento dei miei dati personali per le finalità ivi indicate.";
+    string Testo13 = "Invia";
+    string Testo15 = "Invio avvenuto con successo!<br />Riceverai una risposta il prima possibile";
+    string Testo16 = "Errore durante l'invio!<br />Si prega di riprovare più tardi.";
+
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        Contatti = "Contact us";
+        Testo01 = "PRODUCTION AND REPAIRS";
+        Testo02 = "MEASUREMENT TOOLS";
+        Testo03 = @"For the past 50 years, Termaf has been a leading manufacturer and <strong>repairer of pressure gauges</strong>, thermometers, pressure recorders, temperature and humidity recorders, weather recorders, barographs and meteorological instruments shelters.
+<br /><br />
+We manufacture <strong>laboratory instruments, customised</strong> or made to order and carry out calibrations in a very short period of time followed by the issuing of <strong>calibration reports</strong>.
+<br /><br />
+Our products include: barographs; meteorological instrument shelters; meteorographs; pluviographs; pressure recorders; pressure regulators for measurement and precision instruments; instruments for measuring temperature; instruments for measuring humidity, gravity, pH, conductivity and viscosity; instruments for temperature regulation and control; weather instruments; thermo-hygrographs; thermometers for industrial use.";
+        Testo04 = "CONTACT US FOR A QUOTE";
+        Testo05 = "To have more information about our products, to know the availability or request a free estimate, fill out the form below with your data or call the phone number you see below.";
+        Testo06 = "Write your message here";
+        Testo07 = "First name";
+        Testo08 = "Surname";
+        Testo09 = "E-mail";
+        Testo10 = "Phone";
+        Testo11 = "Message";
+        Testo12 = "I have read the <a href='PrivacyCookie' target='_blank'>privacy policy</a> and authorise the processing of my personal data for the purposes specified therein.";
+        Testo13 = "Send";
+        Testo15 = "Sending successful!<br />You will receive an answer as soon as possible";
+        Testo16 = "Error sending!<br />Please try again later.";
+    }
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        Contatti = "Contacts";
+        Testo01 = "production et réparation";
+        Testo02 = "outils de mesure";
+        Testo03 = @"Depuis 50 ans Termaf est leader dans la production et la <strong>réparation de manomètres</strong>, thermomètres, enregistreurs de pression, température et humidité, enregistreurs de précipitations météorologiques, barographes et stations météo.
+<br /><br />
+Nous produisons des <strong>outils personnalisés sur échantillon</strong> ou sur plan en effectuant très rapidement des calibrages avec délivrance de <strong>rapports d'étalonnage</strong>.
+<br /><br />
+Nos produits comprennent : barographes; stations météo; météorographes; pluviomètres; enregistreurs de pression; régulateurs de pression pour instruments de mesure et de précision; instruments de mesure de la température; Instruments de mesure de l'humidité, de la densité, du pH, de la conductivité et de la viscosité ; instruments de régulation et de contrôle de température ; instruments météorologiques ; thermo-hygrographes; thermomètres à usage industriel.";
+        Testo04 = "CONTACTEZ-NOUS POUR UN DEVIS";
+        Testo05 = "Pour avoir plus d'informations sur nos produits, connaître la disponibilité ou demander un devis gratuit, remplissez le formulaire ci-dessous avec vos données ou appelez le numéro de téléphone que vous voyez ci-dessous.";
+        Testo06 = "Écrivez votre message ici";
+        Testo07 = "Prenom";
+        Testo08 = "Nom de famille";
+        Testo09 = "email";
+        Testo10 = "téléphone";
+        Testo11 = "message";
+        Testo12 = "J'ai pris connaissance de <a href='PrivacyCookie' target='_blank'>Protection des données</a> et autorise le traitement de mes données personnelles pour les fins qui y sont spécifiées.";
+        Testo13 = "Envoyer";
+        Testo15 = "Envoi réussi!<br />Vous recevrez une réponse dans les meilleurs délais";
+        Testo16 = "Erreur d'envoi!<br />Veuillez réessayer plus tard.";
+    }
+}
+
+
+@section Content{
+
+    @*todo tutto ancora da localizzare*@
+    <link rel="stylesheet" type="text/css" href="~/Content/contact.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/contact_responsive.css" />
+
+    <div class="container-fluid">
+        <div class="row inside_bkg"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="title">@Contatti</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row title_separator"></div>
+    </div>
+    @*todo gestire obbligatorietà, mettere controlo mail, mettere no robot, e fare invio*@
+    <div class="container">
+        <div class="row">
+            <div class="col-6 description">
+                <h2>@Html.Raw(Testo01)</h2>
+                <h3>@Html.Raw(Testo02)</h3>
+                <p>@Html.Raw(Testo03)</p>
+            </div>
+            <div class="col-1 separator"></div>
+            <div class="col-5 contact_form">
+                <h2>@Html.Raw(Testo04)</h2>
+                <p>@Html.Raw(Testo05)</p>
+                <span class="address">
+                    <strong>RD Industrial Clocks</strong><br>
+                    <a href="mailto:info@RDICsrl.com">info@RDICsrl.com</a><br>
+                    Piazzale Insurrezione, 6<br>
+                    24047 Treviglio (BG) - Italia<br>
+                    Tel: +39 02 3652 3042<br>
+                    Mobile & whatsapp +39 331 741 0680<br>
+                </span>
+                <h2>@Html.Raw(Testo06)</h2>
+                @if (!Inviato)
+                {
+                <form action="~/Home/InviaRichiesta" id="frmContatti">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" name="first_name" id="first_name" class="form-control" placeholder="@Html.Raw(Testo07)" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="last_name" id="last_name" class="form-control" placeholder="@Html.Raw(Testo08)" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <!-- La calsse is-invalid è da mettere solo se il controllo del campo fallisce-->
+                            <input type="text" name="email" id="email" class="form-control" placeholder="@Html.Raw(Testo09)" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder="@Html.Raw(Testo10)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <textarea name="message" id="message" class="form-control" placeholder="@Html.Raw(Testo11)" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-control" id="privacyDiv">
+                                <label class="form-check-label privacy">
+                                    <input class="form-check-input" type="radio" name="privacy" id="privacy" value="option1" required>
+                                    @Html.Raw(Testo12)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="g-recaptcha" class="g-recaptcha form-control" data-sitekey="6LcMWUUUAAAAAHHexC--USINqPRFPzuY7dojcLe2"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" onclick="inviaRichiesta();" class="btn btn-primary">@Html.Raw(Testo13)</button>
+                        </div>
+                    </div>
+                    @if (Error)
+                    {
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-control" style="color:red;">
+                                    <label>
+                                        @Html.Raw(Testo16)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </form>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-control">
+                                <label >
+                                    @Html.Raw(Testo15)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @Html.Partial("GoogleMap")
+    @if (!Inviato)
+    {
+
+        <script>
+            function isValidEmailAddress(emailAddress) {
+                var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+                return pattern.test(emailAddress);
+            }
+
+            function validation() {
+                var isValid = true;
+                $("#g-recaptcha").removeClass("is-invalid");
+                $("#first_name").removeClass("is-invalid");
+                $("#last_name").removeClass("is-invalid");
+                $("#email").removeClass("is-invalid");
+                $("#message").removeClass("is-invalid");
+                $("#privacyDiv").removeClass("is-invalid");
+
+                if ($("#g-recaptcha-response").val() == '') {
+                    $("#g-recaptcha").addClass("is-invalid");
+                    isValid = false;
+                }
+
+                if ($("#first_name").val() == '') {
+                    $("#first_name").addClass("is-invalid");
+                    isValid = false;
+                }
+
+                if ($("#last_name").val() == '') {
+                    $("#last_name").addClass("is-invalid");
+                    isValid = false;
+                }
+
+                if ($("#email").val() == '') {
+                    $("#email").addClass("is-invalid");
+                    isValid = false;
+                } else {
+                    if (isValidEmailAddress($("#email").val()) == false) {
+                        $("#email").addClass("is-invalid");
+                        isValid = false;
+                    }
+                }
+
+                if ($("#message").val() == '') {
+                    $("#message").addClass("is-invalid");
+                    isValid = false;
+                }
+
+                var checked = $("#privacy").is(':checked');
+                if (checked == false) {
+                    $("#privacyDiv").addClass("is-invalid");
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            function onInputFormChange() {
+                validation();
+            }
+
+            $(document).ready(function () {
+                $("#frmContatti").on('input change', function () {
+                    onInputFormChange();
+                });
+                $("#frmContatti").on('textarea change', function () {
+                    onInputFormChange();
+                });
+                $("#g-recaptcha-response").on('change', function () {
+                    onInputFormChange();
+                });
+            })
+
+            function inviaRichiesta() {
+                var url = $("#frmContatti").attr("action");
+                var values = $("#frmContatti").serialize();
+
+                var isValid = validation();
+
+                if (isValid) {
+                    //$.ajax({
+                    //    type: 'post',
+                    //    url: url,
+                    //    data: values,
+                    //    success: function (data) {
+                    //        //$("#AllProduct").html(data);
+                    //        //$("#productLoader").hide();
+                    //        //window.scrollTo(0, document.body.scrollHeight);
+                    //        //window.setTimeout(function () { $("#productOk").show(); }, 0);
+                    //    },
+                    //    error: function (ex) {
+                    //        //$("#productLoader").hide();
+                    //        //$("#productError").show();
+                    //    },
+                    //    async: true
+                    //});
+                    $("#frmContatti").submit();
+                }
+                return false;
+            }
+        </script>
+    }
+}

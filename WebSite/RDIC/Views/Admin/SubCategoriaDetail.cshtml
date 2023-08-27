@@ -1,0 +1,83 @@
+﻿@model RDIC.Models.SubCategoria
+@{
+    ViewBag.Title = "Dettaglio SubCategoria";
+    List<RDIC.Models.Prodotto> Prodottos = ViewData["Prodottos"] as List<RDIC.Models.Prodotto>;
+    List<RDIC.Models.Categoria> Categorias = ViewData["Categorias"] as List<RDIC.Models.Categoria>;
+    RDIC.Models.Categoria Categoria = ViewData["Categoria"] as RDIC.Models.Categoria;
+
+}
+
+<div class="ml-4 mr-4 content" style="width:100%;">
+    <h2>Modifica SubCategoria</h2>
+
+    <form action="~/Admin/UpdateSubCategoria" class="dropzone" id="frmUpdateSubCategoria">
+        <input type="hidden" id="idCategoria" name="idCategoria" value="@Categoria.Id" />
+        <input type="hidden" id="idSubCategoria" name="idSubCategoria" value="@Model.Id" />
+        <div class="form-group">
+            <h3><label>Categoria</label></h3>
+            @if (Prodottos != null && Prodottos.Count > 0)
+            {
+                <label>
+                    Non è possibile cambiare la Categoria di apparteneza perchè
+                    a questa subCategoria sono associati @Prodottos.Count Prodotti
+                </label>
+                <input type="hidden" id="categoria" name="categoria" value="@Categoria.Id" />
+            }
+            else
+            {
+                <select id="categoria" name="categoria" class="form-control">
+                    @foreach (RDIC.Models.Categoria item in Categorias)
+                    {
+                        if (item.Id == Categoria.Id)
+                        {
+                            <option value="@item.Id" selected>@item.DescriptionIT</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.DescriptionIT</option>
+                        }
+                    }
+                </select><br />
+            }
+        </div>
+        <div class="form-group">
+            <h3><label>Titolo IT</label></h3>
+            <input type="text" class="form-control" name="titleIT" value="@Model.DescriptionIT"><br />
+            <h3><label>Titolo EN</label></h3>
+            <input type="text" class="form-control" name="titleEN" value="@Model.DescriptionEN"><br />
+            <h3><label>Titolo FR</label></h3>
+            <input type="text" class="form-control" name="titleFR" value="@Model.DescriptionFR"><br />
+        </div>
+        <button id="productSave" type="button" onclick="updateSubCategoria();" class="btn btn-primary">Salva</button><br /><br />
+        <div id="productError">
+            <img src="~/img/product-error.png" width="70" />
+            <label style="width:700px;font-size:large;color:#ff0000;">Errore durante il salvataggio. Riprovare in un secondo momento, se l'errore persiste contattare l'amministratore del sistema</label>
+        </div>
+        <div id="productOk">
+            <img src="~/img/product-ok.png" width="64" />
+            <label style="width:700px;font-size:large;">Salvataggio avvenuto con successo</label>
+        </div>
+        <div id="productLoader" class="loader07"></div>
+    </form>
+</div>
+<script>
+    function onInputFormChange() {
+        if ($("#subCategoria").val() != -1) {
+            $('#productSave').attr('disabled', false);
+        }
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+    }
+    $(document).ready(function () {
+        $("#frmUpdateSubCategoria").on('input change', function () {
+            onInputFormChange();
+        });
+
+        $('#productSave').attr('disabled', true);
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+    })
+
+</script>

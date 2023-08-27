@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Informazioni Legali";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+    @{
+
+        string Testo01 = "Copyright";
+
+        if (Session["Culture"] == null)
+        {
+            string TmpCulture = "en-US";
+            if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+            {
+                TmpCulture = "it-IT";
+            }
+            if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+            {
+                TmpCulture = "fr-FR";
+            }
+            Session.Add("Culture", TmpCulture);
+        }
+
+
+        if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+        {
+            Testo01 = "Legal notice";
+        }
+
+        if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+        {
+            Testo01 = "DROITS D’AUTEUR";
+        }
+    }
+    @section Content{
+        <div class="container content">
+            <div class="row">
+                <div class="col-10 description">
+                    <h1>@Testo01</h1>
+                    @if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("it-IT"))
+                    {
+                    <div class="col-3-4">
+                        <div style="clear: both;">
+                        </div>
+                        <p><strong>RD Industrial Clocks srl</strong><br />
+                        Piazzale Insurrezione, 6<br/>
+                        24047 Treviglio (BG)<br />
+                        Tel.: +39 02 3652 3042<br />
+                        Mobile & whatsapp +39 331 741 0680<br />
+                        E-mail: <a style="_nofocusline: true; nofocusline: true;" href="mailto:info@RDICsrl.com">info@RDICsrl.com</a></p>
+                        <p>Partita IVA: 04641490166</p>
+                        <p><strong>Copyright <br /></strong>Questo sito internet di RD Industrial Clocks srl è protetto da copyright. Tutti i diritti sono riservati. Il contenuto del sito (testi, immagini, grafici, suoni, video, animazioni, ecc.) e la sua disposizione sono soggetti al copyright ed alle leggi di protezione della proprietà intellettuale. E' vietata la duplicazione, l'elaborazione, la modifica di tale contenuto e la cessione a terze parti in qualsiasi forma, senza il consenso esplicito e scritto di RDIC srl. Alcune pagine di questo sito contengono inoltre immagini soggette a copyright di terze parti. In assenza di indicazioni contrarie, s'intendono applicabili i requisiti legali per tutti i marchi utilizzati.</p>
+                        <p><strong>Garanzia <br /></strong>Questo sito è stato realizzato con la massima cura possibile. Non possiamo però garantire che tutte le informazioni rese disponibili siano aggiornate, corrette e complete. Lo stesso si applica a tutte le altre pagine internet collegate attraverso hyperlinks. RD Industrial Clocks srl non è responsabile del contenuto delle pagine web raggiungibili attraverso questi collegamenti. Inoltre, RD Industrial Clocks srl esclude esplicitamente ogni responsabilità per eventuali danni diretti o indiretti derivanti dall'uso improprio di questo sito internet.</p>
+                    </div>
+                    }
+                    @if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+                    {
+                    <div class="col-3-4">
+                        <div style="clear: both;">
+                        </div>
+                        <p><strong>RD Industrial Clocks srl<br /></strong>Piazzale Insurrezione, 6<br />24047 Treviglio (BG) - Italy<br />
+                        Tel.: +39 02 3652 3042<br />
+                        Mobile & whatsapp +39 331 741 0680<br />
+                        E-mail: <a style="_nofocusline: true; nofocusline: true;" href="mailto:info@RDICsrl.com">info@RDICsrl.com</a></p>
+                        <p>VAT: IT04641490166</p>
+                        <p><b>Copyright </b><br />This RD Industrial Clocks srl website is protected by copyright. All rights reserved. The content of this website (texts, images, graphics, sounds, videos and animation files, etc.) and how it is arranged, are subjected to copyright and to other laws for the protection of the intellectual property. They must not be duplicated, processed, modified or made available to third parties in any form whatsoever without the express and written RD Industrial Clocks srl consent. Some RD Industrial Clocks srl web pages contain even some images that are subjected to the copyright of third parties. If there is no indication to the contrary, statutory requirements apply to all used brands.</p>
+                        <p><b>Guarantee </b><br />This website has been realized with the greatest possible care. However no guarantee can be undertaken, that the information made available is current, correct or complete. The same applies to all other website pages to which hyperlinks refer. RD Industrial Clocks srl is not responsible for the content of the web pages that can be reached through such connections. In addition RD Industrial Clocks srl explicitly excludes any liability for any damage resulting directly or indirectly from the misuse of this website.</p>
+                    </div>
+                    }
+                    @if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+                    {
+                    <div class="col-3-4">
+                        <div style="clear: both;">
+                        </div>
+                        <p><strong>RD Industrial Clocks srl<br /></strong>Piazzale Insurrezione, 6<br />24047 Treviglio (BG)<br />
+                        Tel.: +39 02 3652 3042<br />
+                        Mobile & whatsapp +39 331 741 0680<br />
+                        E-mail: <a style="_nofocusline: true; nofocusline: true;" href="mailto:info@RDICsrl.com">info@RDICsrl.com</a></p>
+                        <p>TVA: IT04641490166</p>
+                        <p><strong>Droits d’auteur </strong><br />Ce site web de RD Industrial Clocks srl est protégé par les droits d'auteur. Tous les droits sont réservés. Le contenu de ce site web (matériel rédactionnel, textes, images, graphiques, sons, vidéos et fichiers d'animation, etc.) et la manière, dont il est organisé, sont soumis aux droits d'auteur et aux lois en matière de protection de la propriété intellectuelle. Ils ne doivent pas être dupliqués, traités, modifiés ou mis à disposition de tiers sous quelque forme que ce soit sans le consentement exprès et écrit de RDIC. Certaines pages web de RD Industrial Clocks srl contiennent même des images soumises aux droits d'auteur de tiers. Sauf indication contraire, les exigences légales s’appliquent à toutes les marques utilisées.</p>
+                        <p><strong>Garantie </strong><br />Ce site a été réalisé avec le plus grand soin. Cependant aucune garantie ne peut être prise que les informations mises à disposition sont à jour, correctes ou complètes. Il en va de même pour toutes les autres pages des sites web, auxquelles renvoient des hyperliens. RD Industrial Clocks srl n'est pas responsable du contenu des pages web accessibles par telles connexions. En outre RDIC décline expressément toute responsabilité pour les dommages résultant directement ou indirectement de la mauvaise utilisation de ce site web.</p>                    
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }

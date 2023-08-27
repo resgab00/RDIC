@@ -1,0 +1,92 @@
+﻿@model List<RDIC.Models.News>
+
+<div class="col ml-4 mr-4 content">
+    <h1>Elenco prodotti</h1>
+    <div class="items">
+        @foreach (RDIC.Models.News item in Model)
+        {
+            string imgSource = "";
+            if (item.Immagine!=null && !string.IsNullOrEmpty(item.Immagine.FileName))
+            {
+                imgSource = item.Immagine.FileName.Replace("~/", "");
+            }
+            <div class="item">
+                <div class="img">
+                    <img src="~/@imgSource" style="max-height:200px;">
+                </div>
+                <div class="text">
+                    <h5>Titolo: @item.TitoloIT</h5>
+                    <h5>Data: @item.Data.ToShortDateString() </h5>
+                </div>
+                <div class="actions">
+                    <a href="~/Admin/NewsDetail" onclick="return getNewsDetail(this,@item.Id); return false;" class="btn btn-primary">Modifica</a>
+                    <a href="~/Admin/DeleteNews" onclick="return deleteNews(this,@item.Id); return false;" class="btn btn-danger">Cancella</a>
+                    @if (item.Visible)
+                    {
+                        <a id="hideNews_@item.Id" href="~/Admin/ShowHideNews" onclick="return showHideNews(this,@item.Id,false); return false;" class="btn btn-danger">Nascondi</a>
+                        <a id="showNews_@item.Id" href="~/Admin/ShowHideNews" onclick="return showHideNews(this,@item.Id,true); return false;" class="btn btn-primary hidden">Mostra</a>
+                    }
+                    else
+                    {
+                        <a id="hideNews_@item.Id" href="~/Admin/ShowHideNews" onclick="return showHideNews(this,@item.Id,false); return false;" class="btn btn-danger hidden">Nascondi</a>
+                        <a id="showNews_@item.Id" href="~/Admin/ShowHideNews" onclick="return showHideNews(this,@item.Id,true); return false;" class="btn btn-primary">Mostra</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+
+    $(".btn").show();
+    $(".btn.hidden").hide();
+
+    function showHideNews(sender, idNewsPar, mostra) {
+        var url = sender.href;
+
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: { idNews: idNewsPar, visible: mostra },
+            success: function (data) {
+                if (data.status == 'OK') {
+                    if (mostra) {
+                        $("#hideNews_" + idNewsPar).removeClass("hidden");
+                        $("#showNews_" + idNewsPar).addClass("hidden");
+                    } else {
+                        $("#hideNews_" + idNewsPar).addClass("hidden");
+                        $("#showNews_" + idNewsPar).removeClass("hidden");
+                    }
+                }
+                $(".btn").show();
+                $(".btn.hidden").hide();
+            },
+            error: function (ex) {
+            },
+            async: true
+        });
+
+        return false;
+
+    }
+    function deleteNews(sender, idNewsPar) {
+        var url = sender.href;
+
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: { idNews: idNewsPar },
+            success: function (data) {
+                if (data.status == 'OK') {
+                    $(sender).parents(".item").remove();
+                }
+            },
+            error: function (ex) {
+            },
+            async: true
+        });
+
+        return false;
+
+    }
+</script>

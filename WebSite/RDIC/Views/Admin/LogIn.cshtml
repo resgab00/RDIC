@@ -1,0 +1,63 @@
+﻿@model RDIC.Models.MasterData
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    var LogInError = false;
+    if (ViewData["LogInError"] != null)
+    {
+        LogInError = (bool)ViewData["LogInError"];
+    }
+    string username = "";
+    string password = "";
+
+}
+@section Content{
+    <div class="container-fluid" style="padding:20px;">
+        <div class="row" style="display:table-row">
+            <div class="ml-4 mr-4 content" style="width:100%;">
+                <h2>LogIn</h2>
+                <form action="~/Admin/GetLogIn?_v=@DateTime.Now" class="dropzone" id="frmLogIn">
+                    <div class="form-group">
+                        <h3><label>Utente</label></h3>
+                        <input type="text" class="form-control" name="userName" id="userName" value="@username"><br />
+                        <h3><label>Password</label></h3>
+                        <input type="password" class="form-control" name="password" value="@password"><br />
+                    </div>
+                    <button id="productSave" type="submit" class="btn btn-primary">Accedi</button><br /><br />
+                    <div id="productError">
+                        <img src="~/img/product-error.png" width="70" />
+                        <label style="width:700px;font-size:large;color:#ff0000;">UserName o Password errati!</label>
+                    </div>
+                    <div id="productOk">
+                        <img src="~/img/product-ok.png" width="64" />
+                        <label style="width:700px;font-size:large;">Salvataggio avvenuto con successo</label>
+                    </div>
+                    <div id="productLoader" class="loader07"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function onInputFormChange() {
+            $('#productSave').attr('disabled', false);
+            $("#productLoader").hide();
+            $("#productError").hide();
+            $("#productOk").hide();
+        }
+        $(document).ready(function () {
+            $("#userName").focus();
+            $("#frmLogIn").on('input change', function () {
+                onInputFormChange();
+            });
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").hide();
+            @if (!LogInError)
+            {
+                @:$("#productError").hide();
+            }
+            $("#productOk").hide();
+           })
+    </script>
+}

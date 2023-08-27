@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "azienda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+
+@{
+
+    string Testo01 = "La nostra azienda";
+    string Testo02 = "La RD Industrial Clocks srl si costituisce il 05/12/2022.";
+    string Testo03 = @"Il 24/01/2023 acquista il ramo d’azienda della F.lli Secchi srl acquisendone il know-how necessario alla realizzazione di orologi al quarzo, elettrici e meccanici.
+        <br /><br />
+        Grazie all’esperienza pregressa dei suoi soci la RD è inoltre in grado di fornire a prezzi vantaggiosi penne per registratori, pennini e carta diagrammata.
+        <br /><br />
+        L’azienda punta all’ampliamento della propria clientela globale prevedendo, nel breve periodo, non solo l’inserimento di altri prodotti inerenti la strumentazione industriale di precisione ma anche l’ampliamento della gamma di orologi per soddisfare la globalità delle richieste dei produttori di registratori industriali a carta diagrammata.
+        <br /><br />
+        La RD Industrial Clocks srl, seppur di recente costituzione, possiede la giusta combinazione tra esperienza e dinamicità per potersi affermare nel panorama mondiale della strumentazione di precisione sostenendo il cliente in ogni sua richiesta fino all’ottenimento del prodotto desiderato.";
+
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        Testo01 = "Our company";
+        Testo02 = "The RD Industrial Clocks Srl company was established on 05th December 2022.";
+        Testo03 = @"On 24th January 2023 he acquired the business from the F.lli Secchi Srl company, gaining even the know-how necessary for the production of the Quartz, electrical and mechanical clocks.
+        <br /><br />
+        Thanks to the previous experience of its partners, the RD Industrial Clocks Srl company is also able to provide pens, fiber nibs and diagram chart papers for chart recorders.
+        <br /><br />
+        The company aims to expand its global clientele by envisaging, in the short run, not only the introduction of other products relating to the precision industrial instrumentation but also the expansion of the clocks’ range in order to satisfy the entirety of the requests from the chart paper industrial recorders’ manufacturers.
+        <br /><br />
+        Although recently established, the RD Industrial Clocks Srl company has the right combination of experience and dynamism to be able to establish itself on the world panorama of the precision instrumentation, supporting the customer in every request in order to get the required product.\r\n";
+    }
+
+    //if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    //{
+    //}
+
+}
+
+@section Content{
+    <link rel="stylesheet" type="text/css" href="~/Content/company.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/company_responsive.css" />
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col bkg_company"></div>
+        </div>
+    </div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-10 description">
+                <h1>@Testo01</h1>
+                <h2>@Testo02</h2>
+                <p>
+                    @Html.Raw(Testo03)
+                </p>
+            </div>
+        </div>
+        @*<div class="row box_container">
+            <div class="col-5 box mr-5 history">
+                <h3>@Testo04</h3>
+                <span class="img">
+                    <img src="~/img/termaf.jpg" alt="@Testo08">
+                </span>
+                <span class="text">
+                    @Testo05<br /><br />@Testo05b
+                </span>
+
+            </div>
+            <div class="col-6 box ml-4 award">
+                <h3>@Testo06</h3>
+                <span class="img"><img src="~/img/termaf_camera_commercio.jpg" alt="@Testo09"></span>
+                <span class="text">
+                    @Testo07
+                </span>
+            </div>
+        </div>*@
+    </div>
+}

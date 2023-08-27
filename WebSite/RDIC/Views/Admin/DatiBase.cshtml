@@ -1,0 +1,61 @@
+﻿@model RDIC.Models.MasterData
+@{
+    ViewBag.Title = "Dettaglio News";
+}
+
+<div class="ml-4 mr-4 content" style="width:100%;">
+    <h2>Modifica Dati di Base</h2>
+    <form action="~/Admin/UpdateMasterData" class="dropzone" id="frmUpdateMasterData">
+        <input type="hidden" id="idMasterData" name="idMasterData" value="@Model.Id" />
+        <div class="form-group">
+            <h3><label>Username per accesso amministrazione</label></h3>
+            <input type="text" class="form-control" name="userName" value="@Model.AdminUser"><br />
+        </div>
+        <div class="form-group">
+            <h3><label>Indirizzo Smtp</label></h3>
+            <input type="text" class="form-control" name="smtpAddress" value="@Model.SmtpAddress"><br />
+            <h3><label>Utente Smtp</label></h3>
+            <input type="text" class="form-control" name="smtpUser" value="@Model.SmtpUser"><br />
+            <h3><label>Password Smtp</label></h3>
+            <input type="password" class="form-control" name="smtpPassword" value="@Model.SmtpPassword"><br />
+        </div>
+        <div class="form-group">
+            @*<h3><label>EmailAddress</label></h3>
+            <input type="text" class="form-control" name="titleIT" value="@Model.EmailAddress"><br />*@
+            <h3><label>Email da form contatti</label></h3>
+            <input type="text" class="form-control" name="emailContatti" value="@Model.EmailContatti"><br />
+        </div>
+        <div class="form-group">
+            <h3><label>Numero nuovi prodotti</label></h3>
+            <input type="number" class="form-control" name="numNewProdotti" value="@Model.NumNewProdotti"><br />
+        </div>
+        <button id="productSave" type="button" onclick="updateMasterData();" class="btn btn-primary">Salva</button><br /><br />
+        <div id="productError">
+            <img src="~/img/product-error.png" width="70" />
+            <label style="width:700px;font-size:large;color:#ff0000;">Errore durante il salvataggio. Riprovare in un secondo momento, se l'errore persiste contattare l'amministratore del sistema</label>
+        </div>
+        <div id="productOk">
+            <img src="~/img/product-ok.png" width="64" />
+            <label style="width:700px;font-size:large;">Salvataggio avvenuto con successo</label>
+        </div>
+        <div id="productLoader" class="loader07"></div>
+    </form>
+</div>
+<script>
+    function onInputFormChange() {
+        $('#productSave').attr('disabled', false);
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+    }
+    $(document).ready(function () {
+        $("#frmUpdateMasterData").on('input change', function () {
+            onInputFormChange();
+        });
+
+        $('#productSave').attr('disabled', true);
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+    })
+</script>

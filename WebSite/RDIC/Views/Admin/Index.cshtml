@@ -1,0 +1,761 @@
+﻿@{
+    ViewBag.Title = "Admin Page";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+
+@{
+    //List<RDIC.Models.Prodotto> Prodotti = ViewData["Prodotti"] as List<RDIC.Models.Prodotto>;
+    List<RDIC.Models.Categoria> Categoria = ViewData["Categoria"] as List<RDIC.Models.Categoria>;
+}
+
+@section Content{
+
+    <div class="container-fluid">
+        <div style="width:100%;">
+            <div class="logo"><img src="~/img/logo_termaf.jpg" alt="RD"></div>
+            <div id="menuAdmin" class="menu" style="overflow-y:auto;display:inline-block;width:28%;">
+                <ul>
+                    <li><a href="~/Admin/CategoriaNew" onclick="return getMenuPage(this); return false;">Aggiungi Categoria</a></li>
+                    <li><a href="~/Admin/SubCategoriaNew" onclick="return getMenuPage(this); return false;">Aggiungi SubCategoria</a></li>
+                    <li><a href="~/Admin/NewsNew" onclick="return getMenuPage(this); return false;">Aggiungi News</a></li>
+                    <li><a href="~/Admin/ProductNew" onclick="return getMenuPage(this); return false;">Aggiungi prodotto</a></li>
+                    <li>&nbsp;</li>
+                    <li><a href="~/Admin/AllCategoria" onclick="return getMenuPage(this); return false;">Vedi tutte le Categorie</a></li>
+                    <li><a href="~/Admin/AllSubCategoria" onclick="return getMenuPage(this); return false;">Vedi tutte le SubCategorie</a></li>
+                    <li><a href="~/Admin/AllNews" onclick="return getMenuPage(this); return false;">Vedi tutte le News</a></li>
+                    <li class="active"><a href="~/Admin">Vedi tutti i prodotti</a></li>
+                    <li class="dropdown">
+                        <span>Prodotti per categoria<i class="fa fa-angle-down"></i></span>
+                        <ul class="dropdown-menu">
+                            @foreach (RDIC.Models.Categoria item in Categoria)
+                            {
+                                <li class="dropdown">
+                                    <a href="~/Admin/AllProduct" onclick="return getProduct(this,@item.Id,0,''); return false;">@item.DescriptionIT</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                    <li>&nbsp;</li>
+                    <li><a href="~/Admin/OrdinaCategoria" onclick="return getMenuPage(this); return false;">Ordina Categorie</a></li>
+                    <li><a href="~/Admin/OrdinaSubCategoria" onclick="return getMenuPage(this); return false;">Ordina SubCategorie</a></li>
+                    <li><a href="~/Admin/OrdinaProdotto" onclick="return getMenuPage(this); return false;">Ordina Prodotti</a></li>
+                    <li><a href="~/Admin/OrdinaGlobalProdotto" onclick="return getMenuPage(this); return false;">Ordina Prodotti Globale</a></li>
+                    <li>&nbsp;</li>
+                    <li><a href="~/Admin/DatiBase" onclick="return getMenuPage(this); return false;">Dati Base</a></li>
+                    <li><a href="~/Admin/CambiaPassword" onclick="return getMenuPage(this); return false;">Cambia Password</a></li>
+                    <li>&nbsp;</li>
+                    <li><a href="~/Admin/Logout">Logout</a></li>
+                </ul>
+            </div>
+            <div id="AllProduct" style="padding-left:20px;overflow-y:auto;display:inline-block;width:70%;">
+                @{Html.RenderAction("AllProduct", "Admin");}
+            </div>
+        </div>
+    </div>
+    <script>
+        function resize() {
+            var heights = window.innerHeight;
+            var width = $(".logo").width();
+            $("#menuAdmin").height(heights - 85);
+            $("#AllProduct").height(heights - 85);
+
+            var wMenu = width / 3;
+            var wItem = width - wMenu;
+
+            $("#menuAdmin").width(wMenu-3);
+            $("#AllProduct").width(wItem - 3);
+
+
+        }
+        window.onresize = function () {
+            resize();
+        };
+        $(document).ready(function () {
+            resize();
+        });
+        function setActiveMenuItem(sender) {
+            $("#menuAdmin").find("ul").find("li").removeClass("active");
+            $(sender).parent().addClass("active");
+        }
+
+        function getProduct(sender, idCat, idSub, text) {
+            setActiveMenuItem(sender)
+            $("#AllProduct").html('');
+            var url = sender.href;
+            //~/Admin?IdCat=&IdSub=&text=
+
+            $.get(url + "?IdCat=" + idCat + "&IdSub=" + idSub + "&text=" + text, function (data) {
+                $("#AllProduct").html(data);
+            });
+
+            return false;
+        }
+
+        function getMenuPage(sender) {
+            setActiveMenuItem(sender)
+            $("#AllProduct").html('');
+            var url = sender.href;
+
+            $.get(url,
+                { "_": $.now() },
+                function (data) {
+                    $("#AllProduct").html(data);
+                    window.scrollTo(0, 0);
+                });
+
+            return false;
+        }
+
+        function getProductDetail(sender, idProd) {
+            $("#AllProduct").html('');
+            var url = sender.href;
+
+            $.get(url + "?IdProdotto=" + idProd, function (data) {
+                $("#AllProduct").html(data);
+            });
+
+            return false;
+        }
+        function getCategoriaDetail(sender, idCat) {
+
+            $("#AllProduct").html('');
+            var url = sender.href;
+
+            $.get(url + "?IdCategoria=" + idCat, function (data) {
+                $("#AllProduct").html(data);
+            });
+
+            return false;
+        }
+        function getSubCategoriaDetail(sender, idCat, idSubCat) {
+            $("#AllProduct").html('');
+            var url = sender.href;
+
+            $.get(url + "?IdCategoria=" + idCat + "&IdSubCategoria=" + idSubCat, function (data) {
+                $("#AllProduct").html(data);
+            });
+
+            return false;
+        }
+        function getNewsDetail(sender, idNewsPar) {
+            $("#AllProduct").html('');
+            var url = sender.href;
+
+            $.get(url + "?IdNews=" + idNewsPar, function (data) {
+                $("#AllProduct").html(data);
+            });
+
+            return false;
+        }
+
+        function updateProduct() {
+            //$("#AllProduct").html('');
+            var url = $("#frmUpdateProduct").attr("action");
+            //~/Admin?IdCat=&IdSub=&text=
+            var values = $("#frmUpdateProduct").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            window.setTimeout(function () { 
+                //controlli pre salvataggio
+                var continua = true;
+                var msg = '';
+                if (($('#allFileIT').val() != '' && $("#AllDesIT").val() == '') || ($('#allFileIT').val() == '' && $("#AllDesIT").val() != '')) {
+                    continua = false;
+                    msg = 'Allegato IT - Incompleto\r\n';
+                }
+                if (($('#allFileEN').val() != '' && $("#AllDesEN").val() == '') || ($('#allFileEN').val() == '' && $("#AllDesEN").val() != '')) {
+                    continua = false;
+                    msg = msg + 'Allegato EN - Incompleto\r\n';
+                }
+                if (($('#allFileFR').val() != '' && $("#AllDesFR").val() == '') || ($('#allFileFR').val() == '' && $("#AllDesFR").val() != '')) {
+                    continua = false;
+                    msg = msg + 'Allegato FR - Incompleto\r\n';
+                }
+
+                if (continua) {
+
+                    $("#imgFile").fileinput('upload');
+
+                    //caricare gli allegati
+                    //IT
+                    if ($('#allFileIT').val() != '') {
+                        var formData = new FormData();
+                        formData.append('allFile', $('#allFileIT')[0].files[0]);
+
+                        $.ajax({
+                            url: '@Url.Action("uploadAllProduct")?idProdotto=' + $("#idProdotto").val() + '&allDes=' + $("#AllDesIT").val() + '&language=IT',
+                            type: 'POST',
+                            data: formData,
+                            processData: false,  // tell jQuery not to process the data
+                            contentType: false,  // tell jQuery not to set contentType
+                            success: function (data) {
+                            },
+                            error: function (ex) {
+                                $("#productLoader").hide();
+                                $("#productError").show();
+                                return false;
+                            },
+                            async: false
+                        });
+                    }
+                    if ($('#allFileEN').val() != '') {
+                        //EN
+                        var formData = new FormData();
+                        formData.append('allFile', $('#allFileEN')[0].files[0]);
+
+                        $.ajax({
+                            url: '@Url.Action("uploadAllProduct")?idProdotto=' + $("#idProdotto").val() + '&allDes=' + $("#AllDesEN").val() + '&language=EN',
+                            type: 'POST',
+                            data: formData,
+                            processData: false,  // tell jQuery not to process the data
+                            contentType: false,  // tell jQuery not to set contentType
+                            success: function (data) {
+                            },
+                            error: function (ex) {
+                                $("#productLoader").hide();
+                                $("#productError").show();
+                                return false;
+                            },
+                            async: false
+                        });
+                    }
+                    if ($('#allFileFR').val() != '') {
+                        //FR
+                        var formData = new FormData();
+                        formData.append('allFile', $('#allFileFR')[0].files[0]);
+
+                        $.ajax({
+                            url: '@Url.Action("uploadAllProduct")?idProdotto=' + $("#idProdotto").val() + '&allDes=' + $("#AllDesFR").val() + '&language=FR',
+                            type: 'POST',
+                            data: formData,
+                            processData: false,  // tell jQuery not to process the data
+                            contentType: false,  // tell jQuery not to set contentType
+                            success: function (data) {
+                            },
+                            error: function (ex) {
+                                $("#productLoader").hide();
+                                $("#productError").show();
+                                return false;
+                            },
+                            async: false
+                        });
+                    }
+
+                    $.ajax({
+                        type: 'post',
+                        url: url,
+                        data: values,
+                        success: function (data) {
+                            $("#AllProduct").html(data);
+                            $("#productLoader").hide();
+                            
+                            window.setTimeout(function () {
+                                $("#productOk").show();
+                                $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                            }, 100);
+                        },
+                        error: function (ex) {
+                            $("#productLoader").hide();
+                            $("#productError").show();
+                        },
+                        async: false
+                    });
+                } else {
+                    $("#productLoader").hide();
+                    $("#productError").hide();
+                    alert(msg);
+                }
+            }, 0);
+            return false;
+        }
+        function updateCategoria() {
+            var url = $("#frmUpdateCategoria").attr("action");
+            //~/Admin?IdCat=&IdSub=&text=
+            var values = $("#frmUpdateCategoria").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: values,
+                success: function (data) {
+                    $("#AllProduct").html(data);
+                    $("#productLoader").hide();
+                    window.setTimeout(function () {
+                        $("#productOk").show();
+                        $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                    }, 100);
+                },
+                error: function (ex) {
+                    $("#productLoader").hide();
+                    $("#productError").show();
+                },
+                async: true
+            });
+
+            return false;
+        }
+        function updateSubCategoria() {
+            var url = $("#frmUpdateSubCategoria").attr("action");
+            //~/Admin?IdCat=&IdSub=&text=
+            var values = $("#frmUpdateSubCategoria").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: values,
+                success: function (data) {
+                    $("#AllProduct").html(data);
+                    $("#productLoader").hide();
+                    window.setTimeout(function () {
+                        $("#productOk").show();
+                        $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                    }, 100);
+                },
+                error: function (ex) {
+                    $("#productLoader").hide();
+                    $("#productError").show();
+                },
+                async: true
+            });
+
+            return false;
+        }
+        function updateNews() {
+            var url = $("#frmUpdateNews").attr("action");
+            var values = $("#frmUpdateNews").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            window.setTimeout(function () { 
+                //controlli pre salvataggio
+                var continua = true;
+                var msg = '';
+
+                if (continua) {
+
+                    $("#imgFile").fileinput('upload');
+
+                    $.ajax({
+                        type: 'post',
+                        url: url,
+                        data: values,
+                        success: function (data) {
+                            $("#AllProduct").html(data);
+                            $("#productLoader").hide();
+                            window.setTimeout(function () {
+                                $("#productOk").show();
+                                $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                            }, 100);
+                        },
+                        error: function (ex) {
+                            $("#productLoader").hide();
+                            $("#productError").show();
+                        },
+                        async: false
+                    });
+                } else {
+                    $("#productLoader").hide();
+                    $("#productError").hide();
+                    alert(msg);
+                }
+            }, 0);
+            return false;
+        }
+        function updateMasterData() {
+            var url = $("#frmUpdateMasterData").attr("action");
+            var values = $("#frmUpdateMasterData").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            window.setTimeout(function () {
+
+                var continua = true;
+                var msg = '';
+                if (continua) {
+                    $.ajax({
+                        type: 'post',
+                        url: url,
+                        data: values,
+                        success: function (data) {
+                            $("#AllProduct").html(data);
+                            $("#productLoader").hide();
+                            window.setTimeout(function () {
+                                $("#productOk").show();
+                                $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                            }, 100);
+                        },
+                        error: function (ex) {
+                            $("#productLoader").hide();
+                            $("#productError").show();
+                        },
+                        async: false
+                    });
+                } else {
+                    $("#productLoader").hide();
+                    $("#productError").hide();
+                    alert(msg);
+                }
+            }, 0);
+            return false;
+        }
+        function ChangePassword() {
+            var url = $("#frmChangePassword").attr("action");
+            var values = $("#frmChangePassword").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            window.setTimeout(function () {
+                var continua = true;
+                var msg = '';
+                if (continua) {
+                    $.ajax({
+                        type: 'post',
+                        url: url,
+                        data: values,
+                        success: function (data) {
+                            $("#AllProduct").html(data);
+                            $("#productLoader").hide();
+                            window.setTimeout(function () {
+                                $("#productOk").show();
+                                $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                            }, 100);
+                        },
+                        error: function (ex) {
+                            $("#productLoader").hide();
+                            $("#productError").show();
+                        },
+                        async: false
+                    });
+                } else {
+                    $("#productLoader").hide();
+                    $("#productError").hide();
+                    alert(msg);
+                }
+            }, 0);
+            return false;
+        }
+        function addProduct() {
+            //$("#AllProduct").html('');
+            var url = $("#frmAddProduct").attr("action");
+            //~/Admin?IdCat=&IdSub=&text=
+            var values = $("#frmAddProduct").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: values,
+                success: function (data) {
+                    $("#AllProduct").html(data);
+                    $("#productLoader").hide();
+                    window.setTimeout(function () {
+                        $("#productOk").show();
+                        $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                    }, 100);
+                },
+                error: function (ex) {
+                    $("#productLoader").hide();
+                    $("#productError").show();
+                },
+                async: true
+            });
+
+            return false;
+        }
+        function addCategoria() {
+            //$("#AllProduct").html('');
+            var url = $("#frmAddCategoria").attr("action");
+            //~/Admin?IdCat=&IdSub=&text=
+            var values = $("#frmAddCategoria").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: values,
+                success: function (data) {
+                    $("#AllProduct").html(data);
+                    $("#productLoader").hide();
+                    window.setTimeout(function () {
+                        $("#productOk").show();
+                        $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                    }, 100);
+                },
+                error: function (ex) {
+                    $("#productLoader").hide();
+                    $("#productError").show();
+                },
+                async: true
+            });
+
+            return false;
+        }
+        function addSubCategoria() {
+            //$("#AllProduct").html('');
+            var url = $("#frmAddSubCategoria").attr("action");
+            //~/Admin?IdCat=&IdSub=&text=
+            var values = $("#frmAddSubCategoria").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: values,
+                success: function (data) {
+                    $("#AllProduct").html(data);
+                    $("#productLoader").hide();
+                    window.setTimeout(function () {
+                        $("#productOk").show();
+                        $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                    }, 100);
+                },
+                error: function (ex) {
+                    $("#productLoader").hide();
+                    $("#productError").show();
+                },
+                async: true
+            });
+
+            return false;
+        }
+        function addNews() {
+            //$("#AllProduct").html('');
+            var url = $("#frmAddNews").attr("action");
+            //~/Admin?IdCat=&IdSub=&text=
+            var values = $("#frmAddNews").serialize();
+
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: values,
+                success: function (data) {
+                    $("#AllProduct").html(data);
+                    $("#productLoader").hide();
+                    window.setTimeout(function () {
+                        $("#productOk").show();
+                        $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                    }, 100);
+                },
+                error: function (ex) {
+                    $("#productLoader").hide();
+                    $("#productError").show();
+                },
+                async: true
+            });
+
+            return false;
+        }
+
+        function updateOrderCat() {
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            window.setTimeout(function () {
+                //controlli pre salvataggio
+                var continua = true;
+                if (continua) {
+
+                    var sortedIDs = $("ol.sortAdmin").sortable("toArray");
+                    //alert(sortedIDs);
+                    var stringOrder = '';
+                    $(sortedIDs).find("li").each(function () {
+                        stringOrder = stringOrder + $(this).find("#hddCatId").val() + ',';
+                    }
+                    );
+
+                    $.ajax({
+                        url: '@Url.Action("UpdateOrdineCategoria")?strOrder=' + stringOrder,
+                        type: 'POST',
+                        //data: [{ strOrder: stringOrder}],
+                        processData: false,  // tell jQuery not to process the data
+                        contentType: false,  // tell jQuery not to set contentType
+                        success: function (data) {
+                            $("#AllProduct").html(data);
+                            $("#productLoader").hide();
+                            window.setTimeout(function () {
+                                $("#productOk").show();
+                                $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                            }, 100);
+                        },
+                        error: function (ex) {
+                            $("#productLoader").hide();
+                            $("#productError").show();
+                            return false;
+                        },
+                        async: false
+                    });
+                } else {
+                    $("#productLoader").hide();
+                    $("#productError").hide();
+                }
+            }
+            , 0);
+            return false;
+        }
+
+        function updateSubOrderCat() {
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            window.setTimeout(function () {
+                //controlli pre salvataggio
+                var continua = true;
+                if (continua) {
+
+                    var sortedIDs = $("ol.sortAdmin").sortable("toArray");
+                    //alert(sortedIDs);
+                    var stringOrder = '';
+                    $(sortedIDs).find("li").each(function () {
+                        stringOrder = stringOrder + $(this).find("#hddCatId").val() + ',';
+                    }
+                    );
+
+                    $.ajax({
+                        url: '@Url.Action("UpdateOrdineSubCategoria")?strOrder=' + stringOrder + '&idCat=' + $('#categoria').val(),
+                        type: 'POST',
+                        //data: [{ strOrder: stringOrder}],
+                        processData: false,  // tell jQuery not to process the data
+                        contentType: false,  // tell jQuery not to set contentType
+                        success: function (data) {
+                            $("#AllProduct").html(data);
+                            $("#productLoader").hide();
+                            window.setTimeout(function () {
+                                $("#productOk").show();
+                                $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                            }, 100);
+                        },
+                        error: function (ex) {
+                            $("#productLoader").hide();
+                            $("#productError").show();
+                            return false;
+                        },
+                        async: false
+                    });
+                } else {
+                    $("#productLoader").hide();
+                    $("#productError").hide();
+                }
+            }
+            , 0);
+            return false;
+        }
+
+        
+        function updateOrdineProdotto() {
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            window.setTimeout(function () {
+                //controlli pre salvataggio
+                var continua = true;
+                if (continua) {
+
+                    var sortedIDs = $("ol.sortAdmin").sortable("toArray");
+                    //alert(sortedIDs);
+                    var stringOrder = '';
+                    $(sortedIDs).find("li").each(function () {
+                        stringOrder = stringOrder + $(this).find("#hddCatId").val() + ',';
+                    }
+                    );
+
+                    $.ajax({
+                        url: '@Url.Action("UpdateOrdineProdotto")?strOrder=' + stringOrder + '&idCat=' + $('#categoria').val() + '&idSubCat=' + $('#subcategoria').val(),
+                        type: 'POST',
+                        //data: [{ strOrder: stringOrder}],
+                        processData: false,  // tell jQuery not to process the data
+                        contentType: false,  // tell jQuery not to set contentType
+                        success: function (data) {
+                            $("#AllProduct").html(data);
+                            $("#productLoader").hide();
+                            window.setTimeout(function () {
+                                $("#productOk").show();
+                                $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                            }, 100);
+                        },
+                        error: function (ex) {
+                            $("#productLoader").hide();
+                            $("#productError").show();
+                            return false;
+                        },
+                        async: false
+                    });
+                } else {
+                    $("#productLoader").hide();
+                    $("#productError").hide();
+                }
+            }
+            , 0);
+            return false;
+        }
+
+        function updateGlobalOrdineProdotto() {
+            $('#productSave').attr('disabled', true);
+            $("#productLoader").show();
+
+            window.setTimeout(function () {
+                //controlli pre salvataggio
+                var continua = true;
+                if (continua) {
+
+                    var sortedIDs = $("ol.sortAdmin").sortable("toArray");
+                    //alert(sortedIDs);
+                    var stringOrder = '';
+                    $(sortedIDs).find("li").each(function () {
+                        stringOrder = stringOrder + $(this).find("#hddCatId").val() + ',';
+                    }
+                    );
+
+                    $.ajax({
+                        url: '@Url.Action("UpdateGlobalOrdineProdotto")?strOrder=' + stringOrder,
+                        type: 'POST',
+                        //data: [{ strOrder: stringOrder}],
+                        processData: false,  // tell jQuery not to process the data
+                        contentType: false,  // tell jQuery not to set contentType
+                        success: function (data) {
+                            $("#AllProduct").html(data);
+                            $("#productLoader").hide();
+                            window.setTimeout(function () {
+                                $("#productOk").show();
+                                $("#AllProduct").scrollTop($("#AllProduct")[0].scrollHeight);
+                            }, 100);
+                        },
+                        error: function (ex) {
+                            $("#productLoader").hide();
+                            $("#productError").show();
+                            return false;
+                        },
+                        async: false
+                    });
+                } else {
+                    $("#productLoader").hide();
+                    $("#productError").hide();
+                }
+            }
+            , 0);
+            return false;
+        }
+
+    </script>
+
+}

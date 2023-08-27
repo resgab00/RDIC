@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDIC", "RDIC\RDIC.csproj", "{B33D688A-F31A-4FB5-A78B-E37CDE32E428}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B33D688A-F31A-4FB5-A78B-E37CDE32E428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33D688A-F31A-4FB5-A78B-E37CDE32E428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33D688A-F31A-4FB5-A78B-E37CDE32E428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33D688A-F31A-4FB5-A78B-E37CDE32E428}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D2DF8B4-4AE4-43F9-B205-9C7EC0E8EDD1}
+	EndGlobalSection
+EndGlobal

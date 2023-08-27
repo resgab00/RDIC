@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "catalogo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+
+@{
+
+    string Testo01 = "Catalogo prodotti";
+    string Testo02 = "STRUMENTAZIONI DI MISURAZIONE E CONTROLLO";
+    string Testo03 = "I prodotti Termaf sono frutto di un attenta progettazione e di aggiornamento costante da parte di ingegneri e tecnici specializzati. Siamo specializzati nella produzione di:";
+
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        Testo01 = "PRODUCT CATALOGUE";
+        Testo02 = "MEASUREMENT AND CONTROL INSTRUMENTS";
+        Testo03 = "The Termaf products are the result of careful design and constant updating by skilled engineers and technicians. We specialise in the manufacture of:";
+    }
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        Testo01 = "catalogue des produits";
+        Testo02 = "instruments de mesure et de contrôle";
+        Testo03 = "Les produits Termaf sont le fruit d'une planification minutieuse et d'une mise à jour constante par des ingénieurs et des techniciens spécialisés. Nous sommes spécialisés dans la fabrication de:";
+    }
+
+}
+
+@section Content{
+    <link rel="stylesheet" type="text/css" href="~/Content/catalogo.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/catalogo_responsive.css">
+
+    <div class="container-fluid">
+        <div class="row inside_bkg"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="title">@Html.Raw(Testo01)</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row title_separator"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>@Html.Raw(Testo02)</h2>
+                <p>
+                    @Html.Raw(Testo03)
+                </p>
+            </div>
+        </div>
+    </div>
+    @foreach (RDIC.Models.Categoria cat in ((List<RDIC.Models.Categoria>)Model).Where(cat=>cat.Visible).OrderBy(ord => ord.Order).ToList())
+    {
+        string Description = cat.DescriptionIT;
+        if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+        {
+            Description = cat.DescriptionEN;
+        }
+        if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+        {
+            Description = cat.DescriptionFR;
+        }
+
+        <div class="container category item">
+            <div class="row">
+                <div class="col-6 text">
+                    <div class="title"><h3>@Description</h3></div>
+                    <div class="description">
+                        @foreach (RDIC.Models.SubCategoria sub in cat.SubCategorias.Where(sub=>sub.Visible).OrderBy(ord=>ord.Order).ToList())
+                        {
+                            string SubDescription = sub.DescriptionIT;
+                            if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+                            {
+                                SubDescription = sub.DescriptionEN;
+                            }
+                            if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+                            {
+                                SubDescription = sub.DescriptionFR;
+                            }
+
+                            <a href="~/Home/CatalogoProdotto?idCategoria=@cat.Id&idSubCategoria=@sub.Id"><i class="fa fa-angle-right"></i>@SubDescription</a>
+                        }
+                    </div>
+                </div>
+                <div class="col-5 img" style="text-align:center;">
+                    <img src="~/@cat.Image.Replace("~/","")" alt="@cat.Image" style="max-width:300px;max-height:285px;" >
+                </div>
+            </div>
+        </div>
+    }
+}

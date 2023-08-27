@@ -1,0 +1,254 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+
+}
+
+@{
+    string ServiziOfferti = "Servizi Offerti";
+    string News = "News";
+    string Catalogo = "Catalogo";
+    string Testo01 = "Sistemi di trasmissione a diagramma per registratori di misura di aria, gas, fluidi, eventi";
+    string Testo02 = "";
+    string Testo03 = "";
+    string Testo03b = "I nostri ultimi prodotti";
+    string Testo06 = "Altre news";
+    string Testo07 = "Accedete al catalogo on-line e sfogliate le foto dei nostri prodotti.";
+    string Testo08 = "Siamo in grado di rilasciare certificati di conformità, di collaudo e di materiale e certificati nostri interni. Contattateci per maggiori informazioni.";
+
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(Session["Culture"].ToString());
+
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        Catalogo = "Product catalogue";
+        ServiziOfferti = "Services";
+        News = "News";
+        Testo01 = "Chart Drive systems for recorders measuring of air, gases, fluids, events";
+        Testo02 = "";
+        Testo03 = "";
+        Testo03b = "New products";
+        Testo06 = "All news";
+        Testo07 = "Go to our on-line catalogue";
+        Testo08 = "We can issue conformity, testing and material certificates and also our company certificates. Contact us for more information. ";
+    }
+
+    List<RDIC.Models.Prodotto> NuoviProdotti = ViewData["NuoviProdotti"] as List<RDIC.Models.Prodotto>;
+    RDIC.Models.News HomeNews = ViewData["HomeNews"] as RDIC.Models.News;
+}
+
+@section Content{
+    <link rel="stylesheet" type="text/css" href="~/Content/home.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/home_responsive.css" />
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="main_carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#main_carousel" data-bs-slide-to="0" class="custom_indicator active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#main_carousel" data-bs-slide-to="1" class="custom_indicator" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#main_carousel" data-bs-slide-to="2" class="custom_indicator" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#main_carousel" data-bs-slide-to="3" class="custom_indicator" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" >
+                        <img src="~/img/banner_1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" >
+                        <img src="~/img/banner_2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" >
+                        <img src="~/img/banner_3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" >
+                        <img src="~/img/banner_4.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-7 home_description pr-4">
+                <h1>@Html.Raw(Testo01)</h1>
+                <h2>@Html.Raw(Testo02)</h2>
+                <p>@Html.Raw(Testo03)</p>
+            </div>
+            <div class="col last_items">
+                <h3>@Html.Raw(Testo03b)</h3>
+
+                <div id="newProd_carousel" class="carousel slide" data-bs-ride="carousel">
+                    <div id="item_carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-indicators">
+                            @{
+                                int conta = 0;
+                            }
+                            @foreach (RDIC.Models.Prodotto item in NuoviProdotti)
+                            {
+                                string ClassActive = conta == 0 ? "active" : "";
+                                <button type="button" data-bs-target="#newProd_carousel" data-bs-slide-to="@conta" class="custom_indicator @ClassActive" aria-current="true" aria-label="Slide @conta"></button>
+                                conta++;
+                            }
+                        </div>
+                        <div class="carousel-inner">
+                            @{
+                                conta = 0;
+                            }
+                            @foreach (RDIC.Models.Prodotto item in NuoviProdotti)
+                            {
+                                string ClassActive = conta == 0 ? "active" : "";
+                                string AltImg = item.Immagini.Count>0 ? item.Immagini[0].AltIT : "";
+                                string Title = item.TitoloIT;
+                                string ImgSrc = AltImg = item.Immagini.Count > 0 ? item.Immagini[0].FileName : "";
+                                if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+                                {
+                                    AltImg = item.Immagini.Count > 0 ? item.Immagini[0].AltEN : "";
+                                    Title = item.TitoloEN;
+                                }
+                                if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+                                {
+                                    AltImg = item.Immagini.Count > 0 ? item.Immagini[0].AltFR : "";
+                                    Title = item.TitoloFR;
+                                }
+
+                                <div class="carousel-item @ClassActive">
+                                    <a href="~/Home/NuoviProdotti#item_@item.Id">
+                                        <img src="~/@ImgSrc.Replace("~/", "")" alt="@AltImg" style="max-width:430px;max-height:430px;">
+                                        <p>@Title</p>
+                                    </a>
+                                </div>
+                                conta++;
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wide bkg_gray">
+        <div class="container box_container">
+            <div class="row">
+                <div class="col box">
+                    <div class="section_title">
+                        <i class="fa fa-calendar"></i>
+                        @News
+                    </div>
+                    @{
+                        string DescriptionNews = "";
+                        string TitleNews = "";
+                        string AltNews = "";
+
+                        if (HomeNews != null)
+                        {
+                            DescriptionNews = HomeNews.DescriptionIT;
+                            TitleNews = HomeNews.TitoloIT;
+                            AltNews = HomeNews.Immagine.AltIT;
+
+                            if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+                            {
+                                DescriptionNews = HomeNews.DescriptionEN;
+                                TitleNews = HomeNews.TitoloEN;
+                                AltNews = HomeNews.Immagine.AltEN;
+                            }
+                            if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+                            {
+                                DescriptionNews = HomeNews.DescriptionFR;
+                                TitleNews = HomeNews.TitoloFR;
+                                AltNews = HomeNews.Immagine.AltFR;
+                            }
+
+                            if (DescriptionNews.Length > 210)
+                            {
+                                DescriptionNews = DescriptionNews.Substring(0, 210)+ "...";
+                            }
+                        }
+                    }
+
+                    <div class="title">@Html.Raw(TitleNews)</div>
+                    <div class="box_content">
+                        <span class="img">
+                            @{
+                                if (HomeNews != null)
+                                {
+                                    <img src="~/@HomeNews.Immagine.FileName.Replace("~/", "")" alt="@AltNews">
+                                }
+                            }
+                        </span>
+                        <span class="text">@Html.Markdown(DescriptionNews)</span>
+                    </div>
+                    <div class="home_items">
+                        <a href="~/Home/News" class="other_items">@Html.Raw(Testo06)&nbsp;>></a>
+                    </div>
+                </div>
+                <div class="col box mr-4 ml-4">
+                    <div class="section_title">
+                        <i class="fa fa-bars"></i>
+                        @Catalogo
+                    </div>
+                    <div class="title">@Html.Raw(Testo07)</div>
+                    <div class="box_content">
+                        <span class="img wide">
+                            <img src="~/img/last_item.png" alt="item">
+                        </span>
+                    </div>
+                    <div class="home_items" style="align-content:center;">    
+                        <a href="~/Home/Catalogo" class="other_items">@Catalogo >></a>
+                    </div>
+                </div>
+                <div class="col box mr-4 ml-4">
+                    <div class="section_title">
+                        <i class="fa fa-bars"></i>
+                        @ServiziOfferti
+                    </div>
+                    <div class="title">@Html.Raw(Testo08)</div>
+                    <div class="box_content">
+                        <span class="img wide">
+                            @*<img height="200" src="~/img/Certificazioni01.jpg" alt="">*@
+                        </span>
+                    </div>
+                    <div class="home_items">
+                        <a href="~/Home/SrviziOfferti" class="other_items">@ServiziOfferti >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("GoogleMap")
+
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script>
+        $(function () {
+            var myCarousel = document.querySelector('#main_carousel')
+            var carousel = new bootstrap.Carousel(myCarousel, {
+                interval: 3000,
+                wrap: true
+            })
+            var newProdCarousel = document.querySelector('#newProd_carousel')
+            var carousel01 = new bootstrap.Carousel(newProdCarousel, {
+                interval: 3000,
+                wrap: true
+            })
+        });
+        if ($(window).width() > 1366) {
+            $('#main_carousel').height('600px');
+        }
+    </script>
+}

@@ -1,0 +1,187 @@
+﻿@model RDIC.Models.News
+@{
+    ViewBag.Title = "Dettaglio News";
+}
+
+<div class="ml-4 mr-4 content" style="width:100%;">
+    <h2>Modifica News</h2>
+
+    <form action="~/Admin/UpdateNews" class="dropzone" id="frmUpdateNews">
+        <input type="hidden" id="idNews" name="idNews" value="@Model.Id" />
+        <div class="form-group">
+            <h3><label>Visibile nel sito</label></h3>
+            @if (Model.Visible)
+            {
+                <input type="checkbox" name="visible" id="visible" checked />
+            }
+            else
+            {
+                <input type="checkbox" name="visible" id="visible" />
+            }
+            <br /><br />
+        </div>
+        <div class="form-group">
+            <h3><label>Data</label></h3>
+            <input type="date" class="form-control" name="dataNews" value="@Model.Data.Year.ToString()-@Model.Data.Month.ToString("00")-@Model.Data.Day.ToString("00")"><br />
+        </div>
+        <div class="form-group">
+            <h3><label>Titolo IT</label></h3>
+            <input type="text" class="form-control" name="titleIT" value="@Model.TitoloIT"><br />
+            <h3><label>Titolo EN</label></h3>
+            <input type="text" class="form-control" name="titleEN" value="@Model.TitoloEN"><br />
+            <h3><label>Titolo FR</label></h3>
+            <input type="text" class="form-control" name="titleFR" value="@Model.TitoloFR"><br />
+        </div>
+        <div class="form-group">
+            <h3><label>Descrizione IT</label></h3>
+            <div id="toolbarIT" class="mdd_toolbar"></div>
+            <textarea id="descriptionIT" name="descriptionIT" data-mdd-preview="#previewIT" data-mdd-resizer="#resizerIT" class="mdd_editor">@Model.DescriptionIT</textarea>
+            <div id="resizerIT" class="mdd_resizer"></div>
+            <div id="previewIT" class="mdd_preview" style="border:solid 1px #000000;height:200px;overflow:auto;"></div><br />
+            <h3><label>Descrizione EN</label></h3>
+            <div id="toolbarEN" class="mdd_toolbar"></div>
+            <textarea id="descriptionEN" name="descriptionEN" data-mdd-preview="#previewEN" data-mdd-resizer="#resizerEN" cols=50 rows=10 class="mdd_editor">@Model.DescriptionEN</textarea>
+            <div id="resizerEN" class="mdd_resizer"></div>
+            <div id="previewEN" class="mdd_preview" style="border:solid 1px #000000;height:200px;overflow:auto;"></div><br />
+            <h3><label>Descrizione FR</label></h3>
+            <div id="toolbarFR" class="mdd_toolbar"></div>
+            <textarea id="descriptionFR" name="descriptionFR" data-mdd-preview="#previewFR" data-mdd-resizer="#resizerFR" cols=50 rows=10 class="mdd_editor">@Model.DescriptionFR</textarea>
+            <div id="resizerFR" class="mdd_resizer"></div>
+            <div id="previewFR" class="mdd_preview" style="border:solid 1px #000000;height:200px;overflow:auto;"></div><br />
+        </div>
+        <div class="form-group">
+            <h3><label>Immagine</label></h3>
+            <br />
+            <div class="file-loading">
+                <input id="imgFile" name="imgFile" type="file" accept="image/*">
+            </div>
+            <input id="imgFileDeleted" name="imgFileDeleted" type="hidden" value="" />
+
+        </div>
+        @*<div class="form-group">
+            <h3><label>Allegati</label></h3>
+            <br />
+            @foreach (RDIC.Models.Allegato item in Model.Allegati)
+            {
+                <div id="allContainer_@item.Id" style="display:inline-block;border:1px solid gray;padding:3px;width:206px;">
+                    <a href="~/@item.FileName.Replace("~/","")" target="_blank">@item.Description (@item.Language)</a>
+                    <br /><br />
+                    <a href="" onclick="return deleteAttach('@item.Id'); return False;">
+                        <img src="~/img/Delete512.png" width="40" />
+                    </a>
+                </div>
+            }
+            <input id="allFileDeleted" name="allFileDeleted" type="hidden" value="" />
+            <br /><br />
+            <h3><label>Aggiungi allegato IT</label></h3>
+            <h3><label>Descrizione</label></h3>
+            <input type="text" class="form-control" id="AllDesIT" name="AllDesIT" value=""><br />
+            <input name="allFileIT" id="allFileIT" type="file" />
+            <h3><label>Aggiungi allegato EN</label></h3>
+            <h3><label>Descrizione</label></h3>
+            <input type="text" class="form-control" id="AllDesEN" name="AllDesEN" value=""><br />
+            <input name="allFileEN" id="allFileEN" type="file" />
+            <h3><label>Aggiungi allegato FR</label></h3>
+            <h3><label>Descrizione</label></h3>
+            <input type="text" class="form-control" id="AllDesFR" name="AllDesFR" value=""><br />
+            <input name="allFileFR" id="allFileFR" type="file" />
+            <br />
+        </div>*@
+        <button id="productSave" type="button" onclick="updateNews();" class="btn btn-primary">Salva</button><br /><br />
+        <div id="productError">
+            <img src="~/img/product-error.png" width="70" />
+            <label style="width:700px;font-size:large;color:#ff0000;">Errore durante il salvataggio. Riprovare in un secondo momento, se l'errore persiste contattare l'amministratore del sistema</label>
+        </div>
+        <div id="productOk">
+            <img src="~/img/product-ok.png" width="64" />
+            <label style="width:700px;font-size:large;">Salvataggio avvenuto con successo</label>
+        </div>
+        <div id="productLoader" class="loader07"></div>
+    </form>
+</div>
+<script>
+    function onInputFormChange() {
+        $('#productSave').attr('disabled', false);
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+    }
+    $(document).ready(function () {
+        $("#frmUpdateNews").on('input change', function () {
+            onInputFormChange();
+        });
+
+        $("#descriptionIT").MarkdownDeep({
+            help_location: "mdd_help.htm"
+        });
+        $("#descriptionEN").MarkdownDeep({
+            help_location: "mdd_help.htm"
+        });
+        $("#descriptionFR").MarkdownDeep({
+            help_location: "mdd_help.htm"
+        });
+
+        $('#productSave').attr('disabled', true);
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+
+        $("#imgFile").fileinput({
+            uploadUrl: '@Url.Action("uploadImageNews")',
+            maxFileCount: 1,
+            validateInitialCount: true,
+            uploadAsync: false,
+            showRemove: false,
+            showUpload: false,
+            showCancel: false,
+            showClose: false,
+            uploadIcon: '',
+            overwriteInitial: false,
+            initialPreview: [
+                "<img class='kv-preview-data file-preview-image' src='@Model.Immagine.FileName.Replace("~/","")'>",
+            ],
+            initialPreviewConfig: [
+                { width: "200px", url: '@Url.Action("deleteImageNews")', key: @Model.Immagine.Id, extra: { idNewsPar:@Model.Id} },
+            ],
+            //allowedFileExtensions: ["jpg", "png", "gif"]
+            uploadExtraData:{ idNews: @Model.Id }
+        });
+
+        $('#imgFile').on('filepredelete', function (event, key, jqXHR, data) {
+            deleteImage(key);
+        });
+        $('#imgFile').on('fileloaded', function (event, file, previewId, index, reader) {
+            onInputFormChange();
+            $(".glyphicon-upload").parent().hide();
+        });
+    })
+
+
+    function deleteImage(idImg) {
+        var newText = $("#imgFileDeleted").val();
+        if (newText == '') {
+            newText = newText + idImg;
+        } else {
+            newText = newText + "-" + idImg;
+        }
+        $("#imgFileDeleted").val(newText);
+        onInputFormChange();
+        return false;
+    }
+
+    //function deleteAttach(idImg) {
+    //    var newText = $("#allFileDeleted").val();
+    //    if (newText == '') {
+    //        newText = newText + idImg;
+    //    } else {
+    //        newText = newText + "-" + idImg;
+    //    }
+    //    $("#allFileDeleted").val(newText);
+
+    //    $("#allContainer_" + idImg).remove();
+    //    onInputFormChange();
+
+    //    return false;
+    //}
+
+</script>

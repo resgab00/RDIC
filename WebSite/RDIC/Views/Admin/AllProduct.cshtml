@@ -1,0 +1,100 @@
+﻿@{
+    List<RDIC.Models.Prodotto> Prodotti = ViewData["Prodotti"] as List<RDIC.Models.Prodotto>;
+    List<RDIC.Models.Categoria> Categoria = ViewData["Categoria"] as List<RDIC.Models.Categoria>;
+}
+
+<div class="col ml-4 mr-4 content">
+    <h1>Elenco prodotti</h1>
+    <div class="items">
+        @foreach (RDIC.Models.Prodotto item in Prodotti)
+        {
+            string imgSource = "";
+            if (item.Immagini.Count > 0)
+            {
+                imgSource = item.Immagini[0].FileName.Replace("~/", "");
+            }
+
+
+
+            <div class="item">
+                <div class="img">
+                    <img src="~/@imgSource" style="max-height:200px;">
+                </div>
+                <div class="text">
+                    <h5>Categoria: @Categoria.Where(cat => cat.Id == item.IdCategoria).First().DescriptionIT </h5>
+                    <h5>Sotto Categoria: @Categoria.Where(cat => cat.Id == item.IdCategoria).First().SubCategorias.Where(sc => sc.Id == item.IdSubCategoria).First().DescriptionIT</h5>
+                    <h5>Titolo: @item.TitoloIT</h5>
+                </div>
+                <div class="actions">
+                    <a href="~/Admin/ProductDetail" onclick="return getProductDetail(this,@item.Id); return false;" class="btn btn-primary">Modifica</a>
+                    @*nel javascript se la cancellazione è finita bene rimuovere solo la riga senza ricaricare tutto*@
+                    <a href="~/Admin/DeleteProduct" onclick="return deleteProduct(this,@item.Id); return false;" class="btn btn-danger">Cancella</a>
+                    @if (item.Visible)
+                    {
+                        <a id="hideProduct_@item.Id" href="~/Admin/ShowHideProduct" onclick="return showHideProduct(this,@item.Id,false); return false;" class="btn btn-danger">Nascondi</a>
+                        <a id="showProduct_@item.Id" href="~/Admin/ShowHideProduct" onclick="return showHideProduct(this,@item.Id,true); return false;" class="btn btn-primary hidden">Mostra</a>
+                    }
+                    else
+                    {
+                        <a id="hideProduct_@item.Id" href="~/Admin/ShowHideProduct" onclick="return showHideProduct(this,@item.Id,false); return false;" class="btn btn-danger hidden">Nascondi</a>
+                        <a id="showProduct_@item.Id" href="~/Admin/ShowHideProduct" onclick="return showHideProduct(this,@item.Id,true); return false;" class="btn btn-primary">Mostra</a>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+
+    $(".btn").show();
+    $(".btn.hidden").hide();
+
+    function showHideProduct(sender, idProd, mostra) {
+        var url = sender.href;
+
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: { idProdotto: idProd, visible: mostra},
+            success: function (data) {
+                if (data.status == 'OK') {
+                    if (mostra) {
+                        $("#hideProduct_" + idProd).removeClass("hidden");
+                        $("#showProduct_" + idProd).addClass("hidden");
+                    } else {
+                        $("#hideProduct_" + idProd).addClass("hidden");
+                        $("#showProduct_" + idProd).removeClass("hidden");
+                    }
+                }
+                $(".btn").show();
+                $(".btn.hidden").hide();
+            },
+            error: function (ex) {
+            },
+            async: true
+        });
+
+        return false;
+
+    }
+    function deleteProduct(sender, idProd) {
+        var url = sender.href;
+
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: { idProdotto: idProd},
+            success: function (data) {
+                if (data.status == 'OK') {
+                    $(sender).parents(".item").remove();
+                }
+            },
+            error: function (ex) {
+            },
+            async: true
+        });
+
+        return false;
+
+    }
+</script>

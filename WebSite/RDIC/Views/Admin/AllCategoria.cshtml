@@ -1,0 +1,56 @@
+﻿@model List<RDIC.Models.Categoria>
+
+@{
+    List<RDIC.Models.Prodotto> Prodotto = ViewData["Prodotto"] as List<RDIC.Models.Prodotto>;
+}
+
+<div class="col ml-4 mr-4 content">
+    <h1>Elenco categorie</h1>
+    <div class="items">
+        @foreach (RDIC.Models.Categoria item in Model)
+        {
+            <div class="item" style="width:100%;">
+                <div class="text">
+                    <h5>Categoria:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@item.DescriptionIT </h5>
+                    <h5>SubCategorie:&nbsp;&nbsp;&nbsp;@item.SubCategorias.Count() </h5>
+                    <h5>Prodotti:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Prodotto.Where(prd => prd.IdCategoria == item.Id).Count() </h5>
+                </div>
+                <div class="actions">
+                    <a href="~/Admin/CategoriaDetail" onclick="return getCategoriaDetail(this,@item.Id); return false;" class="btn btn-primary">Modifica</a>
+                    @if (Prodotto.Where(prd => prd.IdCategoria == item.Id).Count() > 0)
+                    {
+                    }
+                    else
+                    {
+                        <a href="~/Admin/DeleteCategoria" onclick="return deleteCategoria(this,@item.Id); return false;" class="btn btn-danger">Cancella</a>
+                    }
+                    <br />
+                    <br />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+
+    function deleteCategoria(sender, idCat) {
+        var url = sender.href;
+
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: { idCategoria: idCat },
+            success: function (data) {
+                if (data.status == 'OK') {
+                    $(sender).parents(".item").remove();
+                }
+            },
+            error: function (ex) {
+            },
+            async: true
+        });
+
+        return false;
+
+    }
+</script>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ArrayOfMasterData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <MasterData>
+    <Id>1</Id>
+    <AdminUser>gabriele</AdminUser>
+    <AdminPassword>ed7875d5007e8b4d5e683927d313fb1c0f3297b7b1759355024f981706e5aaf4</AdminPassword>
+    <SmtpAddress>smtp.RDICsrl.it</SmtpAddress>
+    <SmtpUser>info@RDICsrl.it</SmtpUser>
+    <SmtpPassword>1RugdY6PlAwMR3DI07JkFQ==</SmtpPassword>
+    <EmailAddress>no-replay@RDICsrl.it</EmailAddress>
+    <EmailContatti>info@RDICsrl.it</EmailContatti>
+    <NumNewProdotti>6</NumNewProdotti>
+  </MasterData>
+<MasterData>
+	<Id>1</Id>
+	<AdminUser>termaf</AdminUser>
+	<AdminPassword>6adb760a23e713a4c1ec40abd34520a9db2e5a17365e98b69223896d087e0338</AdminPassword>
+	<SmtpAddress>smtp.RDICsrl.it</SmtpAddress>
+	<SmtpUser>info@RDICsrl.it</SmtpUser>
+	<SmtpPassword>1RugdY6PlAwMR3DI07JkFQ==</SmtpPassword>
+	<EmailAddress>no-replay@RDICsrl.it</EmailAddress>
+	<EmailContatti>info@RDICsrl.it</EmailContatti>
+	<NumNewProdotti>6</NumNewProdotti>
+</MasterData>
+</ArrayOfMasterData>

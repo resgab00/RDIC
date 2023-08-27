@@ -1,0 +1,53 @@
+﻿@{
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(Session["Culture"].ToString());
+    string Testo01 = "Dove siamo";
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        Testo01 = "Where we are";
+    }
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        Testo01 = "Où nous sommes";
+    }
+
+}
+
+<div class="container-fluid map">
+    <div class="row">
+        <div class="col">
+            <h2>@Html.Raw(Testo01)</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("it-IT"))
+            {
+                <iframe frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.2449295963734!2d9.099920890013097!3d45.44472026016363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c30a36218bab%3A0x8cd6013bb970f442!2sRD%20Industrial%20Clocks%20srl!5e0!3m2!1sit!2sit!4v1687614889879!5m2!1sit!2sit&language=it&q=RD+Industrial+Clocks+srl"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            }
+            else
+            {
+                <iframe frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.2449295963734!2d9.099920890013097!3d45.44472026016363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c30a36218bab%3A0x8cd6013bb970f442!2sRD%20Industrial%20Clocks%20srl!5e0!3m2!1sen!2sen!4v1687614889879!5m2!1sen!2sen&language=en&q=RD+Industrial+Clocks+srl"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            }
+        </div>
+    </div>
+</div>

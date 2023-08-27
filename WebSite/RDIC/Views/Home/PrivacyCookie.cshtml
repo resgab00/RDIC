@@ -1,0 +1,3265 @@
+﻿@{
+    ViewBag.Title = "Privacy Cookie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+@{
+
+    string Testo01 = "Informativa per il trattamento dei dati personali e cookie policy";
+
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        Testo01 = "PRIVACY & COOKIES POLICY";
+    }
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        Testo01 = "POLITIQUE DE CONFIDENTIALITÉ ET DE COOKIES";
+    }
+}
+@section Content{
+    <div class="container content">
+        <div class="row">
+            <div class="col-10 description">
+                <h1>@Testo01</h1>
+                @if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("it-IT"))
+                {
+                    <p>
+                        <span>
+                            RD Industrial Clocks srl con
+                            sede legale in Piazzale Insurrezione, 6, 24047 Treviglio (BG), C.F. e P.IVA
+                            04641490166, in qualità di titolare del trattamento (in seguito, “Titolare”),
+                            La informa ai sensi del Regolamento UE 2016/679 (“GDPR”) e della vigente
+                            normativa nazionale in materia di protezione dei dati personali che i Suoi dati
+                            saranno trattati con le modalità e per le finalità seguenti:
+                        </span>
+                    </p>
+
+                    <p>
+                        <b>
+                            <span>1. Oggetto del trattamento</span></b><span>
+                                <br>
+                                Il Titolare tratta i dati personali identificativi e non sensibili (in
+                                particolare, nome, cognome, email, numero telefonico, indirizzo IP, etc. – in
+                                seguito “Dati” o “Dati Personali”) da Lei comunicati in occasione della
+                                navigazione sul sito web del Titolare&nbsp;<a href="https://www.RDICsrl.com/" target="_self">www.RDICsrl.com</a> (in seguito “Sito”) e/o in caso di richiesta
+                                di contatto inoltrata al Titolare.
+                            </span>
+                    </p>
+
+                    <p>
+                        <b>
+                            <span>
+                                2. Finalità e base giuridica del
+                                trattamento
+                            </span>
+                        </b><span>
+                            <br>
+                            I Suoi Dati sono trattati per le seguenti finalità e basi giuridiche:
+                        </span>
+                    </p>
+
+                    <p>
+                        <span>
+                            A. senza Suo previo consenso per le finalità
+                            di servizio e, in particolare, per:
+                        </span>
+                    </p>
+
+                    <ul>
+                        <li>
+                            <span>
+                                l’esecuzione del contratto e/o di impegni precontrattuali:<br>
+                                    - gestire e manutenere il Sito; <br>
+                                    - gestire una richiesta di contatto da parte Sua.
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                il perseguimento di un legittimo interesse del Titolare:<br>
+                                - prevenire o scoprire attività fraudolente o abusi dannosi per il Sito;<br>
+                                - esercitare i diritti del Titolare, ad esempio il diritto di difesa in
+                                giudizio.
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                l’adempimento di obblighi di legge:<br>
+                                - ottemperanza agli obblighi previsti da leggi, regolamenti, normative
+                                comunitarie, ordini e prescrizioni delle autorità competenti.
+                            </span></li>
+                    </ul>
+
+                    <p>
+                        <span>
+                            B. solo previo Suo consenso, per finalità di
+                            marketing, ossia per informarLa con email e newsletter delle iniziative e
+                            offerte commerciali del Titolare.
+                        </span>
+                    </p>
+
+                    <p>
+                        <b>
+                            <span>3. Modalità del trattamento</span></b><span>
+                                <br>
+                                Il trattamento dei Suoi Dati è effettuato – con modalità elettroniche – per
+                                mezzo delle operazioni di raccolta, registrazione, aggiornamento,
+                                organizzazione, conservazione, consultazione, elaborazione, modificazione,
+                                selezione, estrazione, raffronto, utilizzo, interconnessione, blocco,
+                                cancellazione e distruzione dei Dati.
+                            </span>
+                    </p>
+
+                    <p>
+                        <b><span>4. Conservazione dei Dati</span></b><span>
+                            <br>
+                            Il Titolare tratta i Dati per il tempo necessario per adempiere alle finalità
+                            di cui sopra e comunque per non oltre 10 anni dalla raccolta del rapporto per
+                            le finalità di servizio e per non oltre 2 anni dalla raccolta per le finalità
+                            di marketing.
+                        </span>
+                    </p>
+
+                    <p>
+                        <b><span>5. Conferimento dei Dati</span></b><span>
+                            <br>
+                            Il conferimento dei Dati per le Finalità di servizio è obbligatorio e
+                            l’eventuale rifiuto di fornire tali Dati potrebbe comportare l’impossibilità di
+                            dare seguito alle Sue richieste. Il conferimento dei Dati per le ulteriori
+                            Finalità non contrattuali è facoltativo e il loro mancato conferimento non
+                            comporta l’impossibilità di dare seguito alle Sue richieste. In caso decidesse
+                            di non conferire i Dati, però, non potrà ricevere le iniziative e offerte
+                            personalizzate.
+                        </span>
+                    </p>
+
+                    <p>
+                        <b><span>6. Accesso ai Dati</span></b><span>
+                            <br>
+                            Ai Suoi Dati possono accedere per le finalità di cui sopra:
+                        </span>
+                    </p>
+
+                    <ul>
+                        <li>
+                            <span>
+                                dipendenti e/o collaboratori del Titolare, nella loro qualità di
+                                incaricati del trattamento e/o responsabili interni del trattamento e/o
+                                amministratori di sistema;
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                società del Gruppo RD Industrial Clocks srl o soggetti terzi (ad esempio, provider
+                                servizi IT, fornitori, istituti di credito, studi professionali, etc.)che
+                                svolgono attività in outsourcing per conto del Titolare, nella loro
+                                qualità di responsabili esterni del trattamento.
+                            </span>
+                        </li>
+                    </ul>
+
+                    <p>
+                        <b><span>7. Comunicazione dei Dati</span></b><span>
+                            <br>
+                            I Suoi Dati possono essere comunicati, anche senza Suo consenso, per le
+                            finalità di cui sopra a organi di controllo, forze dell’ordine o magistratura che
+                            li tratteranno, su loro espressa richiesta, in qualità di autonomi titolaridel
+                            trattamento per finalità istituzionali e/o in forza di legge nel corso di
+                            indagini e controlli. I Suoi Dati possono essere altresì comunicati a soggetti
+                            terzi (ad esempio, partner, liberi professionisti, agenti, etc.), in qualità di
+                            autonomi titolari del trattamento, per lo svolgimento di attività strumentali
+                            alle finalità di cui sopra.
+                        </span>
+                    </p>
+
+                    <p>
+                        <b><span>8. Trasferimento dei dati</span></b><span>
+                            <br>
+                            I Suoi Dati non saranno diffusi né trasferiti in paesi extra UE.
+                        </span>
+                    </p>
+
+                    <p>
+                        <b>
+                            <span>9. Diritti dell’interessato</span></b><span>
+                                <br>
+                                Il Titolare La informa che, in qualità di soggetto interessato, se non
+                                ricorrono le limitazioni previste dalla legge, ha il diritto di:
+                            </span>
+                    </p>
+
+                    <ul>
+                        <li>
+                            <span>
+                                ottenere la conferma dell’esistenza o meno di Suoi dati personali,
+                                anche se non ancora registrati, e che tali dati vengano messi a Sua
+                                disposizione in forma intellegibile;
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                ottenere indicazione e, se del caso, copia: a) dell’origine e
+                                della categoria dei dati personali; b) della logica applicata in caso di
+                                trattamento effettuato con l'ausilio di strumenti elettronici; c) delle
+                                finalità e modalità del trattamento; d) degli estremi identificativi del
+                                titolare e dei responsabili; e) dei soggetti o delle categorie di soggetti
+                                ai quali i dati personali possono essere comunicati o che possono venirne
+                                a conoscenza, in particolare se destinatari di paesi terzi o
+                                organizzazioni internazionali; e) quando possibile, del periodo di
+                                conservazione dei dati oppure i criteri utilizzati per determinare tale
+                                periodo; f) dell’esistenza di un processo decisionale automatizzato,
+                                compresa la profilazione, e in tal caso delle logiche utilizzate,
+                                dell’importanza e delle conseguenze previste per l’interessato; g)
+                                dell’esistenza di garanzie adeguate in caso di trasferimento dei dati a un
+                                paese extra-UE o a un’organizzazione internazionale;
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                ottenere, senza ingiustificato ritardo, l’aggiornamento e la
+                                rettifica dei dati inesatti ovvero, quando vi ha interesse, l’integrazione
+                                dei dati incompleti;
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                ottenere la cancellazione, la trasformazione in forma anonima o il
+                                blocco dei dati: a) trattati illecitamente; b) non più necessari in
+                                relazione agli scopi per i quali sono stati raccolti o successivamente
+                                trattati; c) in caso di revoca del consenso su cui si basa il trattamento
+                                e in caso non sussista altro fondamento giuridico, d) qualora Lei si sia
+                                opposto al trattamento e non sussiste alcun motivo legittimo prevalente
+                                per proseguire il trattamento; e) in caso di adempimento di un obbligo
+                                legale; f) nel caso di dati riferiti a minori. Il Titolare può rifiutare
+                                la cancellazione solo nel caso di: a) esercizio del diritto alla libertà
+                                di espressione e di informazione; b) adempimento di un obbligo legale,
+                                esecuzione di un compito svolto nel pubblico interesse o esercizio di
+                                pubblici poteri; c) motivi di interesse sanitario pubblico; d) archiviazione
+                                nel pubblico interesse, ricerca scientifica o storica o a fini statistici;
+                                e) esercizio di un diritto in sede giudiziaria;
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                ottenere la limitazione del trattamento nel caso di: a)
+                                contestazione dell’esattezza dei dati personali; b) trattamento illecito
+                                del Titolare per impedirne la cancellazione; c) esercizio di un Suo
+                                diritto in sede giudiziaria; d) verifica dell’eventuale prevalenza dei
+                                motivi legittimi del Titolare rispetto a quelli dell’interessato;</span>
+                        </li>
+                        <li>
+                            <span>
+                                ricevere, qualora il trattamento sia effettuato con mezzi
+                                automatici, senza impedimenti e in un formato strutturato, di uso comune e
+                                leggibile i dati personali che La riguardano per trasmetterli ad altro
+                                titolare o – se tecnicamente fattibile – di ottenere la trasmissione
+                                diretta da parte del Titolare ad altro titolare;
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                opporsi, in tutto o in parte: a) per motivi legittimi connessi
+                                alla Sua situazione particolare al trattamento dei dati personali che La
+                                riguardano; b) al trattamento di dati personali che La riguardano a fini
+                                di invio di materiale pubblicitario o di vendita diretta o per il
+                                compimento di ricerche di mercato o di comunicazione commerciale, mediante
+                                l’uso di sistemi automatizzati di chiamata senza l’intervento di un
+                                operatore mediante email e/o mediante modalità di marketing tradizionali mediante
+                                telefono e/o posta cartacea;
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                proporre reclamo all’Autorità Garante per la Protezione dei Dati
+                                Personali.
+                            </span>
+                        </li>
+                    </ul>
+
+                    <p>
+                        <span>
+                            Nei casi di cui sopra, ove necessario,il
+                            Titolare porterà a conoscenza i soggetti terzi ai quali i Suoi dati personali
+                            sono comunicati dell’eventuale esercizio dei diritti da parte Sua, ad eccezione
+                            di specifici casi (es. quando tale adempimento si riveli impossibile o comporti
+                            un impiego di mezzi manifestamente sproporzionato rispetto al diritto
+                            tutelato).
+                        </span>
+                    </p>
+
+                    <p>
+                        <b>
+                            <span>
+                                10. Modalità di esercizio dei diritti
+                            </span>
+                        </b><span>
+                            <br>
+                            Potrà in qualsiasi momento esercitare tali diritti:
+                        </span>
+                    </p>
+
+                    <ul>
+                        <li>
+                            <span>
+                                inviando una mail all’indirizzo PEC: <a href="mailto:rdicsrl@pec.it" target="_blank">rdicsrl@pec.it</a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                inviando una mail a: <a href="mailto:info@RDICsrl.com" target="_self">info@RDICsrl.com</a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>inviando una raccomandata A/R</span>
+                        </li>
+                        <li>
+                            <span>contattando il numero +39 02 3652 3042</span>
+                        </li>
+                    </ul>
+
+                    <p>
+                        <b>
+                            <span>
+                                11. Titolare, responsabile e incaricati del
+                                trattamento
+                            </span>
+                        </b><span>
+                            <br>
+                            Il titolare del trattamento è RD Industrial Clocks srl</span>
+                    </p>
+
+                    <p>
+                        <span>
+                            L’elenco aggiornato dei responsabili del
+                            trattamento è custodito presso la sede del Titolare in Piazzale Insurrezione, 6, 
+                            24047 Treviglio (BG).
+                        </span>
+                    </p>
+
+                    <p>
+                        <b><span>12. Cookies Policy</span></b><span>
+                            <br>
+                            Il Sito fa inoltre uso di cookies. Di seguito potrà trovare maggiori
+                            informazioni in merito ai cookie, a come vengono utilizzati nel Sito e quali
+                            procedure di controllo adottiamo rispetto ai cookie stessi. Proseguendo nella
+                            navigazione nel Sito, dopo aver letto il nostro banner, acconsente all’utilizzo
+                            dei cookie, in conformità con la presente informativa. Se non è d’accordo
+                            all’utilizzo dei cookie, La invitiamo a disabilitarli seguendo le istruzioni di
+                            seguito riportate nella presente informativa.
+                        </span>
+                    </p>
+
+                    <p>
+                        <b><span>Che cosa sono i cookie?</span></b><span><br>
+                        I cookie sono piccoli file di testo che vengono salvati sul Suo dispositivo
+                        elettronico (PC, tablet, etc.) durante la navigazione in un sito web e che
+                        forniscono determinate informazioni (“cookie”). I cookie vengono poi rinviati
+                        al sito web di origine nel corso di ogni successiva navigazione, oppure vengono
+                        inviati ad un diverso sito web che sia in grado di riconoscere quello specifico
+                        cookie. I cookie agiscono come una memoria per un sito web, consentendo cheil
+                        sito web riconosca il Suo device ad ogni Sua visita successiva a quel medesimo
+                        sito. I cookie consentono inoltre di memorizzare le Sue preferenze di
+                        navigazione offrendoLe un’esperienza più funzionale
+                        del Sito, e rendendo il contenuto del sito il più personalizzato possibile.
+                        </span>
+                    </p>
+
+                    <p>
+                        <span>
+                            I browser web Le consentono di esercitare un
+                            certo controllo sui cookie attraverso le impostazioni del browser. La maggior
+                            parte dei browser consente di bloccare i cookie o bloccare i cookie di
+                            determinati siti. I browser possono anche aiutarLa a
+                            eliminare i cookie quando chiude il browser. Tuttavia, dovrebbe tenere a mente
+che ciò potrebbe significare che eventuali opt out o
+preferenze che ha impostato sul sito andranno persi.La invitiamo a consult are
+                    le informazioni tecniche relative al Suo browser per le istruzioni.Se sceglie
+                    di disabilitare l'impostazione dei cookie o se rifiuta di accettare un cookie,
+                    alcune parti del servizio potrebbero non funzionare correttamente o potrebb ero
+                    essere notevolmente più lente.</span></p>
+
+<p><b><span>Tipologie di cookie</span></b><span
+                 ><br>
+I cookie possono essere tecnici, analitici e di profilazione.</span></p>
+
+<p><span>Il Sito utilizza cookie tecnici “di se ssione”
+e persistenti quali:</span></p>
+
+<ul>
+                 <li><span><span>ASP.NET_SessionId</span></span></li>
+</ul>
+
+<p><span>Il Sito utilizza altresì cookie analit ici di
+                  terza parte quali:</span></p>
+
+<ul>
+                 <li><span>Google Analytics</span></li>
+</ul>
+
+<p><span>Il sito non utilizza cookie di profilazione.</span></p>
+
+<p><b><span>Finalità</span></b><span>
+<br>
+I cookie tecnici usati dal nostro Sito servono a effettuare e facilitare latua
+navigazione e a<span>fornirLe</span> e a<span>permetterLe</span>
+di fruire dei servizi del Sito.I cookie analitici servono ad analizzare e
+monitorare il modo in cui utilizza il sito(ad es. n.accessi e pagine vist e),
+a fini statistici e per permetterci di apportare modifiche migliorative al Sito
+in termini di funzionamento e navigazione.</span></p>
+
+<p><span>Il conferimento dei dati è facoltativo .Si fa
+                 tuttavia presente che il rifiuto/disattivazione dei cookie potrà impedire di
+                    utilizzare alcune funzionalità del Sito.</span></p>
+
+<p><b><span>Come controllare ed eliminare i cookie </span></b><span> <br>
+Può autorizzare l’utilizzo dei cookie proseguendo nella navigazione sul sit o,
+dopo aver letto il banner e cliccato OK per accettazione.Può non autorizzare
+l’utilizzo di cookie o comunque disattivarli in ogni momento procedendo
+manualmente alla modificazione della configurazione del suo browser e seguendo
+le istruzioni contenute nelle policy dei gestori dei cookie.&nbsp;
+            </span></p>
+
+            <p>
+                <b>
+                    <span>Come disabilitare i cookie</span></b><span>
+                        <br>
+                        Avvertenza: il conferimento dei dati è facoltativo; si fa tuttavia presente che
+                        il rifiuto/disattivazione dei cookie potrà impedire di utilizzare alcune
+                        funzionalità del Sito.
+                    </span>
+            </p>
+
+            <ul>
+                <li>
+                    <span>
+                        Per disabilitare l’utilizzo dei cookie analitici ed impedire a
+                        Google <span>Analitycs</span> di raccogliere i dati di
+                        navigazione è possibile scaricare il componente disponibile al seguente
+                        link:&nbsp;<a href="https://tools.google.com/dlpage/gaoptout?hl=it" target="_blank">https://tools.google.com/dlpage/gaoptout?hl=it.</a> Per
+                        disabilitare l’utilizzo dei cookie da parte di Google visitare la
+                        pagina:&nbsp;<a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=it" target="_blank">https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=it
+                        </a>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        Per disabilitare direttamente dal browser le tipologie di cookie
+                        utilizzate dal presente sito web<br>
+                        <b>Chrome:</b>&nbsp;<a href="https://support.google.com/chrome/answer/95647?hl=it" target="_blank">
+                            https://support.google.com/chrome/answer/95647?hl=it </a>&nbsp;&nbsp;&nbsp; <br>
+                        <b>Internet Explorer:</b> <a href="https://support.microsoft.com/it-it/help/17442/windows-internet-explorer-delete-manage-cookies"target="_blank">
+                            https://support.microsoft.com/it-it/help/17442/windows-internet-explorer-delete-manage-cookies </a><br>
+                        <b>Opera:</b> <a href="https://help.opera.com/en/opera36/be-safe-and-private/" target="_blank">
+                            https://help.opera.com/en/opera36/be-safe-and-private/ </a><br>
+                        <b>Safari:</b> <a href="https://support.apple.com/it-it/HT201265" target="_blank">https://support.apple.com/it-it/HT201265</a><br>
+                        <b>Firefox:</b> <a href="https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie" target="_blank">
+                            https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie
+                        </a>
+                    </span>
+                </li>
+            </ul>
+
+            <p>
+                <span>
+                    Se si utilizza un browser Web non presente
+                    nell'elenco riportato sopra, si prega di fare riferimento alla documentazione o
+                    alla guida online del proprio browser per ottenere ulteriori informazioni. Si
+                    avvisano gli utenti che il Titolare funge da mero intermediario tecnico peri
+                    link riportati in questo documento e non può assumersi nessuna responsabilità
+                    in caso di eventuale modifica.
+                </span>
+            </p>
+
+            <p>
+                <span>
+                    Potrà trovare maggiori informazioni sui
+                    cookie, incluso come è possibile capire che tipo di cookie siano stati impostati
+                    sul suo device, e come è possibile gestirli ed eliminarli, accedendo al
+                    seguente link <a href="https://www.aboutcookies.org/" target="_blank">
+                        www.aboutcookies.org
+                    </a>
+                </span>
+            </p>
+
+            <p>
+                <b><span>13. Google Analytics</span></b><span>
+                    <br>
+                    Questo sito web utilizza Google Analytics, un servizio di analisi web fornito
+                    da Google LLC., 1600 <span>Amphitheatre</span> <span>Parkway</span>,
+                    Mountain <span>View</span>, CA 94043, USA (&quot;Google&quot;).
+                    Google Analytics utilizza &quot;cookie&quot;, file di testo che vengono
+                    memorizzati sul tuo computer per aiutare il sito web ad analizzare come gli
+                    utenti utilizzano il sito stesso. Usiamo Google Analytics sulle pagine del sito
+                    RDIC. Le informazioni generate dal cookie sull'utilizzo di questo sito Web
+                    vengono solitamente trasmesse a un server di Google negli Stati Uniti e lì
+                    archiviate.
+                </span>
+            </p>
+
+            <p>
+                <span>
+                    Attivando la navigazione con IP anonimo su
+                    questo sito Web, il tuo indirizzo IP verrà troncato all'interno dell'area degli
+                    stati membri dell'Unione europea o di altre parti dell'accordo sulla Area
+                    Economica Europea. Solo in casi eccezionali l'intero indirizzo IP verrà prima
+                    trasferito su un server di Google negli Stati Uniti e lì troncato.
+                </span></p>
+
+            <p>
+                <span>
+                    Google utilizzerà queste informazioni per
+                    conto dell'operatore di questo sito Web allo scopo di valutare l'utilizzo del
+                    sito Web, compilare report sulle attività del sito Web per gli operatori del
+                    sito stesso e fornire loro altri servizi relativi alle attività del sito Web e
+                    all'utilizzo di Internet. L'indirizzo IP che il browser trasmette nell'ambito
+                    di Google Analytics non sarà associato a nessun altro dato posseduto da Google.
+                </span>
+            </p>
+
+            <p>
+                <span>
+                    Le sessioni e le campagne si interrompono dopo
+                    un certo periodo di tempo. Per impostazione predefinita, le sessioni terminano
+                    dopo 30 minuti senza attività e le campagne dopo sei mesi. I dati personali
+                    degli utenti saranno cancellati o resi anonimi dopo 14 mesi. Per ulteriori
+                    informazioni sui Termini di utilizzo e sulla privacy, visitare&nbsp;<a href="https://www.google.com/analytics/terms/en.html" target="_blank">
+                        https://www.google.com/analytics/terms/en.html </a>
+                    e <a href="https://policies.google.com/?hl=it" target="_blank"> https://policies.google.com/?hl=it </a>.
+                </span>
+            </p>
+
+            <p>
+                <span>
+                    È possibile rifiutare il salvataggio dei
+                    cookie selezionando le impostazioni appropriate sul browser; tuttavia si tenga
+                    presente che in questo caso si potrebbe non essere in grado di utilizzare tutte
+                    le funzionalità di questo sito web. Si può anche impedire la raccolta dei dati
+                    generati dal cookie sull'utilizzo del sito web da parte di Google e
+                    l'elaborazione di questi dati da parte di Google, scaricando e installando il
+                    plug-in del browser disponibile dal seguente link <a href="https://tools.google.com/dlpage/gaoptout?hl=en" target="_self">https://tools.google.com/dlpage/gaoptout?hl=en</a>
+                </span>
+            </p>
+
+            <p>
+                <span>
+                    Si prenda nota che su questo sito Web Google
+                    Analytics è stato esteso dal codice &quot;<span>gat</span>._<span>anonymizeIp</span>&quot; al fine di garantire la raccolta anonima
+                    di indirizzi IP (mascheramento IP).
+                </span>
+            </p>
+
+            <p>
+                <b><span>Ultimo aggiornamento</span></b><span>
+                    <br>
+                    Pontirolo Nuovo (Bg), 01 Settembre 2023
+                </span>
+            </p>
+
+            <p><span><o:p>&nbsp;</o:p></span></p>    
+            }
+            @if (Session["Culture"] != null && ((string) Session["Culture"]).Equals("en-US"))
+            {
+            <div class="col-3-4">
+                <div style="clear: both;">
+                </div>
+
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US'>
+                        RD Industrial Clocks srl with registered office in Piazzale Insurrezione, 6, 24047 Treviglio (BG) Italy, 
+                        VAT number IT04641490166, as the data treatment holder
+                        (hereinafter referred to as &quot;Data Holder&quot;), informs you that, in
+                        accordance with the EU Regulation 2016/679 (&quot;GDPR&quot;) and with the
+                        current national Regulation regarding the protection of the personal data, your
+                        data will be processed in the methods and for the following purposes:<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                1.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Object of the data<span class=SpellE>&nbsp;treatment</span><o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US'>
+                        The Data Holder
+                        processes the personal identifying and non-sensitive data (name, surname, email
+                        address, telephone number, IP address, etc. – hereinafter referred to as
+                        &quot;Data&quot; or &quot;Personal Data&quot;) communicated by you when
+                        browsing the website www.RDICsrl.com (hereinafter referred to as &quot;Website&quot;)
+                        and/or in case of your contact request sent to the Data Holder.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoNormal>
+                    <span class=SpellE>
+                        <b>
+                            <span lang=FR style='mso-ansi-language:
+FR'>Responsible</span>
+                        </b>
+                    </span><b>
+                        <span lang=FR style='mso-ansi-language:
+FR'>body and Data Holder</span>
+                    </b><span lang=FR style='mso-ansi-language:
+FR'><o:p></o:p></span>
+                </p>
+
+                <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+                       style='border-collapse:collapse;mso-yfti-tbllook:1184'>
+                    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span class=SpellE><span lang=IT>Address</span></span><span lang=IT>:</span>
+                            </p>
+                        </td>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span lang=IT>
+                                    RD Industrial Clocks srl<br>
+                                    Piazzale Insurrezione, 6, 24047 Treviglio (BG), <span class=SpellE>Italy</span>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='mso-yfti-irow:1'>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal><span lang=IT>Contact information:</span></p>
+                        </td>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span class=SpellE>
+                                    <span class=GramE>
+                                        <span lang=FR
+                                              style='mso-ansi-language:FR'>website</span>
+                                    </span>
+                                </span><span class=GramE>
+                                    <span lang=FR style='mso-ansi-language:FR'>:</span>
+                                </span><span lang=FR
+                                             style='mso-ansi-language:FR'></span><span lang=IT>
+                                    <a href="https://www.RDICsrl.com/" target="_blank">
+                                        <span lang=FR style='mso-ansi-language:FR'>www.RDICsrl.com</span>
+                                    </a>
+                                </span><span lang=FR style='mso-ansi-language:FR'>
+                                    <br>
+                                    <span class=SpellE>Telephone</span>: +39 02 3652 3042<br>
+                                    E-mail:
+                                </span><span lang=IT>
+                                    <a href="mailto:info@RDICsrl.com" target="_blank">
+                                        <span lang=FR style='mso-ansi-language:FR'>info@RDICsrl.com</span>
+                                    </a>
+                                </span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span style='mso-ansi-language:EN-US'>
+                                    How to contact the Data
+                                    Holder:<o:p></o:p>
+                                </span>
+                            </p>
+                        </td>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span lang=IT>
+                                    <a href="mailto:info@RDICsrl.com"
+                                       target="_blank">info@RDICsrl.com</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                2.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><span class=SpellE>
+                        <b style='mso-bidi-font-weight:
+normal'><span lang=FR style='mso-ansi-language:FR'>Treatment</span></b>
+                    </span><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:
+FR'>
+                            <span class=SpellE>purposes</span> and <span class=SpellE>legal</span>
+                            basis<o:p></o:p>
+                        </span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>Your data will be processed for the following purposes and legal basis:<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        A. without your prior consent for the service purposes and <span class=GramE>in particular for</span>:<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l10 level1 lfo11'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        the contract execution
+                        and/or the pre-contractual commitments:<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l10 level2 lfo11'>
+                    <![if !supportLists]><span style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        management and website
+                        maintenance;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l10 level2 lfo11'>
+                    <![if !supportLists]><span style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        management of your
+                        contact request.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l10 level1 lfo11'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        the pursuit of the legitimate
+                        interest of the Data Holder:<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l10 level2 lfo11'>
+                    <![if !supportLists]><span style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        prevention or
+                        discovery of fraudulent activities or misuse of the <span class=SpellE>webite</span>;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l10 level2 lfo11'>
+                    <![if !supportLists]><span style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        practice of the Data
+                        Holder rights, for example the right to defend himself in court.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l10 level1 lfo11'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        the fulfillment of the
+                        legal obligations:<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='margin-left:72.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l10 level2 lfo11'>
+                    <![if !supportLists]><span style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        compliance with the
+                        obligations established by laws, national and EU regulations, orders and rules
+                        of the competent authorities.<b><o:p></o:p></b>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        B. only with your prior consent for marketing purposes <span class=GramE>
+                            in
+                            order to
+                        </span> inform you about the news and the commercial offers of the Data
+                        Holder by email and/or by newsletter.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><b><span style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></b></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b>
+                        <span lang=FR style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                3.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>
+                            Data <span class=SpellE>treatment</span> <span class=SpellE>methods</span><span style='mso-bidi-font-weight:bold'><o:p></o:p></span>
+                        </span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        The data processing is carried out using electronic methods by means of
+                        collection, registration, updating, organization, storage, consultation,
+                        processing, modification, selection, extraction, comparison, use,
+                        interconnection, interruption, cancellation and destruction operations of your data.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                4.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Data&nbsp;<span class=SpellE>storage</span><o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        The Data Holder processes the data for the time necessary to fulfill the <span class=GramE>aforementioned purposes</span> and in any case for no more than 10
+                        years from the data collection for the service purposes and no later than 2
+                        years from the data collection for marketing purposes.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                5.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Data provision<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        The data provision for the service purposes is mandatory and any refusal
+                        to provide such data might make it impossible to answer to your requests. The data
+                        provision for the additional non-contractual purposes is discretionary and the failure
+                        in providing such data does not make it impossible to process your requests. <span class=GramE>However</span> should you decide not to provide us with your data,
+                        you will not be able to receive the customized news and offers.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                6.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Data&nbsp;<span class=SpellE>access</span><o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        Your data can be accessed for the <span class=GramE>above mentioned</span>
+                        purposes by:<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l4 level1 lfo12'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        employees and/or
+                        collaborators of the Data Holder, acting as data processors and/or internal
+                        process managers and/or system administrators;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='text-indent:18.0pt;mso-list:l4 level1 lfo12'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        companies of the <span class=SpellE>RD Industrial Clocks srl</span> Group or third parties (for example, IT service
+                        providers, suppliers, banks, professional offices, etc.) that carry out
+                        outsourcing activities on behalf of the Data Holder, as external data holders.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <a name="_Hlk536448427">
+                        <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                            <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                                <span style='mso-list:Ignore'>
+                                    7.<span style='font:7.0pt "Times New Roman"'>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                </span>
+                            </span>
+                        </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                            <span lang=FR style='mso-ansi-language:FR'>Data communication<o:p></o:p></span>
+                        </b>
+                    </a>
+                </p>
+
+                <span style='mso-bookmark:_Hlk536448427'></span>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        Your data may be communicated, even without your consent, for the <span class=GramE>above mentioned</span> purposes to the management offices, law
+                        enforcement forces or <span class=SpellE>magistratures</span> that will hold
+                        them, on their express request, as independent data holders, for institutional
+                        purposes and/or by law in course of investigations and controls. Your data may
+                        also be communicated to third parties (for example to partners, freelance
+                        professionals, agents, etc.), as independent data holders, for the performance
+                        of the instrumental activities for the <span class=GramE>above mentioned</span>
+                        purposes.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <a name="_Hlk536448861">
+                        <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                            <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                                <span style='mso-list:Ignore'>
+                                    8.<span style='font:7.0pt "Times New Roman"'>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                </span>
+                            </span>
+                        </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                            <span lang=FR style='mso-ansi-language:FR'>Data</span>
+                        </b>
+                    </a><span class=SpellE>
+                        <span style='mso-bookmark:_Hlk536448861'>
+                            <b style='mso-bidi-font-weight:normal'>
+                                <span lang=FR style='mso-ansi-language:FR'>treatment</span>
+                            </b>
+                        </span>
+                    </span><span style='mso-bookmark:_Hlk536448861'>
+                        <b style='mso-bidi-font-weight:normal'>
+                            <span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span>
+                        </b>
+                    </span>
+                </p>
+
+                <span style='mso-bookmark:_Hlk536448861'></span>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>Your data will not be communicated or transferred to non-EU countries.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span style='mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-US'>
+                            <span style='mso-list:Ignore'>
+                                9.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span style='mso-ansi-language:EN-US'>Rights of the interested party<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        The Data Holder informs you that, as interested party, if the limitations
+                        established by law do not apply, you have the right to:<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l5 level1 lfo13'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        obtain the confirmation
+                        of the existence or not of your personal data, even if not registered yet, and
+                        that such data are made available to you in an intelligible form;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l5 level1 lfo13'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        obtain the
+                        information and, where appropriate, the copy: a) of the origin and of the category
+                        of the personal data; b) of the logic applied in case of treatment carried out
+                        with the aid of the electronic instruments; c) of the purposes and of the methods
+                        of the processing; d) of the identification details of the Data Holder and of
+                        the managers; e) of the subjects or of the subject categories to whom the
+                        personal data may be communicated or who can acknowledge them, especially if
+                        they are recipients of third countries or of international organizations; e)
+                        where possible, of the data storage period or of the criteria used to determine
+                        such period; f) of the existence of an automated decision-making process,
+                        including the profiling, and in this case of the logics used, of the importance
+                        and of the consequences expected for the data subject; g) of the existence of the
+                        adequate guarantees in case of data transfer to a non-EU country or to an
+                        international organization;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l5 level1 lfo13'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        obtain, without undue
+                        delay, the updating and the correction of the inaccurate data or, when
+                        interested, or the integration of the uncompleted data;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l5 level1 lfo13'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        obtain the cancellation,
+                        the transformation or the data blocking anonymously: a) unlawfully processed;
+                        b) unnecessary for the purposes for which they have been collected or
+                        subsequently processed; c) in case of the consent withdrawal on which the processing
+                        is based and in case there is no other legal basis, d) in case that you went
+                        against the processing and that there is no legitimate overriding reason to
+                        continue the processing; e) in case of the fulfillment of a legal obligation;
+                        f) in the case of data referring to minors. The Data Holder can refuse the
+                        cancellation only in case of: a) the exercise of the right to the expression
+                        and to the information freedom; b) the fulfillment of a legal obligation, the execution
+                        of a task performed for the public interest or the exercise of the public
+                        authority; c) the reasons of the public health interest; d) the filing for the
+                        public interest, the scientific or historical researches or for statistical
+                        purposes; e) the exercise of a right in court;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l5 level1 lfo13'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        obtain the processing
+                        limitation in case of: a) contestation of the personal data accuracy; b)
+                        unlawful processing of the Data Holder <span class=GramE>in order to</span>
+                        prevent its cancellation; c) exercise of your right in court; d) verification
+                        of the possible prevalence of the legitimate reasons of the Data Holder compared
+                        to those of the interested party;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l5 level1 lfo13'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        receive, if the
+                        processing is carried out by automatic means, without impediment and in a
+                        structured common and readable format, your personal data <span class=GramE>
+                            in
+                            order to
+                        </span> transfer them to another holder or - if technically feasible -
+                        to obtain the direct transmission by the Data Holder to another holder;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l5 level1 lfo13'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        make an objection, in
+                        whole or in part: a) for legitimate reasons connected to your situation, <span class=GramE>in particular to</span> the processing of your personal data; b) to
+                        the processing of your personal data with the purpose of sending any advertising
+                        or for the direct sales or for market researches or commercial communications, by
+                        means of automated call systems without the intervention of an operator, by
+                        email and/or through traditional marketing by telephone and/or by post;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='text-indent:18.0pt;mso-list:l5 level1 lfo13'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        make a claim to the Authority
+                        for the Protection of the Personal Data.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        In the <span class=GramE>above mentioned</span> cases and if necessary,
+                        the Data Holder will inform the third parties, to whom your personal data have
+                        been communicated, about the possibility to exercise your rights, with the
+                        exception of specific cases (for example, when such fulfillment is impossible
+                        or involves the use of means that are manifestly disproportionate to the protected
+                        right).<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>10.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:
+FR'>
+                            Methods to <span class=SpellE>exercise</span> <span class=SpellE>your</span>
+                            <span class=SpellE>rights</span> <o:p></o:p>
+                        </span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>You can exercise your rights at any time:<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l8 level1 lfo14'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        by sending an email
+                        to the PEC email address: <span style='mso-spacerun:yes'> </span>
+                    </span><span lang=IT>
+                        <a href="mailto:rdicsrl@pec.it">
+                            <span lang=EN-US style='mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>rdicsrl@pec.it</span>
+                        </a>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'></span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l8 level1 lfo14'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        by sending an email
+                        to: <span style='mso-spacerun:yes'> </span>
+                    </span><span lang=IT>
+                        <a href="mailto:info@RDICsrl.com">
+                            <span lang=EN-US style='mso-ansi-language:EN-US;
+mso-bidi-font-weight:bold'>info@RDICsrl.com</span>
+                        </a>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'></span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l8 level1 lfo14'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        by sending a
+                        registered letter to the address of our registered office<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='text-indent:18.0pt;mso-list:l8 level1 lfo14'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+    by calling us at the
+    telephone <span class=GramE>number<span style='mso-spacerun:yes'>  </span>+</span>39 02 3652 3042<o:p></o:p>
+</span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span style='mso-bidi-font-family:Calibri;
+mso-bidi-theme-font:minor-latin;mso-ansi-language:EN-US'>
+                            <span style='mso-list:Ignore'>11.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span style='mso-ansi-language:EN-US'>
+                            Responsible
+                            and appointed Data Holder for the processing<o:p></o:p>
+                        </span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=IT style='mso-bidi-font-weight:bold'>
+                        The Data <span class=SpellE>Holder</span> <span class=SpellE>is</span> RD Industrial Clocks srl<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        The updated list of the persons in charge of the data processing is safeguarded
+                        in the headquarters of the Data Holder, at the address Piazzale Insurrezione, 6, 24047 Treviglio (BG), Italy.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>12.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:
+FR'>Cookies Policy<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        This website uses even cookies. Here below you can find more information
+                        about the cookies, how they are used in this website and which are the control procedures
+                        that we opted referring to the cookies. Browsing this website and after reading
+                        our banner, you will agree to the use of cookies, in accordance with this explanation.
+                        If you do not agree to the use of cookies, please disable them by following the
+                        below instructions.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span style='mso-ansi-language:EN-US'>What are Cookies?</span>
+                    </b><span style='mso-ansi-language:EN-US'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        Cookies are small text files that are saved on your electronic device
+                        (PC, tablet, etc.) while browsing a website, that provide certain kinds of information
+                        (&quot;cookies&quot;). Cookies are then sent back to the original website
+                        during each subsequent navigation, or are sent to a different website that <span class=GramE>is able to</span> recognize that specific cookie. Cookies act as a
+                        memory for the website, allowing the website to recognize your device every
+                        time that you visit it. Cookies also allow us to memorize your browsing
+                        preferences, by offering you a more functional website experience and making
+                        the content of the website more personalized.<br style='mso-special-character:
+line-break'>
+                        <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+                        <![endif]><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        The web browsers allow you to exercise some control over cookies through the
+                        browser settings. Most browsers allow you to block all the cookies or only the cookies
+                        of certain websites. Browsers can also help you to delete the cookies when you
+                        close your browser. <span class=GramE>However</span> you should keep in mind
+                        that this could mean that any opt-out or preferences, that you have set on the website,
+                        will be lost. Please look at the technical information relating to your browser
+                        for the instructions. If you choose to disable the cookies or if you refuse to
+                        accept the cookies, please be informed that some parts of the service might not
+                        work properly or might work slower.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span style='mso-ansi-language:EN-US'>Cookies Types<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>Cookies can be technical, analytical and profiling.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        This <span class=SpellE>webite</span> uses &quot;session&quot; technical
+                        and persistent cookies such as:<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraph style='text-indent:18.0pt;mso-list:l11 level1 lfo10'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span class=SpellE><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>ASP.NET_SessionId</span></span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>This website uses even third-party analytical cookies such as:<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='text-indent:18.0pt;mso-list:l3 level1 lfo9'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>Google Analytics<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>This website does not use the profiling cookies.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span style='mso-ansi-language:EN-US'>Purposes<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        Our technical cookies are used to make your browsing easier and to
+                        provide you with the website services. Analytical cookies are used to analyze
+                        and monitor the way in which the website is used (for <span class=SpellE>exemple</span>
+                        log-in and visited pages), for statistical purposes and to allow us to make operation
+                        and browsing improvements to the website.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        The data provision is discretionary. However please note that the cookies
+                        refusal/deactivation might prevent you from using certain website features.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span style='mso-ansi-language:EN-US'>How to control and delete cookies<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        You can authorize the use of cookies by continuing to browse the website,
+                        after reading the banner and clicking on «&nbsp;OK&nbsp;» for the acceptance.
+                        You can decide not to authorize the use of cookies or even disable them at any
+                        time by modifying your browser configuration and following the instructions
+                        contained in the cookie management policies.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>How to&nbsp;<span class=SpellE>disable&nbsp;</span>cookies<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        The data provision is discretionary. However please note that the cookies
+                        refusal/deactivation might prevent you from using certain website features.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l7 level1 lfo7'>
+                    <![if !supportLists]><span style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol;mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            ·<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span style='mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>In order to</span>
+                    </span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        disable the use of the
+                        analytical cookies and prevent Google <span class=SpellE>Analitycs</span> from
+                        collecting the browsing data, you can download the available component at the
+                        following link:
+                    </span><span lang=IT>
+                        <a href="https://tools.google.com/dlpage/gaoptout?hl=it">
+                            <span lang=EN-US
+                                  style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>https://tools.google.com/dlpage/gaoptout?hl=it</span>
+                        </a>
+                    </span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l7 level1 lfo7'>
+                    <![if !supportLists]><span style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol;mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            ·<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span style='mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>In order to</span>
+                    </span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        disable the use of
+                        cookies by Google please visit:
+                    </span><span lang=IT>
+                        <a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=it">
+                            <span lang=EN-US style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=it</span>
+                        </a>
+                    </span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l7 level1 lfo7'>
+                    <![if !supportLists]><span style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol;mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            ·<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        In order to disable the types of cookies used by this website directly
+                        from the <span class=GramE>browser&nbsp;:</span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l7 level2 lfo7'>
+                    <![if !supportLists]><span style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><b>
+                        <span style='mso-ansi-language:EN-US'>Chrome:</span>
+                    </b><span lang=IT>
+                        <a href="https://support.google.com/chrome/answer/95647?hl=it">
+                            <span lang=EN-US
+                                  style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>https://support.google.com/chrome/answer/95647?hl=it</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'></span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l7 level2 lfo7'>
+                    <![if !supportLists]><span lang=FR style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-ansi-language:FR;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><b>
+                        <span lang=FR style='mso-ansi-language:FR'>Internet<span class=GramE>&nbsp;Explorer:</span></span>
+                    </b><span lang=FR style='mso-ansi-language:FR;mso-bidi-font-weight:bold'></span><span lang=IT>
+                        <a href="https://support.microsoft.com/it-it/help/17442/windows-internet-explorer-delete-manage-cookies">
+                            <span lang=FR style='mso-ansi-language:FR;mso-bidi-font-weight:bold'>https://support.microsoft.com/it-it/help/17442/windows-internet-explorer-delete-manage-cookies</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:FR;mso-bidi-font-weight:bold'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l7 level2 lfo7'>
+                    <![if !supportLists]><span lang=IT style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><b>
+                        <span lang=IT>Opera:</span>
+                    </b><span lang=IT style='mso-bidi-font-weight:bold'> </span><span lang=IT>
+                        <a href="https://help.opera.com/en/opera36/be-safe-and-private/">
+                            <span style='mso-bidi-font-weight:bold'>https://help.opera.com/en/opera36/be-safe-and-private/</span>
+                        </a><span style='mso-bidi-font-weight:bold'><o:p></o:p></span>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l7 level2 lfo7'>
+                    <![if !supportLists]><span lang=IT style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><b>
+                        <span lang=IT>Safari:</span>
+                    </b><span lang=IT style='mso-bidi-font-weight:bold'> </span><span lang=IT>
+                        <a href="https://support.apple.com/it-it/HT201265">
+                            <span style='mso-bidi-font-weight:bold'>https://support.apple.com/it-it/HT201265</span>
+                        </a><span style='mso-bidi-font-weight:bold'><o:p></o:p></span>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='margin-left:72.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l7 level2 lfo7'>
+                    <![if !supportLists]><span style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        <span style='mso-list:Ignore'>
+                            o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;</span>
+                        </span>
+                    </span><![endif]><b>
+                        <span style='mso-ansi-language:EN-US'>Firefox:</span>
+                    </b><span style='mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'></span><span lang=IT>
+                        <a href="https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie">
+                            <span lang=EN-US style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'></span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        If you use a web browser that is not listed above, please refer to the online
+                        documentation or help of your browser for further information. Please be
+                        informed that the Data Holder is only a technical intermediary for the links displayed
+                        in this document and that he <span class=SpellE>can not</span> be held
+                        responsible for any change.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        You can find more information about cookies, including how you can
+                        understand what kind of cookies have been set on your device and how you can
+                        manage and delete them by clicking on the following link
+                    </span><span lang=IT>
+                        <a href="http://www.aboutcookies.org">
+                            <span lang=EN-US style='mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>www.aboutcookies.org</span>
+                        </a>
+                    </span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo6'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>13.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:
+FR'>Google Analytics<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        This website uses Google Analytics, a web analytics service provided by
+                        Google LLC., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
+                        (&quot;Google&quot;). Google Analytics uses &quot;cookies&quot; and text files
+                        that are stored on your computer <span class=GramE>in order to</span> help the
+                        website to analyze how users use the website. We use Google Analytics for the
+                        pages of the RD Industrial Clocks srl website. The information generated by cookies about the use
+                        of this website are usually transmitted to a Google server in the United States
+                        and stored over there.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        By activating the browsing with an anonymous IP on this website, your IP
+                        address will be truncated within the area of the member states of the European
+                        Union or of other parts referring to the agreement on the European Economic
+                        Area. Only in exceptional cases the whole IP address will be first transferred
+                        to a Google server in the United States and then truncated over there.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        Google will use this information on behalf of this website operator <span class=GramE>for the purpose of</span> evaluating the use of the website, making
+                        reports on the website activities for the website operators and providing them
+                        with other services relating to the website activities and to the use of the web.
+                        The IP address, that the browser transmits in the scope of Google Analytics,
+                        will not be associated to any other data held by Google.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        Sessions and campaigns stop after a certain <span class=GramE>
+                            period of
+                            time
+                        </span>. Sessions, as default, end after 30 minutes without activity and
+                        campaigns end after six months. Users' personal data will be deleted or made
+                        anonymous after 14 months. For further information on the terms of use and on Privacy,
+                        please visit
+                    </span><span lang=IT>
+                        <a href="https://www.google.com/analytics/terms/en.html">
+                            <span lang=EN-US
+                                  style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>https://www.google.com/analytics/terms/en.html</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'></span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>and</span><span lang=IT>
+                        <a href="https://policies.google.com/?hl=it">
+                            <span lang=EN-US
+                                  style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>https://policies.google.com/?hl=it</span>
+                        </a>
+                    </span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        You can refuse to save the cookies by selecting the appropriate settings
+                        on the browser. However please note that in this case you might not be able to
+                        use all the features of this website. You can also prevent the data collection
+                        generated by the cookies about the use of the website by Google and the Google
+                        data processing by downloading and installing the browser plug-in by clicking
+                        on following link
+                    </span><span lang=IT>
+                        <a href="https://tools.google.com/dlpage/gaoptout?hl=en">
+                            <span lang=EN-US
+                                  style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>https://tools.google.com/dlpage/gaoptout?hl=en</span>
+                        </a>
+                    </span><span style='mso-ansi-language:EN-US;mso-bidi-font-weight:bold'>
+                        .<span style='mso-spacerun:yes'></span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'>
+                        Please note that on this website Google Analytics has been extended by
+                        the code &quot;<span class=GramE>gat._</span><span class=SpellE>anonymizeIp</span>&quot;
+                        in order to guarantee the anonymous collection of the IP addresses (IP camouflage).<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span style='mso-ansi-language:EN-US;mso-bidi-font-weight:
+bold'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoNormal><b><span style='mso-ansi-language:EN-US'>Last update<o:p></o:p></span></b></p>
+
+                <p class=MsoNormal>
+                    <span class=SpellE>
+                        <span style='mso-ansi-language:EN-US;
+mso-bidi-font-weight:bold'>Pontirolo</span>
+                    </span><span style='mso-ansi-language:
+EN-US;mso-bidi-font-weight:bold'>
+                        Nuovo (<span class=SpellE>Bg</span>), 24<sup>th</sup>
+                        August 2023<o:p></o:p>
+                    </span>
+                </p>
+
+
+
+
+            </div>
+            }
+            @if (Session["Culture"] != null && ((string) Session["Culture"]).Equals("fr-FR"))
+            {
+            <div class="col-3-4">
+                <div style="clear: both;">
+                </div>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        RD Industrial Clocks srl, ayant son siège social à Piazzale Insurrezione, 6, 24047 Treviglio (BG) Italie, numéro de TVA IT04641490166,
+                        en tant que titulaire du traitement des données (ci-après dénommé &quot;Titulaire&quot;),
+                        vous informe que conformément au règlement de l'UE 2016/679 (&quot;GDPR&quot;)
+                        et au règlement national en vigueur concernant la protection des données à
+                        caractère personnel, vos données seront traitées selon les méthodes et pour les
+                        buts <span class=GramE>suivants:</span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                1.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Objet du traitement des données<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Le Titulaire
+                        traite les données personnelles d'identification et non sensibles (nom, prénom,
+                        adresse électronique, numéro de téléphone, adresse IP, etc. - ci-après
+                        dénommées &quot;Données&quot; ou &quot;Données Personnelles&quot;) que vous nous
+                        avez communiquées, lors de votre navigation sur le site web du Titulaire
+                    </span><span lang=IT>
+                        <a href="http://www.RD.it">
+                            <span lang=FR style='mso-ansi-language:
+FR'>www.RD.it</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:FR'>
+                        (ci-après
+                        dénommé &quot;Site web&quot;) et/ou en cas de votre demande de contact envoyée
+                        au Titulaire.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <b>
+                        <span lang=FR style='mso-ansi-language:FR'>
+                            Organisme
+                            responsable et détenteur des données
+                        </span>
+                    </b><span lang=FR style='mso-ansi-language:
+FR'><o:p></o:p></span>
+                </p>
+
+                <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+                       style='border-collapse:collapse;mso-yfti-tbllook:1184'>
+                    <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span class=SpellE><span lang=IT>Addresse</span></span><span lang=IT>:</span>
+                            </p>
+                        </td>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span lang=IT>
+                                    RD Industrial Clocks srl<br>
+                                    Piazzale Insurrezione, 6, 24047 Treviglio (BG), <span class=SpellE>Italy</span>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='mso-yfti-irow:1'>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal><span lang=IT>Information de contact:</span></p>
+                        </td>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span lang=FR style='mso-ansi-language:FR'>
+                                    Site <span class=GramE>web:</span>
+                                </span><span lang=IT>
+                                    <a href="https://www.RD.it/"
+                                       target="_blank"><span lang=FR style='mso-ansi-language:FR'>www.RD.it</span></a>
+                                </span><span lang=FR style='mso-ansi-language:FR'>
+                                    <br>
+                                    Téléphone: +39 02 3652 3042<br>
+                                    E-mail:
+                                </span><span lang=IT>
+                                    <a href="mailto:info@RDICsrl.com" target="_blank">
+                                        <span lang=FR style='mso-ansi-language:FR'>info@RDICsrl.com</span>
+                                    </a>
+                                </span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span lang=FR style='mso-ansi-language:FR'>
+                                    Comment
+                                    contacter le détenteur des <span class=GramE>données:</span><o:p></o:p>
+                                </span>
+                            </p>
+                        </td>
+                        <td style='padding:.75pt .75pt .75pt .75pt'>
+                            <p class=MsoNormal>
+                                <span lang=IT>
+                                    <a href="mailto:info@RDICsrl.com"
+                                       target="_blank">info@RDICsrl.com</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <a name="_Hlk536446364">
+                        <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                            <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                                <span style='mso-list:Ignore'>
+                                    2.<span style='font:7.0pt "Times New Roman"'>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                </span>
+                            </span>
+                        </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                            <span lang=FR style='mso-ansi-language:FR'>Finalité du traitement et base légale<o:p></o:p></span>
+                        </b>
+                    </a>
+                </p>
+
+                <span style='mso-bookmark:_Hlk536446364'></span>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Vos données
+                        seront traitées pour les finalités et les bases légales <span class=GramE>suivantes:</span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        A. sans votre
+                        consentement préalable pour le buts du service et en particulier <span class=GramE>pour:</span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>l'exécution</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>du contrat et/ou les engagements précontractuels:<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>gestion</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>et maintenance du site web;<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>gestion</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>de votre demande de contact.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>la</span>
+                    </span><span lang=FR style='mso-ansi-language:
+FR'>poursuite de l'intérêt légitime du Titulaire:<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>prévention</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>
+                        ou découverte d'activités frauduleuses ou d'une
+                        utilisation abusive du site web;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>la</span>
+                    </span><span lang=FR style='mso-ansi-language:
+FR'>
+                        pratique des droits du Titulaire, par exemple le droit de se défendre
+                        devant un tribunal.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>le</span>
+                    </span><span lang=FR style='mso-ansi-language:FR'>respect des obligations légales:<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='margin-left:72.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>le</span>
+                    </span><span lang=FR style='mso-ansi-language:
+FR'>
+                        respect des obligations établies par les lois, réglementations nationales
+                        et européennes, ordonnances et règles des autorités compétentes.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        B. uniquement
+                        avec votre accord préalable pour le marketing afin de vous informer des
+                        actualités et des offres commerciales du Titulaire par courrier électronique
+                        et/ou par lettre d'information.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                3.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Méthodes du traitement des données<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Le traitement de vos
+                        données est effectué électroniquement au moyen d'opérations de collecte,
+                        d'enregistrement, de mise à jour, d'organisation, de stockage, de consultation,
+                        de traitement, de modification, de sélection, d'extraction, de comparaison,
+                        d'utilisation, d'interconnexion, d'interruption, de suppression et de
+                        destruction de vos données.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                4.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Stockage des données<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Le Titulaire
+                        traite les données pour le temps nécessaire à atteindre les objectifs
+                        susmentionnés et, en tout état de cause, pas plus de 10 ans à compter de la
+                        collecte des données pour les buts du service et au plus tard de 2 ans à
+                        compter de la collecte des données pour les buts de marketing.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                5.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Fourniture des données<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        La fourniture de
+                        données pour les buts du service est obligatoire et tout refus de fournir
+                        telles données pourrait rendre impossible notre réponse à vos demandes. La
+                        fourniture de données pour les buts supplémentaires non contractuels est
+                        discrétionnaire et le fait de ne pas fournir telles données ne rend pas
+                        impossible le traitement de vos demandes. Toutefois, si vous décidez de ne pas
+                        nous fournir vos données, vous ne pourrez pas recevoir les actualités et les
+                        offres personnalisées.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                6.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Accès aux données<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Vos données
+                        peuvent être consultées pour les buts susmentionnés <span class=GramE>par:</span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>les</span>
+                    </span><span lang=FR style='mso-ansi-language:FR'>
+                        employés et/ou les collaborateurs du Titulaire, agissant en tant que
+                        responsables du traitement de données et/ou gestionnaires de processus internes
+                        et/ou administrateurs du système;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>des</span>
+                    </span><span lang=FR style='mso-ansi-language:FR'>
+    sociétés du groupe RD Industrial Clocks srl ou des tiers (par exemple fournisseurs de
+    services informatiques, fournisseurs, banques, bureaux de professionnels, etc.)
+    effectuant des activités de sous-traitance pour le compte du Titulaire, en tant
+    que détenteurs externes de données.<o:p></o:p>
+</span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle>
+                    <span lang=FR style='mso-ansi-language:
+FR'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                7.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Communication des données<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Vos données
+                        peuvent être communiquées, même sans votre consentement, pour les buts
+                        susmentionnés aux bureaux de gestion, aux forces de l'ordre ou aux
+                        magistratures qui les détiendront, à leur demande expresse, en tant que
+                        détenteurs indépendants des données, pour les fins institutionnelles et/ou pour
+                        les légales déroulements des enquêtes et des contrôles. Vos données peuvent
+                        également être communiquées à des tiers (par exemple, des partenaires, des
+                        professionnels indépendants, des agents, etc.), en tant que détenteurs
+                        indépendants des données, pour la réalisation d'activités instrumentales pour
+                        les buts susmentionnés.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                8.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Traitement des données<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Vos données ne
+                        seront ni communiquées ni transférées à des pays extra UE.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>
+                                9.<span style='font:7.0pt "Times New Roman"'>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Droits de l’intéressé<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Le Titulaire vous
+                        informe que, en tant que partie intéressée, si les limitations prévues par la
+                        loi ne s'appliquent pas, vous avez le droit <span class=GramE>de:</span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>obtenir</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>
+                        la confirmation de l'existence ou non de vos
+                        données personnelles, même si elles ne sont pas encore enregistrées, et que ces
+                        données vous seront communiquées sous une forme intelligible;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span lang=FR style='mso-ansi-language:FR'>
+                        obtenir
+                        les informations et, le cas échéant, la copie: a) de l'origine et de la
+                        catégorie des données personnelles; b) de la logique appliquée en cas de
+                        traitement effectué à l'aide d'instruments électroniques; c) des finalités et
+                        des méthodes du traitement; d) des détails d'identification du Titulaire et des
+                        gestionnaires; e) des sujets ou des catégories de sujets auxquels les données à
+                        caractère personnel peuvent être communiquées ou qui peuvent les reconnaître,
+                        en particulier s'il s'agit de destinataires de pays tiers ou d'organisations
+                        internationales; e) dans la mesure du possible, de la période de stockage des
+                        données ou des critères utilisés pour déterminer cette période; f) de l'existence
+                        d'un processus de décision automatisé, incluant le profilage, et dans ce cas,
+                        des logiques utilisées, de l'importance et des conséquences attendues par la
+                        personne intéressée; g) de l'existence de garanties suffisantes en cas de
+                        transfert des données vers un pays extra UE ou à une organisation
+                        internationale;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>obtenir</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>
+                        , sans retard, la mise à jour et la correction des
+                        données inexactes ou, le cas échéant, l’intégration des données incomplètes;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span lang=FR style='mso-ansi-language:FR'>
+                        obtenir
+                        l'annulation, la transformation ou le blocage des données de manière anonyme:
+                        a) traitées illégalement; b) inutiles pour les finalités pour lesquelles elles
+                        ont été collectées ou ultérieurement traitées; c) en cas de retrait du
+                        consentement sur lequel est basé le traitement et en l'absence de toute autre
+                        base légale, d) en cas de violation du traitement et d'absence de raison
+                        impérieuse légitime de poursuivre le traitement; e) en cas de réalisation d'une
+                        obligation légale; f) dans le cas des données relatives à des mineurs. Le Titulaire
+                        peut refuser la suppression des données seulement dans les cas suivants: a)
+                        l'exercice du droit à la liberté d'expression et à la liberté de l'information;
+                        b) l'accomplissement d'une obligation légale, l'exécution d'une tâche exécutée
+                        dans l'intérêt général ou l'exercice de la puissance publique; c) les raisons
+                        de l'intérêt de la santé publique; d) le dépôt dans l'intérêt public, les
+                        recherches scientifiques ou historiques ou pour des fins statistiques; e)
+                        l'exercice d'un droit devant un tribunal;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>obtenir</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>
+                        la limitation de traitement en cas de: a)
+                        contestation de l'exactitude des données personnelles; b) traitement illégal du
+                        Titulaire afin d'empêcher son annulation; c) exercice de votre droit devant le
+                        tribunal; d) vérification de la prédominance éventuelle des motifs légitimes du
+                        Titulaire par rapport à ceux de la partie intéressée;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>recevoir</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>
+                        , si le traitement est effectué de manière
+                        automatique, sans entrave et dans un format structuré, commun et lisible, vos
+                        données personnelles pour les transmettre à un autre titulaire ou - si cela est
+                        techniquement possible - pour obtenir la transmission directe par le Titulaire
+                        à un autre titulaire;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span lang=FR style='mso-ansi-language:FR'>
+                        formuler
+                        une objection, en tout ou en partie: a) pour des raisons légitimes liées à
+                        votre situation, en particulier au traitement de vos données à caractère
+                        personnel; b) au traitement de vos données personnelles pour le but d'envoyer
+                        des publicités ou pour la vente directe ou pour des études de marché ou des
+                        communications commerciales, au moyen de systèmes d'appels automatisés sans l’intervention
+                        d'un opérateur, par courrier électronique et/ou par le marketing traditionnel effectué
+                        par téléphone et/ou par courrier;<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>adresser</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>
+                        une réclamation à l'Autorité de Protection des
+                        données personnelles.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Dans les cas
+                        susmentionnés et si nécessaire, le Titulaire informera les tiers, destinataires
+                        de vos données personnelles, de la possibilité d'exercer vos droits, à
+                        l'exception de cas particuliers (par exemple, dans le cas où cela est
+                        impossible ou implique l’utilisation de moyens manifestement disproportionnés
+                        par rapport au droit protégé).<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>10.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:
+FR'>Méthodes pour exercer vos droits<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Vous pouvez
+                        exercer vos droits à tout <span class=GramE>moment:</span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>en</span>
+                    </span><span lang=FR style='mso-ansi-language:
+FR'>
+                        envoyant un courrier électronique à l'adresse électronique PEC: <span style='mso-spacerun:yes'></span>
+                    </span><span lang=IT>
+                        <a href="mailto:rdicsrl@pec.it"><span lang=FR style='mso-ansi-language:FR'>rdicsrl@pec.it</span></a>
+                    </span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>en</span>
+                    </span><span lang=FR style='mso-ansi-language:
+FR'>envoyant un email à l’adresse:<span style='mso-spacerun:yes'> </span></span><span lang=IT>
+                        <a href="mailto:info@RDICsrl.com">
+                            <span lang=FR style='mso-ansi-language:
+FR'>info@RDICsrl.com</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:
+FR'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>en</span>
+                    </span><span lang=FR style='mso-ansi-language:
+FR'>envoyant une lettre recommandée à l'adresse de notre siège social<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>en</span>
+                    </span><span lang=FR style='mso-ansi-language:
+FR'>nous appelant au numéro de téléphone +39 02 3652 3042<o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle>
+                    <span lang=FR style='mso-ansi-language:
+FR'><o:p>&nbsp;</o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>11.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:
+FR'>Responsable des données pour le traitement<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Le détenteur des
+                        données est RD Industrial Clocks srl<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        La liste mise à
+                        jour des responsables du traitement des données est conservée au siège du
+                        détenteur des données, à l'adresse <span class=GramE>suivante:</span>
+                        Piazzale Insurrezione, 6, 24047 Treviglio (BG), Italie.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>12.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:
+FR'>Politique concernant les Cookies<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Ce site web utilise
+                        même des cookies. Vous trouverez ci-dessous plus d'informations sur les
+                        cookies, sur leur utilisation dans ce site et sur les procédures de contrôle
+                        que nous avons choisies en nous référant aux cookies. Naviguant sur ce site
+                        web, après avoir lu notre bandeau, vous acceptez l'utilisation de cookies
+                        conformément à cette explication. Si vous n'acceptez pas l'utilisation de
+                        cookies, veuillez s.v.p. les désactiver, en suivant les instructions
+                        ci-dessous.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>Qu’est-ce que sont les<span class=GramE>&nbsp;Cookies?</span><o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Les cookies sont
+                        de petits fichiers de texte enregistrés sur votre appareil électronique (PC,
+                        tablette, etc.) lors de la navigation sur un site web. Ils fournissent certains
+                        types d'informations (&quot;cookies&quot;). Les cookies sont ensuite renvoyés
+                        au site web d'origine lors de chaque navigation supplémentaire, ou sont envoyés
+                        à un site web différent, qui est capable de reconnaître ce cookie spécifique.
+                        Les cookies agissent comme une mémoire pour le site web, ce qui permet au site web
+                        de reconnaître votre appareil chaque fois que vous le visitez. Les cookies nous
+                        permettent également de mémoriser vos préférences de navigation, en vous
+                        offrant une expérience de site web plus fonctionnelle, rendant le contenu du
+                        site plus personnalisé.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Les navigateurs web
+                        vous permettent d’exercer un certain contrôle sur les cookies configurant les
+                        paramètres du navigateur. La plupart des navigateurs vous permettent de bloquer
+                        tous les cookies ou uniquement les cookies de certains sites web. Les
+                        navigateurs peuvent également vous aider à supprimer les cookies, lorsque vous
+                        fermez votre navigateur. Cependant, prenez-vous s.v.p. bonne note que cela
+                        pourrait signifier que tout désinscription ou préférence, que vous avez définie
+                        sur le site web, sera perdue. Donc veuillez s.v.p. consulter les informations
+                        techniques relatives à votre navigateur concernant les instructions. Si vous
+                        choisissez de désactiver les cookies ou si vous refusez de les accepter,
+                        veuillez s.v.p. bien noter que certaines parties du service risquent de ne pas
+                        fonctionner correctement ou d’être plus lentes.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>Types de Cookies<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Les cookies
+                        peuvent être techniques, analytiques et de profilage.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Ce site web
+                        utilise des cookies techniques et persistants de &quot;session&quot; tels <span class=GramE>que:</span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraph style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=SpellE>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>ASP.NET_SessionId</span>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Ce site web
+                        utilise même des cookies d'analyse de tiers, tels <span class=GramE>que:</span><o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraph style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span lang=FR style='mso-ansi-language:FR'>
+                        Google
+                        Analytics<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Ce site web
+                        n'utilise pas les cookies pour le profilage.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>Buts<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Nos cookies
+                        techniques sont utilisés pour faciliter votre navigation et vous fournir les
+                        services du site. Les cookies analytiques sont utilisés pour analyser et
+                        contrôler la manière, dont le site web est utilisé (par exemple, les <span class=SpellE>log-in</span> et les pages visitées), pour des buts statistiques
+                        et pour nous permettre d'apporter des améliorations au fonctionnement et à la
+                        navigation du site.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        La fourniture de
+                        données est discrétionnaire. Toutefois, veuillez s.v.p. bien noter que le
+                        refus/la désactivation des cookies peut vous empêcher d'utiliser certaines
+                        fonctionnalités du site web.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>Comment contrôler et supprimer les cookies<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Vous pouvez
+                        autoriser l'utilisation de cookies poursuivant votre navigation sur le site,
+                        après avoir lu le bandeau, cliquant sur<span class=GramE> «OK</span>» pour
+                        l'acceptation. Vous pouvez m
+                    </span><span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>ê</span><span lang=FR style='mso-ansi-language:FR'>
+                        me décider de ne pas autoriser
+                        l'utilisation des cookies ou quand même de les désactiver à tout moment,
+                        modifiant la configuration de votre navigateur et suivant les instructions
+                        contenues dans les règles de gestion des cookies.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>Comment désactiver les cookies<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        La fourniture de
+                        données est discrétionnaire. Toutefois, veuillez s.v.p. bien noter que le
+                        refus/la désactivation des cookies peut vous empêcher d'utiliser certaines
+                        fonctionnalités du site web.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpFirst style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span lang=FR style='mso-ansi-language:FR'>
+                        Pour
+                        désactiver l'utilisation des cookies d'analyse et empêcher Google <span class=SpellE>Analitycs</span> de collecter les données de navigation, vous
+                        pouvez télécharger le composant disponible à l'adresse <span class=GramE>suivante:</span>
+                    </span><span lang=IT>
+                        <a href="https://tools.google.com/dlpage/gaoptout?hl=it">
+                            <span lang=FR style='mso-ansi-language:FR'>https://tools.google.com/dlpage/gaoptout?hl=it</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:FR'><b style='mso-bidi-font-weight:normal'><o:p></o:p></b></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span lang=FR style='mso-ansi-language:FR'>
+                        Pour
+                        désactiver l'utilisation des cookies par Google, consultez s.v.p. la page
+                    </span><span lang=IT>
+                        <a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=it">
+                            <span lang=FR style='mso-ansi-language:FR'>https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&amp;hl=it</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:FR'>.<b style='mso-bidi-font-weight:normal'><o:p></o:p></b></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='text-indent:18.0pt;mso-list:l2 level1 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            •<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span lang=FR style='mso-ansi-language:FR'>
+                        Pour
+                        désactiver les types de cookies utilisés par ce site web directement par le <span class=GramE>navigateur:</span><b style='mso-bidi-font-weight:normal'><o:p></o:p></b>
+                    </span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><span class=GramE>
+                        <b style='mso-bidi-font-weight:
+normal'><span lang=FR style='mso-ansi-language:FR'>Chrome:</span></b>
+                    </span><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'></span>
+                    </b><span lang=IT>
+                        <a href="https://support.google.com/chrome/answer/95647?hl=it">
+                            <span lang=FR style='mso-ansi-language:FR'>https://support.google.com/chrome/answer/95647?hl=it</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span lang=FR style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+FR'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:FR'>Internet<span class=GramE>&nbsp;Explorer:</span></span>
+                    </b><span lang=FR style='mso-ansi-language:FR'></span><span lang=IT>
+                        <a href="https://support.microsoft.com/it-it/help/17442/windows-internet-explorer-delete-manage-cookies">
+                            <span lang=FR style='mso-ansi-language:FR'>https://support.microsoft.com/it-it/help/17442/windows-internet-explorer-delete-manage-cookies</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:FR'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span lang=IT style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=IT>Opera:</span>
+                    </b><span lang=IT>
+                        <a href="https://help.opera.com/en/opera36/be-safe-and-private/">https://help.opera.com/en/opera36/be-safe-and-private/</a>
+                    </span><span lang=FR></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+auto;text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span lang=IT style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=IT>Safari:</span>
+                    </b><span lang=IT>
+                        <a href="https://support.apple.com/it-it/HT201265">https://support.apple.com/it-it/HT201265</a>
+                    </span><span lang=FR></span>
+                </p>
+
+                <p class=MsoListParagraphCxSpLast style='margin-left:72.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l2 level2 lfo3'>
+                    <![if !supportLists]><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;mso-ansi-language:
+EN-US'>
+                        <span style='mso-list:Ignore'>
+                            -<span style='font:7.0pt "Times New Roman"'>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                        </span>
+                    </span><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span style='mso-ansi-language:EN-US'>Firefox:</span>
+                    </b><span style='mso-ansi-language:
+EN-US'></span><span lang=IT>
+                        <a href="https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie">
+                            <span lang=EN-US style='mso-ansi-language:EN-US'>https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:EN-US'></span><span style='mso-ansi-language:
+EN-US'><o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Si vous utilisez
+                        un navigateur web non répertorié ci-dessus, reportez-vous s.v.p. à la
+                        documentation en ligne ou à l'aide de votre navigateur pour plusieurs
+                        d'informations. Veuillez s.v.p. bien noter que le Titulaire n'est qu'un
+                        intermédiaire technique pour les liens affichés dans ce document et qu'il ne
+                        peut pas être tenu responsable de tout changement.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Vous pouvez bien trouver
+                        plus d'informations sur les cookies, y compris comment vous pouvez comprendre
+                        le type de cookies qui ont été configurés sur votre appareil et comment vous
+                        pouvez les gérer et les supprimer, cliquant sur le lien suivant
+                    </span><span lang=IT>
+                        <a href="http://www.aboutcookies.org">
+                            <span lang=FR style='mso-ansi-language:
+FR'>www.aboutcookies.org</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:
+FR'>.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoListParagraph style='margin-left:18.0pt;mso-add-space:auto;
+text-indent:-18.0pt;mso-list:l0 level1 lfo1'>
+                    <![if !supportLists]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-bidi-font-family:
+Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:FR'>
+                            <span style='mso-list:Ignore'>13.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span>
+                        </span>
+                    </b><![endif]><b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR style='mso-ansi-language:
+FR'>Google Analytics<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Ce site web utilise
+                        Google Analytics, un service d'analyse de site web fourni par Google LLC., 1600
+                        <span class=SpellE>Amphitheatre</span> Parkway, <span class=SpellE>Mountain</span>
+                        <span class=SpellE>View</span>, CA 94043, USA (&quot;Google&quot;). Google
+                        Analytics utilise des &quot;cookies&quot; et des fichiers de texte stockés sur
+                        votre ordinateur afin d'aider le site web à analyser l'utilisation du site par
+                        les utilisateurs. Nous utilisons Google Analytics pour les pages du site web
+                        RD. Les informations générées par les cookies sur l'utilisation de ce site web
+                        sont généralement transmises à un serveur de Google aux États-Unis et stockées
+                        là-bas.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Activant la
+                        navigation avec une adresse IP anonyme sur ce site web, votre adresse IP sera
+                        tronquée dans la zone des États membres de l'Union Européenne ou d'autres
+                        parties se rapportant à l'accord sur l'Espace
+                    </span><span lang=FR
+                                 style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;mso-ansi-language:
+FR'>É</span><span lang=FR style='mso-ansi-language:FR'>
+                        conomique Européen. Seulement
+                        dans des cas exceptionnels, l’entière adresse IP sera d'abord transférée sur un
+                        serveur de Google aux États-Unis et après tronquée.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Google utilisera
+                        ces informations pour le compte de l'opérateur de ce site web afin d'évaluer
+                        l'utilisation du site web, d'établir des rapports sur les activités du site web
+                        pour les opérateurs du site web et de leur fournir d'autres services liés aux
+                        activités du site web et à l'utilisation du site web. L'adresse IP transmise
+                        par le navigateur dans le cadre de Google Analytics ne sera associée à aucune
+                        autre donnée détenue par Google.<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Les sessions et
+                        les campagnes s'arrêtent après un certain temps. Les sessions, par défaut, se
+                        terminent après 30 minutes sans activité et les campagnes se terminent après six
+                        mois. Les données personnelles des utilisateurs seront supprimées ou rendues
+                        anonymes après 14 mois. Pour plus d'informations sur les conditions
+                        d'utilisation et sur la confidentialité, consultez s.v.p. les sites
+                    </span><span lang=IT>
+                        <a href="https://www.google.com/analytics/terms/en.html">
+                            <span lang=FR
+                                  style='mso-ansi-language:FR'>https://www.google.com/analytics/terms/en.html</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:FR'>
+                        et <span style='mso-spacerun:yes'></span>
+                    </span><span lang=IT>
+                        <a href="https://policies.google.com/?hl=it">
+                            <span lang=FR style='mso-ansi-language:
+FR'>https://policies.google.com/?hl=it</span>
+                        </a>
+                    </span><span lang=FR
+                                 style='mso-ansi-language:FR'>.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Vous pouvez
+                        refuser d'enregistrer les cookies sélectionnant les paramètres appropriés dans
+                        le navigateur. Toutefois, veuillez s.v.p. bien noter que dans ce cas, vous ne
+                        pourrez pas peut-être utiliser toutes les fonctionnalités de ce site web. Vous
+                        pouvez également empêcher la collecte de données générées par les cookies sur
+                        l'utilisation du site par Google et le traitement de ces données par Google en
+                        téléchargeant et en installant le plug-in du navigateur cliquant sur le lien
+                        suivant
+                    </span><span lang=IT>
+                        <a href="https://tools.google.com/dlpage/gaoptout?hl=en">
+                            <span lang=FR
+                                  style='mso-ansi-language:FR'>https://tools.google.com/dlpage/gaoptout?hl=en</span>
+                        </a>
+                    </span><span lang=FR style='mso-ansi-language:FR'>.<o:p></o:p></span>
+                </p>
+
+                <p class=MsoNormal>
+                    <span lang=FR style='mso-ansi-language:FR'>
+                        Veuillez s.v.p.
+                        bien noter que sur ce site web Google Analytics a été complété du code &quot;<span class=SpellE><span class=GramE>gat</span></span><span class=GramE>._</span><span class=SpellE>anonymizeIp</span>&quot; afin de garantir la collecte anonyme des
+                        adresses IP (camouflage IP).<o:p></o:p>
+                    </span>
+                </p>
+
+                <p class=MsoNormal><span lang=FR style='mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+                <p class=MsoNormal>
+                    <b style='mso-bidi-font-weight:normal'>
+                        <span lang=FR
+                              style='mso-ansi-language:FR'>Dernier ajournement<o:p></o:p></span>
+                    </b>
+                </p>
+
+                <p class=MsoNormal>
+                    <span class=SpellE>
+                        <span lang=FR style='mso-ansi-language:FR'>Pontirolo</span>
+                    </span><span lang=FR style='mso-ansi-language:FR'>
+                        Nuovo (<span class=SpellE>Bg</span>), le 24 août 2023<o:p></o:p>
+                    </span>
+                </p>
+
+
+            </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+

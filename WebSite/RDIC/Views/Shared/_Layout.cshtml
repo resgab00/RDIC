@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>RDICsrl</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="~/Content/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/main.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/content.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/content_responsive.css" />
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/plugins/jcarousel.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/verimail.jquery.min.js"></script>
+
+    <!-- Google Tag Manager
+
+    <script>
+    (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-5J2JXRW');</script>
+
+     End Google Tag Manager -->
+
+    @if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+    @if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        <script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
+    }
+
+    @if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+    {
+        <script src='https://www.google.com/recaptcha/api.js?hl=fr'></script>
+    }
+
+    @if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("it-IT"))
+    {
+        <script src='https://www.google.com/recaptcha/api.js?hl=it'></script>
+    }
+</head>
+<body>
+    @{
+        string ServiziOfferti = "Servizi Offerti";
+        string News = "News";
+        string Contatti = "Contatti";
+        string Azienda = "Azienda";
+        string NuoviProdotti = "Nuovi prodotti";
+        string Catalogo = "Catalogo";
+
+        string ClassIt = "active";
+        string ClassFr = "inactive";
+        string ClassEn = "inactive";
+
+        string CookieMessage = "ll nostro sito utilizza i cookie. Continuando la navigazione autorizzi il loro utilizzo.";
+        string CookieDismiss = "Accetta";
+        string CookieLink = "Ulteriori informazioni";
+        string InfoLegali = "Copyright";
+        string Privacy = "Privacy e cookie policy";
+        string Page = "PAGINE";
+        if (Session["Culture"] == null)
+        {
+            string TmpCulture = "en-US";
+            if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+            {
+                TmpCulture = "it-IT";
+            }
+            if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+            {
+                TmpCulture = "fr-FR";
+            }
+            Session.Add("Culture", TmpCulture);
+        }
+
+        if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+        {
+            Azienda = "Company";
+            NuoviProdotti = "Product innovation";
+            Catalogo = "Product catalogue";
+            ServiziOfferti = "Services";
+            News = "News";
+            Contatti = "Contact us";
+
+            ClassIt = "inactive";
+            ClassFr = "inactive";
+            ClassEn = "active";
+
+            CookieMessage = "Our website uses cookies. By continuing to use it, you agree to their use.";
+            CookieDismiss = "Agree";
+            CookieLink = "Further information";
+            InfoLegali = "Legal notice";
+            Privacy = "Privacy policy";
+            Page = "PAGES";
+        }
+
+        if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+        {
+            Azienda = "Entreprise";
+            NuoviProdotti = "Nouveautés produits";
+            Catalogo = "Catalogue produits";
+            ServiziOfferti = "Services";
+            News = "News";
+            Contatti = "Contacts";
+
+
+            ClassIt = "inactive";
+            ClassFr = "active";
+            ClassEn = "inactive";
+
+            CookieMessage = "Notre site utilise des cookies. En continuant sur ce site, vous acceptez leur utilisation.";
+            CookieDismiss = "Je suis d'accord";
+            CookieLink = "Informations complémentaires";
+            InfoLegali = "Droits d'auteur";
+            Privacy = "Protection des données";
+            Page = "PAGES";
+        }
+
+        List<RDIC.Models.Categoria> Categorias = RDIC.Controls.Data.LoadCategorias();
+        List<RDIC.Models.Prodotto> prds = RDIC.Controls.Data.LoadProdottos();
+
+        foreach (RDIC.Models.Categoria item in Categorias)
+        {
+            RDIC.Models.Prodotto prod = prds.Where(prd => prd.IdCategoria == item.Id).Where(prd => prd.Visible).FirstOrDefault();
+            if (prod != null && prod.Immagini.Count > 0)
+            {
+                item.Image = prod.Immagini[0].FileName;
+                item.Visible = true;
+            }
+            else if (prod == null)
+            {
+                item.Visible = false;
+            }
+
+            foreach (RDIC.Models.SubCategoria sub in item.SubCategorias)
+            {
+                prod = prds.Where(prd => prd.IdCategoria == item.Id).Where(prd => prd.IdSubCategoria == sub.Id).Where(prd => prd.Visible).FirstOrDefault();
+                if (prod == null)
+                {
+                    sub.Visible = false;
+                }
+                else
+                {
+                    sub.Visible = true;
+                }
+            }
+        }
+        string menuAziendaActive = "";
+        string menuNuoviProdottiActive = "";
+        string menuCatalogoActive = "";
+        string menuServiziOffertiActive = "";
+        string menuNewsActive = "";
+        string menuContattiActive = "";
+
+
+        if (Session["Menu"].ToString() == "AZIENDA")
+        {
+            menuAziendaActive = "active";
+        }
+        if (Session["Menu"].ToString() == "NUOVIPRODOTTI")
+        {
+            menuNuoviProdottiActive = "active";
+        }
+        if (Session["Menu"].ToString() == "CATALOGO")
+        {
+            menuCatalogoActive = "active";
+        }
+
+        if (Session["Menu"].ToString() == "SERVIZIOFFERTI")
+        {
+            menuServiziOffertiActive = "active";
+        }
+        if (Session["Menu"].ToString() == "NEWS")
+        {
+            menuNewsActive = "active";
+        }
+        if (Session["Menu"].ToString() == "CONTATTI")
+        {
+            menuContattiActive = "active";
+        }
+
+    }
+    <!-- Google Tag Manager (noscript)
+
+    <noscript>
+        <iframe src=https://www.googletagmanager.com/ns.html?id=GTM-5J2JXRW
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    End Google Tag Manager (noscript) -->
+    <div class="container">
+        <div id="head" class="row">
+            <i class="fa fa-bars" id="show_mobile"></i>
+            <div id="logo" class="col-4" style="padding:5px 0 0 0;max-width:25%;flex:0 0 25%;z-index:2">
+                <a href="~/Home/Index"><img src="~/img/Logo_rd.jpg" alt="RDIC"></a>
+            </div>
+            <div id="menu" class="col-8" style="padding:0px;max-width:75%;flex:0 0 75%;z-index:3">
+                <ul>
+                    <li class="@menuNuoviProdottiActive"><a href="~/Home/NuoviProdotti" onclick="setItemMenuActive($(this).parent());">@NuoviProdotti</a></li>
+                    <li class="dropdown-container dropdown @menuCatalogoActive">
+                        <a href="#">@Catalogo <i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu">
+                            <ul>
+                                @foreach (RDIC.Models.Categoria cat in Categorias.Where(cat => cat.Visible).OrderBy(ord => ord.Order).ToList())
+                                {
+                                    string Description = cat.DescriptionIT;
+                                    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+                                    {
+                                        Description = cat.DescriptionEN;
+                                    }
+                                    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+                                    {
+                                        Description = cat.DescriptionFR;
+                                    }
+
+                                    <li>
+                                        <span>
+
+                                            <a class="dropdown-item" href="~/Home/Catalogo?idCategoria=@cat.Id">@Description</a>
+                                            <i class="fa fa-angle-right"></i>
+                                        </span>
+                                        <div class="subdropdown-menu">
+                                            @foreach (RDIC.Models.SubCategoria sub in cat.SubCategorias.Where(sub => sub.Visible).OrderBy(ord => ord.Order).ToList())
+                                            {
+                                                string SubDescription = sub.DescriptionIT;
+                                                if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+                                                {
+                                                    SubDescription = sub.DescriptionEN;
+                                                }
+                                                if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
+                                                {
+                                                    SubDescription = sub.DescriptionFR;
+                                                }
+
+                                                <a class="dropdown-item" href="~/Home/CatalogoProdotto?idCategoria=@cat.Id&idSubCategoria=@sub.Id">@SubDescription</a>
+                                            }
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="@menuAziendaActive"><a href="~/Home/Azienda" onclick="setItemMenuActive($(this).parent());">@Azienda</a></li>
+                    <li class="@menuServiziOffertiActive"><a href="~/Home/ServiziOfferti">@ServiziOfferti</a></li>
+                    <li class="@menuNewsActive"><a href="~/Home/News">@News</a></li>
+                    <li class="@menuContattiActive"><a href="~/Home/Contatti">@Contatti</a></li>
+                </ul>
+            </div>
+
+            @if (ClassIt == "active")
+            {
+                <div id="language">
+                    <ul>
+                        <li class="@ClassIt">
+                            <img src="~/img/it.jpg" />
+                        </li>
+                        <li class="@ClassEn">
+                            <a href="~/Home/ChangeCulture?Culture=en-US"><img src="~/img/en.jpg"></a>
+                        </li>
+                    </ul>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </div>
+            }
+            else if (ClassEn == "active")
+            {
+                <div id="language">
+                    <ul>
+                        <li class="@ClassEn">
+                            <img src="~/img/en.jpg" />
+                        </li>
+                        <li class="@ClassIt">
+                            <a href="~/Home/ChangeCulture?Culture=it-IT"><img src="~/img/it.jpg"></a>
+                        </li>
+                    </ul>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </div>
+            }
+            @*else if (ClassFr == "active")
+            {
+                <div id="language">
+                    <ul>
+                        <li class="@ClassFr">
+                            <img src="~/img/fr.jpg" />
+                        </li>
+                        <li class="@ClassIt">
+                            <a href="~/Home/ChangeCulture?Culture=it-IT"><img src="~/img/it.jpg"></a>
+                        </li>
+                        <li class="@ClassEn">
+                            <a href="~/Home/ChangeCulture?Culture=en-US"><img src="~/img/en.jpg"></a>
+                        </li>
+                    </ul>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </div>
+            }*@
+
+        </div>
+    </div>
+    @RenderSection("Content", required: true)
+    <div class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="~/img/logo_rd.png" alt="RDIC" width="200">
+                </div>
+                <div class="col">
+                    @*todo tradurre*@
+                    <span class="title">INFO</span>
+                    RD Industrial Clocks srl<br>
+                    Piazzale Insurrezione, 6<br>24047 Treviglio (BG) - Italia<br>
+                    P.I. (VAT) 04641490166<br>
+                    Tel. +39 02 3652 3042 <br>
+                    E-mail info@RDICsrl.com
+                </div>
+                <div class="col">
+                    @*todo tradurre*@
+                    <span class="title">@Page</span>
+                    <ul>
+                        <li><a href="~/Home/Catalogo">- @Catalogo</a></li>
+                        <li><a href="~/Home/Contatti">- @Contatti</a></li>
+                        @*todo tradurre*@
+                        <li><a href="~/Home/InformazioniLegali">- @InfoLegali</a></li>
+                        @*todo tradurre*@
+                        <li><a href="~/Home/PrivacyCookie">- @Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    @*<a href="https://www.facebook.com/termaf/" target="_blank"><img src="~/img/facebook.png" alt="termaf facebook"></a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/termaf.italy/?r=nametag" target="_blank"><img src="~/img/instragram.png" alt="termaf instagram"></a>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#fbcf18",
+                        "text": "#000000"
+                    },
+                    "button": {
+                        "background": "#fcdd5e",
+                        "border": "#000000",
+                        "text": "#000000"
+                    },
+                    "highlight": {
+                        "background": "#ffff01",
+                        "border": "#000000",
+                        "text": "#000000"
+                    },
+                },
+                "content": {
+                    "message": "@CookieMessage",
+                    "dismiss": "@CookieDismiss",
+                    "link": "@CookieLink",
+                    "href": "@Url.Action("PrivacyCookie", "Home")",
+                    "target": "_self"
+                }
+            })
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150316904-1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-150316904-1');
+    </script>
+    END Global site tag-->
+</body>
+</html>

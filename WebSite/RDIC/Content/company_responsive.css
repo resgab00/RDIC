@@ -1,0 +1,39 @@
+@media screen and (max-width:800px){
+    .bkg_company{
+        height: 350px;
+        background-attachment: scroll;
+        background-position:center top; 
+    }
+    
+    .description{
+        flex: none;
+        max-width: 100%;
+    }
+    
+    .box{
+        flex: none;
+        max-width: 100%;
+    }
+    
+    .history{margin-right: 0!important;}
+    .award{
+        margin-left: 0!important;
+        margin-top: 40px;
+    }
+    
+}
+
+@media screen and (max-width:600px){
+    .bkg_company{
+        height: 250px;
+    }
+    .award span{
+        display: block;
+        width: 100%;
+    }
+    .award .text{
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0;
+    }
+}

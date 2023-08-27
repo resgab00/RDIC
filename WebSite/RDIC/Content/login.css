@@ -1,0 +1,22 @@
+body{background-color: #eee;}
+
+.login{
+    border: 1px solid #ddd;
+    margin: 10% auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.login .img img{width: 100%;}
+
+.form{
+    margin-top: 20px;
+}
+.form button{cursor: pointer}
+
+@media screen and (max-width:800px){
+    .login{
+        flex: none;
+        max-width: 100%;
+    }
+}

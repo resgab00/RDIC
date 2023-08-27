@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ArrayOfCategoria xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Categoria>
+    <Id>1</Id>
+    <DescriptionIT>Orologi</DescriptionIT>
+    <DescriptionEN>Clocks</DescriptionEN>
+    <DescriptionFR />
+    <Order>0</Order>
+    <SubCategorias>
+      <SubCategoria>
+        <Id>1</Id>
+        <DescriptionIT>Meccanico</DescriptionIT>
+        <DescriptionEN>Mechanical</DescriptionEN>
+        <DescriptionFR />
+        <Order>0</Order>
+        <Visible>false</Visible>
+      </SubCategoria>
+    </SubCategorias>
+    <Visible>false</Visible>
+  </Categoria>
+</ArrayOfCategoria>

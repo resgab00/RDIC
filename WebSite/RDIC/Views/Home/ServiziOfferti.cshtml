@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Servizi Offerti";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var context = new HttpContextWrapper(HttpContext.Current);
+}
+
+@{
+
+    string Testo01 = "Servizi offerti";
+    string Testo02 = "";
+    string Testo03 = @"<ul>
+        <li>Taratura e riparazione per tutti i nostri prodotti con pezzi di ricambio originali</li>
+        <li>Progettazione e realizzazione di prototipi per le più svariate applicazioni</li>
+        <li>Produzione industriale di meccanismi di precisione</li>
+        <li>Produzione a disegno di qualsiasi tipo di pezzo di precisione</li>
+        <li>Fornitura di ricambi per registratori a carta</li>
+        <li>Produzione di stampi di tranciatura</li>
+        <li>Produzione di stampi a iniezione per materie plastiche e stampaggio di pezzi di precisione</li>
+    </ul>";
+
+    if (Session["Culture"] == null)
+    {
+        string TmpCulture = "en-US";
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "it")
+        {
+            TmpCulture = "it-IT";
+        }
+        if (System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName == "fr")
+        {
+            TmpCulture = "fr-FR";
+        }
+        Session.Add("Culture", TmpCulture);
+    }
+
+
+    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
+    {
+        Testo01 = "Services";
+        Testo02 = "";
+        Testo03 = @"<ul>
+        <li>Maintenance and Repairing for all our products with original spare parts</li>
+        <li>Design and manufacturing of prototypes for the most various applications</li>
+        <li>Industrial production of precision mechanisms</li>
+        <li>Manufacturing  according to drawing of any type of precision piece</li>
+        <li>Supply of spare parts for paper chart recorders</li>
+        <li>Manufacturing of shearing moulds</li>
+        <li>Manufacturing of injection moulds for plastic materials and molding of precision pieces</li>
+    </ul>";
+    }
+}
+
+@section Content{
+    <link rel="stylesheet" type="text/css" href="~/Content/ServiziOfferti.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/ServiziOfferti_responsive.css" />
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col services_bkg"></div>
+        </div>
+    </div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-10 description">
+                <h1>@Testo01</h1>
+                @*<h2>@Testo02</h2>*@
+                <p>
+                    @Html.Raw(Testo03)
+                </p>
+            </div>
+        </div>
+        @*<div class="row box_container">
+                <div class="col-5 box mr-5 history">
+                    <h3>@Testo04</h3>
+                    <span class="img">
+                        <img src="~/img/termaf.jpg" alt="@Testo08">
+                    </span>
+                    <span class="text">
+                        @Testo05<br /><br />@Testo05b
+                    </span>
+
+                </div>
+                <div class="col-6 box ml-4 award">
+                    <h3>@Testo06</h3>
+                    <span class="img"><img src="~/img/termaf_camera_commercio.jpg" alt="@Testo09"></span>
+                    <span class="text">
+                        @Testo07
+                    </span>
+                </div>
+            </div>*@
+    </div>
+}

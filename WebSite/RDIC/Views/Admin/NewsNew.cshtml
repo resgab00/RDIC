@@ -1,0 +1,84 @@
+﻿@model List<RDIC.Models.News>
+@{
+    ViewBag.Title = "Nuova News";
+
+}
+
+<div class="ml-4 mr-4 content" style="width:100%;">
+    <h2>Nuova News</h2>
+
+    <form action="~/Admin/AddNews" class="dropzone" id="frmAddNews">
+        <div class="form-group">
+            <h3><label>Visibile nel sito</label></h3>
+            <input type="checkbox" name="visible" id="visible" checked />
+            <br /><br />
+        </div>
+        <div class="form-group">
+            <h3><label>Data</label></h3>
+            <input type="date" class="form-control" name="dataNews" value=""><br />
+        </div>
+        <div class="form-group">
+            <h3><label>Titolo IT</label></h3>
+            <input type="text" class="form-control" name="titleIT" value=""><br />
+            <h3><label>Titolo EN</label></h3>
+            <input type="text" class="form-control" name="titleEN" value=""><br />
+            <h3><label>Titolo FR</label></h3>
+            <input type="text" class="form-control" name="titleFR" value=""><br />
+        </div>
+        <div class="form-group">
+            <h3><label>Descrizione IT</label></h3>
+            <div id="toolbarIT" class="mdd_toolbar"></div>
+            <textarea id="descriptionIT" name="descriptionIT" data-mdd-preview="#previewIT" data-mdd-resizer="#resizerIT" class="mdd_editor"></textarea>
+            <div id="resizerIT" class="mdd_resizer"></div>
+            <div id="previewIT" class="mdd_preview" style="border:solid 1px #000000;height:200px;overflow:auto;"></div><br />
+            <h3><label>Descrizione EN</label></h3>
+            <div id="toolbarEN" class="mdd_toolbar"></div>
+            <textarea id="descriptionEN" name="descriptionEN" data-mdd-preview="#previewEN" data-mdd-resizer="#resizerEN" cols=50 rows=10 class="mdd_editor"></textarea>
+            <div id="resizerEN" class="mdd_resizer"></div>
+            <div id="previewEN" class="mdd_preview" style="border:solid 1px #000000;height:200px;overflow:auto;"></div><br />
+            <h3><label>Descrizione FR</label></h3>
+            <div id="toolbarFR" class="mdd_toolbar"></div>
+            <textarea id="descriptionFR" name="descriptionFR" data-mdd-preview="#previewFR" data-mdd-resizer="#resizerFR" cols=50 rows=10 class="mdd_editor"></textarea>
+            <div id="resizerFR" class="mdd_resizer"></div>
+            <div id="previewFR" class="mdd_preview" style="border:solid 1px #000000;height:200px;overflow:auto;"></div><br />
+        </div>
+        <button id="productSave" type="button" onclick="addNews();" class="btn btn-primary">Aggiungi</button><br /><br />
+        <div id="productError">
+            <img src="~/img/product-error.png" width="70" />
+            <label style="width:700px;font-size:large;color:#ff0000;">Errore durante il salvataggio. Riprovare in un secondo momento, se l'errore persiste contattare l'amministratore del sistema</label>
+        </div>
+        <div id="productOk">
+            <img src="~/img/product-ok.png" width="64" />
+            <label style="width:700px;font-size:large;">Salvataggio avvenuto con successo</label>
+        </div>
+        <div id="productLoader" class="loader07"></div>
+    </form>
+</div>
+<script>
+    function onInputFormChange() {
+        $('#productSave').attr('disabled', false);
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+    }
+    $(document).ready(function () {
+        $("#frmAddNews").on('input change', function () {
+            onInputFormChange();
+        });
+
+        $("#descriptionIT").MarkdownDeep({
+            help_location: "mdd_help.htm"
+        });
+        $("#descriptionEN").MarkdownDeep({
+            help_location: "mdd_help.htm"
+        });
+        $("#descriptionFR").MarkdownDeep({
+            help_location: "mdd_help.htm"
+        });
+
+        $('#productSave').attr('disabled', true);
+        $("#productLoader").hide();
+        $("#productError").hide();
+        $("#productOk").hide();
+    })
+</script>

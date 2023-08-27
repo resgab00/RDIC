@@ -1,0 +1,26 @@
+.inside_bkg{
+    background: url('../img/banner_1.jpg') top center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 140px;
+    border-top:15px solid #0486c2;
+}
+
+.title_separator{
+    border-bottom: 10px solid #fdcc07;
+    margin-bottom: 50px;
+}
+
+h1.title{
+    display: inline-block;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.cookie_table{
+    margin: 20px 0 40px;
+}
+.cookie_table td{
+    padding: 10px 20px 10px;
+    border: 1px solid #888;
+}

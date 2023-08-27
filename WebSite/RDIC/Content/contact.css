@@ -1,0 +1,65 @@
+.inside_bkg{
+    background: url('../img/banner_1.jpg') top center no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    height: 200px;
+    border-top:15px solid #0486c2;
+}
+
+.title_separator{
+    border-bottom: 10px solid #fdcc07;
+    margin-bottom: 50px;
+}
+
+h1.title{
+    display: inline-block;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.map{
+    text-align: center;
+    margin-top: 80px;
+}
+.map h2{font-size: 39px;}
+.map iframe{
+    width: 100%;
+    height:350px;
+}
+.map .col{padding: 0;}
+
+.description h2{
+    color: #0486c2;
+    font-size:39px;
+}
+.description h3{
+    color: #fdcc07;
+    font-size: 30px;
+}
+.description p{
+    margin-top: 40px;
+    line-height: 26px;
+    font-size: 18px;
+}
+
+.contact_form form .row{margin-bottom: 20px;}
+.contact_form form .form-control{padding: 7px 10px;}
+.contact_form form textarea{height: 150px}
+.contact_form form button[type="submit"]{
+    padding: 7px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #0486c2;
+    border-color: #0486c2;
+}
+.contact_form form button[type="submit"]:hover{
+    background-color: #fdcc07;
+    border-color: #fdcc07;
+}
+.contact_form form .privacy{font-size: 14px;}
+
+.address{
+    display: block;
+    font-size: 14px;
+    margin-bottom: 50px;
+}

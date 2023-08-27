@@ -1,0 +1,41 @@
+.bkg_company{
+    background: url('../img/termaf_big.jpg') center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 500px;
+    border-bottom: 20px solid #fdcc07;
+}
+
+.box_container{
+    margin: 70px auto;
+}
+
+.box{
+    background-color: #eeedec;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #d2d2d2;
+}
+
+.description p{
+    line-height: 27px;
+    font-size: 18px;
+}
+
+.award span{
+    display: inline-block;
+    vertical-align: top;
+}
+.award .text{
+    width: 55%;
+    margin-left: 10px;
+    text-align: justify;
+}
+
+.history .img{
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+.history .img img{max-width: 100%;}
+.history .text{display: block}

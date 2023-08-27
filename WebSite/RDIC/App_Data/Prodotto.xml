@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<ArrayOfProdotto xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Prodotto>
+    <Id>1</Id>
+    <TitoloIT>Prodotto1</TitoloIT>
+    <TitoloEN>Prodotto1</TitoloEN>
+    <TitoloFR />
+    <DescriptionIT>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. La registrazione della temperatura e umidità avviene contemporaneamente per mezzo dei pennini, su carta diagrammata avvolgente il tamburo, la rotazione e registrazione può essere di tipo giornaliera o settimanale, meccanico o batteria. Per una corretta registrazione assicurarsi che ci sia una sufficiente circolazione d’aria, che lo strumento non sia esposto a luce solare diretta e a fonti di calore radiante.
+
+</DescriptionIT>
+    <DescriptionEN>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. La registrazione della temperatura e umidità avviene contemporaneamente per mezzo dei pennini, su carta diagrammata avvolgente il tamburo, la rotazione e registrazione può essere di tipo giornaliera o settimanale, meccanico o batteria. Per una corretta registrazione assicurarsi che ci sia una sufficiente circolazione d’aria, che lo strumento non sia esposto a luce solare diretta e a fonti di calore radiante.
+
+</DescriptionEN>
+    <DescriptionFR />
+    <Immagini>
+      <Immagine>
+        <Id>1</Id>
+        <FileName>~/Public/Prodotto/1/Immagine/FS5  DUAL SPEED BRT - Copia.gif</FileName>
+        <AltIT>FS5  DUAL SPEED BRT - Copia.gif</AltIT>
+        <AltFR>FS5  DUAL SPEED BRT - Copia.gif</AltFR>
+        <AltEN>FS5  DUAL SPEED BRT - Copia.gif</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>2</Id>
+        <FileName>~/Public/Prodotto/1/Immagine/FS5  DUAL SPEED BRT CON SFONDO - Copia.jpg</FileName>
+        <AltIT>FS5  DUAL SPEED BRT CON SFONDO - Copia.jpg</AltIT>
+        <AltFR>FS5  DUAL SPEED BRT CON SFONDO - Copia.jpg</AltFR>
+        <AltEN>FS5  DUAL SPEED BRT CON SFONDO - Copia.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>3</Id>
+        <FileName>~/Public/Prodotto/1/Immagine/FS5  DUAL SPEED DOPPIA VISTA - Copia.gif</FileName>
+        <AltIT>FS5  DUAL SPEED DOPPIA VISTA - Copia.gif</AltIT>
+        <AltFR>FS5  DUAL SPEED DOPPIA VISTA - Copia.gif</AltFR>
+        <AltEN>FS5  DUAL SPEED DOPPIA VISTA - Copia.gif</AltEN>
+      </Immagine>
+    </Immagini>
+    <Allegati>
+      <Allegato>
+        <Id>1</Id>
+        <Description>Scheda Tecnica</Description>
+        <FileName>~/Public/Prodotto/1/Allegato/Guida allo sviluppo di applicazioni con AI.pdf</FileName>
+        <Language>IT</Language>
+      </Allegato>
+    </Allegati>
+    <IdCategoria>1</IdCategoria>
+    <IdSubCategoria>1</IdSubCategoria>
+    <Order>0</Order>
+    <GlobalOrder>3</GlobalOrder>
+    <Visible>true</Visible>
+  </Prodotto>
+  <Prodotto>
+    <Id>2</Id>
+    <TitoloIT>Prodotto2</TitoloIT>
+    <TitoloEN>Prodotto2</TitoloEN>
+    <TitoloFR />
+    <DescriptionIT>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. La registrazione della temperatura e umidità avviene contemporaneamente per mezzo dei pennini, su carta diagrammata avvolgente il tamburo, la rotazione e registrazione può essere di tipo giornaliera o settimanale, meccanico o batteria. 
+</DescriptionIT>
+    <DescriptionEN>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. La registrazione della temperatura e umidità avviene contemporaneamente per mezzo dei pennini, su carta diagrammata avvolgente il tamburo, la rotazione e registrazione può essere di tipo giornaliera o settimanale, meccanico o batteria. Per una corretta registrazione assicurarsi che ci sia una sufficiente circolazione d’aria, che lo strumento non sia esposto a luce solare diretta e a fonti di calore radiante.
+
+</DescriptionEN>
+    <DescriptionFR />
+    <Immagini>
+      <Immagine>
+        <Id>1</Id>
+        <FileName>~/Public/Prodotto/2/Immagine/FS5 MECCANICO 1 ROTAZIONE - Copia.gif</FileName>
+        <AltIT>FS5 MECCANICO 1 ROTAZIONE - Copia.gif</AltIT>
+        <AltFR>FS5 MECCANICO 1 ROTAZIONE - Copia.gif</AltFR>
+        <AltEN>FS5 MECCANICO 1 ROTAZIONE - Copia.gif</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>2</Id>
+        <FileName>~/Public/Prodotto/2/Immagine/Varie componenti 2.jpg</FileName>
+        <AltIT>Varie componenti 2.jpg</AltIT>
+        <AltFR>Varie componenti 2.jpg</AltFR>
+        <AltEN>Varie componenti 2.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>3</Id>
+        <FileName>~/Public/Prodotto/2/Immagine/Varie componenti 1.jpg</FileName>
+        <AltIT>Varie componenti 1.jpg</AltIT>
+        <AltFR>Varie componenti 1.jpg</AltFR>
+        <AltEN>Varie componenti 1.jpg</AltEN>
+      </Immagine>
+    </Immagini>
+    <Allegati>
+      <Allegato>
+        <Id>1</Id>
+        <Description>Scheda Tecnica</Description>
+        <FileName>~/Public/Prodotto/2/Allegato/Guida allo sviluppo di applicazioni con AI.pdf</FileName>
+        <Language>IT</Language>
+      </Allegato>
+    </Allegati>
+    <IdCategoria>1</IdCategoria>
+    <IdSubCategoria>1</IdSubCategoria>
+    <Order>0</Order>
+    <GlobalOrder>2</GlobalOrder>
+    <Visible>true</Visible>
+  </Prodotto>
+  <Prodotto>
+    <Id>3</Id>
+    <TitoloIT>Prodotto3</TitoloIT>
+    <TitoloEN>Prodotto3</TitoloEN>
+    <TitoloFR />
+    <DescriptionIT>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. </DescriptionIT>
+    <DescriptionEN>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo.</DescriptionEN>
+    <DescriptionFR />
+    <Immagini>
+      <Immagine>
+        <Id>1</Id>
+        <FileName>~/Public/Prodotto/3/Immagine/IMG_20230619_135131 - Copia.jpg</FileName>
+        <AltIT>IMG_20230619_135131 - Copia.jpg</AltIT>
+        <AltFR>IMG_20230619_135131 - Copia.jpg</AltFR>
+        <AltEN>IMG_20230619_135131 - Copia.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>2</Id>
+        <FileName>~/Public/Prodotto/3/Immagine/FS110-2336 CON SFONDO - Copia.jpg</FileName>
+        <AltIT>FS110-2336 CON SFONDO - Copia.jpg</AltIT>
+        <AltFR>FS110-2336 CON SFONDO - Copia.jpg</AltFR>
+        <AltEN>FS110-2336 CON SFONDO - Copia.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>3</Id>
+        <FileName>~/Public/Prodotto/3/Immagine/FS5 SQRD-2004 SFONDO COLORATO - Copia.jpg</FileName>
+        <AltIT>FS5 SQRD-2004 SFONDO COLORATO - Copia.jpg</AltIT>
+        <AltFR>FS5 SQRD-2004 SFONDO COLORATO - Copia.jpg</AltFR>
+        <AltEN>FS5 SQRD-2004 SFONDO COLORATO - Copia.jpg</AltEN>
+      </Immagine>
+    </Immagini>
+    <Allegati>
+      <Allegato>
+        <Id>1</Id>
+        <Description>Scheda Tecnica</Description>
+        <FileName>~/Public/Prodotto/3/Allegato/Guida allo sviluppo di applicazioni con AI.pdf</FileName>
+        <Language>IT</Language>
+      </Allegato>
+    </Allegati>
+    <IdCategoria>1</IdCategoria>
+    <IdSubCategoria>1</IdSubCategoria>
+    <Order>0</Order>
+    <GlobalOrder>1</GlobalOrder>
+    <Visible>true</Visible>
+  </Prodotto>
+</ArrayOfProdotto>
