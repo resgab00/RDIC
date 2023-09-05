@@ -58,25 +58,25 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div id="main_carousel" class="carousel slide" data-bs-ride="carousel">
+            <div id="main_carousel" class="carousel slide" data-bs-ride="carousel" >
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#main_carousel" data-bs-slide-to="0" class="custom_indicator active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#main_carousel" data-bs-slide-to="1" class="custom_indicator" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#main_carousel" data-bs-slide-to="2" class="custom_indicator" aria-label="Slide 3"></button>
                     <button type="button" data-bs-target="#main_carousel" data-bs-slide-to="3" class="custom_indicator" aria-label="Slide 4"></button>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" >
-                        <img src="~/img/banner_1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-inner" style="background-image: linear-gradient(to top, #0486c2 50%, #ffffff); ">
+                    <div class="carousel-item active">
+                        <img id="banner01" src="~/img/banner_1.jpg" alt="...">
                     </div>
-                    <div class="carousel-item" >
-                        <img src="~/img/banner_2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-item">
+                        <img id="banner02" src="~/img/banner_2.jpg"  alt="...">
                     </div>
-                    <div class="carousel-item" >
-                        <img src="~/img/banner_3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-item">
+                        <img id="banner03" src="~/img/banner_3.jpg"  alt="...">
                     </div>
-                    <div class="carousel-item" >
-                        <img src="~/img/banner_4.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-item">
+                        <img id="banner04" src="~/img/banner_4.jpg"  alt="...">
                     </div>
                 </div>
             </div>
@@ -247,8 +247,21 @@
                 wrap: true
             })
         });
-        if ($(window).width() > 1366) {
-            $('#main_carousel').height('600px');
-        }
+        //farlo solo all'apertura non serve a niente. Gestire il resize... se serve
+        //if ($(window).width() < 1380 & $(window).width()>800) {
+        //    $('#main_carousel').height('320px');
+        //    $('#banner01').height('300px');
+        //    $('#banner02').height('300px');
+        //    $('#banner03').height('300px');
+        //    $('#banner04').height('300px');
+        //}
+        //if ($(window).width() > 1380) {
+        //    $('#main_carousel').height('620px');
+        //    $('#banner01').height('600px');
+        //    $('#banner02').height('600px');
+        //    $('#banner03').height('600px');
+        //    $('#banner04').height('600px');
+        //}
+
     </script>
 }
