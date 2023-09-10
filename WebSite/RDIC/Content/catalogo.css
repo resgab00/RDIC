@@ -6,8 +6,8 @@
     border-top:15px solid #0486c2;
 }
 
-.title_separator{
-    border-bottom: 10px solid #fdcc07;
+.title_separator {
+    border-bottom: 10px solid #FF6600;
     margin-bottom: 50px;
 }
 
@@ -46,12 +46,12 @@ h1.title{
     color: #0486c2;
     box-sizing: border-box;
 }
-.item .description{
-    padding-left: 15px;
-    border-left: 3px solid #fdcc07;
-    box-sizing: border-box;
-    min-height:220px;
-}
+    .item .description {
+        padding-left: 15px;
+        border-left: 3px solid #FF6600;
+        box-sizing: border-box;
+        min-height: 220px;
+    }
 
 .category.item{
     min-height: 360px;

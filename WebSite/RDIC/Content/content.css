@@ -10,10 +10,10 @@
     text-transform: uppercase;
 }
 
-#menu a.active{
-    color: #0486c2;
-    border-bottom: 2px solid #fdcc07;
-}
+    #menu a.active {
+        color: #0486c2;
+        border-bottom: 2px solid #FF6600;
+    }
 
 #menu ul{
     margin: 0;
@@ -27,10 +27,10 @@
     display: block;
     width: 100%;
 }
-#menu ul li:hover,
-#menu ul li.active {
-    border-bottom:2px solid #fdcc07;
-}
+    #menu ul li:hover,
+    #menu ul li.active {
+        border-bottom: 2px solid #FF6600;
+    }
 #menu ul li:hover >a,
 #menu ul li.active >a{color: #0486c2}
 #menu .dropdown-container{position: relative}
@@ -60,11 +60,11 @@
     border-bottom: 2px solid #eee;
     padding:5px 50px 5px 10px;
 }
-#menu .dropdown-menu ul li:hover >span,
-#menu .dropdown-menu ul li.active >span{
-    border-bottom:2px solid #fdcc07;
-    color:#0486c2;
-}
+    #menu .dropdown-menu ul li:hover > span,
+    #menu .dropdown-menu ul li.active > span {
+        border-bottom: 2px solid #FF6600;
+        color: #0486c2;
+    }
 #menu .dropdown-menu ul li:last-child span{border-radius: 0 0 5px 5px}
 #menu .dropdown-menu ul li >a{
     padding: 0;
@@ -83,10 +83,10 @@
 #menu .subdropdown-menu a {color:#222}
 #menu ul li.dropdown-container .subdropdown-menu a.active,
 #menu ul li.dropdown-container .subdropdown-menu a:hover,
-#menu ul li.dropdown-container .subdropdown-menu a:active{
-    background-color:transparent;
-    color:#0486c2;
-    border-bottom: 2px solid #fdcc07;
+#menu ul li.dropdown-container .subdropdown-menu a:active {
+    background-color: transparent;
+    color: #0486c2;
+    border-bottom: 2px solid #FF6600;
 }
 #menu .subdropdown-menu{
     display: none;

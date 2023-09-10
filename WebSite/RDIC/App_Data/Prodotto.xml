@@ -2,144 +2,69 @@
 <ArrayOfProdotto xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Prodotto>
     <Id>1</Id>
-    <TitoloIT>Prodotto1</TitoloIT>
-    <TitoloEN>Prodotto1</TitoloEN>
+    <TitoloIT>Orologeria meccanica per registratori circolari FS/5 a singola rotazione</TitoloIT>
+    <TitoloEN>Spring woud clock model FS/5 single speed</TitoloEN>
     <TitoloFR />
-    <DescriptionIT>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. La registrazione della temperatura e umidità avviene contemporaneamente per mezzo dei pennini, su carta diagrammata avvolgente il tamburo, la rotazione e registrazione può essere di tipo giornaliera o settimanale, meccanico o batteria. Per una corretta registrazione assicurarsi che ci sia una sufficiente circolazione d’aria, che lo strumento non sia esposto a luce solare diretta e a fonti di calore radiante.
+    <DescriptionIT>Orologio meccanico per registratori a rotazione circolare a singola velocità.
+Rotazioni standard:
+1 giro / 24 ore
+1 giro / 7 giorni
 
+Altre rotazioni disponibili:
+1hr - 2hrs - 3hrs - 4hrs - 6hrs - 8hrs - 12hrs - 48hrs - 176hrs - 744hrs
+
+Prodotti secondo la DIN58658
+Prodotto con materiali di elevata qualità e con scappamento svizzero antishock ed antimagnetico.
+Precisione ± 5 sec/°C/24hrs,  secondo DIN 8300.
+Temperatura di utilizzo: -35°C...+ 65°C (-31 °F ... + 149 °F) secondo DIN 8300-A e DIN 8300-B.
 </DescriptionIT>
-    <DescriptionEN>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. La registrazione della temperatura e umidità avviene contemporaneamente per mezzo dei pennini, su carta diagrammata avvolgente il tamburo, la rotazione e registrazione può essere di tipo giornaliera o settimanale, meccanico o batteria. Per una corretta registrazione assicurarsi che ci sia una sufficiente circolazione d’aria, che lo strumento non sia esposto a luce solare diretta e a fonti di calore radiante.
+    <DescriptionEN>Mechanical clock for single-speed circular recorders. 
+Standard rotations: 
+1 rev. / 24 hours 
+1 rev. / 7 days
 
+Other single speed available: 1hr - 2hrs - 3hrs - 4hrs - 6hrs - 8hrs - 12hrs - 48hrs - 176hrs - 744hrs.
+
+Manufactured according to DIN58658.
+Manufactured with high quality materials and Swiss anti-shock and anti-magnetic escapement.
+Accuracy ± 5 sec/°C/24hrs, according to DIN 8300.
+Operating temperature: -35°C...+ 65°C (-31 °F ... + 149 °F) according to DIN 8300-A and DIN 8300-B.
 </DescriptionEN>
     <DescriptionFR />
     <Immagini>
       <Immagine>
         <Id>1</Id>
-        <FileName>~/Public/Prodotto/1/Immagine/FS5  DUAL SPEED BRT - Copia.gif</FileName>
-        <AltIT>FS5  DUAL SPEED BRT - Copia.gif</AltIT>
-        <AltFR>FS5  DUAL SPEED BRT - Copia.gif</AltFR>
-        <AltEN>FS5  DUAL SPEED BRT - Copia.gif</AltEN>
-      </Immagine>
-      <Immagine>
-        <Id>2</Id>
-        <FileName>~/Public/Prodotto/1/Immagine/FS5  DUAL SPEED BRT CON SFONDO - Copia.jpg</FileName>
-        <AltIT>FS5  DUAL SPEED BRT CON SFONDO - Copia.jpg</AltIT>
-        <AltFR>FS5  DUAL SPEED BRT CON SFONDO - Copia.jpg</AltFR>
-        <AltEN>FS5  DUAL SPEED BRT CON SFONDO - Copia.jpg</AltEN>
-      </Immagine>
-      <Immagine>
-        <Id>3</Id>
-        <FileName>~/Public/Prodotto/1/Immagine/FS5  DUAL SPEED DOPPIA VISTA - Copia.gif</FileName>
-        <AltIT>FS5  DUAL SPEED DOPPIA VISTA - Copia.gif</AltIT>
-        <AltFR>FS5  DUAL SPEED DOPPIA VISTA - Copia.gif</AltFR>
-        <AltEN>FS5  DUAL SPEED DOPPIA VISTA - Copia.gif</AltEN>
+        <FileName>~/Public/Prodotto/1/Immagine/FS5  1 ROTAZIONE MECCANICO per sito.jpg</FileName>
+        <AltIT>FS5  1 ROTAZIONE MECCANICO per sito.jpg</AltIT>
+        <AltFR>FS5  1 ROTAZIONE MECCANICO per sito.jpg</AltFR>
+        <AltEN>FS5  1 ROTAZIONE MECCANICO per sito.jpg</AltEN>
       </Immagine>
     </Immagini>
-    <Allegati>
-      <Allegato>
-        <Id>1</Id>
-        <Description>Scheda Tecnica</Description>
-        <FileName>~/Public/Prodotto/1/Allegato/Guida allo sviluppo di applicazioni con AI.pdf</FileName>
-        <Language>IT</Language>
-      </Allegato>
-    </Allegati>
-    <IdCategoria>1</IdCategoria>
-    <IdSubCategoria>1</IdSubCategoria>
+    <Allegati />
+    <IdCategoria>2</IdCategoria>
+    <IdSubCategoria>2</IdSubCategoria>
     <Order>0</Order>
-    <GlobalOrder>3</GlobalOrder>
+    <GlobalOrder>0</GlobalOrder>
     <Visible>true</Visible>
   </Prodotto>
-  <Prodotto>
-    <Id>2</Id>
-    <TitoloIT>Prodotto2</TitoloIT>
-    <TitoloEN>Prodotto2</TitoloEN>
-    <TitoloFR />
-    <DescriptionIT>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. La registrazione della temperatura e umidità avviene contemporaneamente per mezzo dei pennini, su carta diagrammata avvolgente il tamburo, la rotazione e registrazione può essere di tipo giornaliera o settimanale, meccanico o batteria. 
-</DescriptionIT>
-    <DescriptionEN>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. La registrazione della temperatura e umidità avviene contemporaneamente per mezzo dei pennini, su carta diagrammata avvolgente il tamburo, la rotazione e registrazione può essere di tipo giornaliera o settimanale, meccanico o batteria. Per una corretta registrazione assicurarsi che ci sia una sufficiente circolazione d’aria, che lo strumento non sia esposto a luce solare diretta e a fonti di calore radiante.
-
-</DescriptionEN>
-    <DescriptionFR />
-    <Immagini>
-      <Immagine>
-        <Id>1</Id>
-        <FileName>~/Public/Prodotto/2/Immagine/FS5 MECCANICO 1 ROTAZIONE - Copia.gif</FileName>
-        <AltIT>FS5 MECCANICO 1 ROTAZIONE - Copia.gif</AltIT>
-        <AltFR>FS5 MECCANICO 1 ROTAZIONE - Copia.gif</AltFR>
-        <AltEN>FS5 MECCANICO 1 ROTAZIONE - Copia.gif</AltEN>
-      </Immagine>
-      <Immagine>
-        <Id>2</Id>
-        <FileName>~/Public/Prodotto/2/Immagine/Varie componenti 2.jpg</FileName>
-        <AltIT>Varie componenti 2.jpg</AltIT>
-        <AltFR>Varie componenti 2.jpg</AltFR>
-        <AltEN>Varie componenti 2.jpg</AltEN>
-      </Immagine>
-      <Immagine>
-        <Id>3</Id>
-        <FileName>~/Public/Prodotto/2/Immagine/Varie componenti 1.jpg</FileName>
-        <AltIT>Varie componenti 1.jpg</AltIT>
-        <AltFR>Varie componenti 1.jpg</AltFR>
-        <AltEN>Varie componenti 1.jpg</AltEN>
-      </Immagine>
-    </Immagini>
-    <Allegati>
-      <Allegato>
-        <Id>1</Id>
-        <Description>Scheda Tecnica</Description>
-        <FileName>~/Public/Prodotto/2/Allegato/Guida allo sviluppo di applicazioni con AI.pdf</FileName>
-        <Language>IT</Language>
-      </Allegato>
-    </Allegati>
-    <IdCategoria>1</IdCategoria>
-    <IdSubCategoria>1</IdSubCategoria>
-    <Order>0</Order>
-    <GlobalOrder>2</GlobalOrder>
-    <Visible>true</Visible>
-  </Prodotto>
-  <Prodotto>
-    <Id>3</Id>
-    <TitoloIT>Prodotto3</TitoloIT>
-    <TitoloEN>Prodotto3</TitoloEN>
-    <TitoloFR />
-    <DescriptionIT>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo. </DescriptionIT>
-    <DescriptionEN>Il Termoigrografo TIT/01 è un registratore della temperatura ed umidità dell’aria portatile a tamburo.</DescriptionEN>
-    <DescriptionFR />
-    <Immagini>
-      <Immagine>
-        <Id>1</Id>
-        <FileName>~/Public/Prodotto/3/Immagine/IMG_20230619_135131 - Copia.jpg</FileName>
-        <AltIT>IMG_20230619_135131 - Copia.jpg</AltIT>
-        <AltFR>IMG_20230619_135131 - Copia.jpg</AltFR>
-        <AltEN>IMG_20230619_135131 - Copia.jpg</AltEN>
-      </Immagine>
-      <Immagine>
-        <Id>2</Id>
-        <FileName>~/Public/Prodotto/3/Immagine/FS110-2336 CON SFONDO - Copia.jpg</FileName>
-        <AltIT>FS110-2336 CON SFONDO - Copia.jpg</AltIT>
-        <AltFR>FS110-2336 CON SFONDO - Copia.jpg</AltFR>
-        <AltEN>FS110-2336 CON SFONDO - Copia.jpg</AltEN>
-      </Immagine>
-      <Immagine>
-        <Id>3</Id>
-        <FileName>~/Public/Prodotto/3/Immagine/FS5 SQRD-2004 SFONDO COLORATO - Copia.jpg</FileName>
-        <AltIT>FS5 SQRD-2004 SFONDO COLORATO - Copia.jpg</AltIT>
-        <AltFR>FS5 SQRD-2004 SFONDO COLORATO - Copia.jpg</AltFR>
-        <AltEN>FS5 SQRD-2004 SFONDO COLORATO - Copia.jpg</AltEN>
-      </Immagine>
-    </Immagini>
-    <Allegati>
-      <Allegato>
-        <Id>1</Id>
-        <Description>Scheda Tecnica</Description>
-        <FileName>~/Public/Prodotto/3/Allegato/Guida allo sviluppo di applicazioni con AI.pdf</FileName>
-        <Language>IT</Language>
-      </Allegato>
-    </Allegati>
-    <IdCategoria>1</IdCategoria>
-    <IdSubCategoria>1</IdSubCategoria>
-    <Order>0</Order>
-    <GlobalOrder>1</GlobalOrder>
-    <Visible>true</Visible>
-  </Prodotto>
+	<Prodotto>
+		<Id>2</Id>
+		<TitoloIT>Pennini</TitoloIT>
+		<TitoloEN>Pens  ( Marking Systems)</TitoloEN>
+		<TitoloFR />
+		<DescriptionIT>
+			Siamo in grado di fornire pennini scriventi per qualsiasi produttore di registratori a carta.
+			Forniamo anche piccole quantità.
+		</DescriptionIT>
+		<DescriptionEN>
+			We can supply writing nibs for any manufacturer of chart recorders.
+			We also supply small quantities.
+		</DescriptionEN>
+		<DescriptionFR />
+		<IdCategoria>3</IdCategoria>
+		<IdSubCategoria>-1</IdSubCategoria>
+		<Order>0</Order>
+		<GlobalOrder>0</GlobalOrder>
+		<Visible>true</Visible>
+	</Prodotto>
 </ArrayOfProdotto>

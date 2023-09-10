@@ -12,9 +12,9 @@
     padding: 10px 15px;
     border-bottom: 2px solid #ddd;
 }
-.menu ul li.active{
-    border-color:#fdcc07;
-}
+    .menu ul li.active {
+        border-color: #FF6600;
+    }
 .menu ul li.active a{color: #0486c2}
 .menu ul li:hover{background-color: #fff;}
 .menu ul li a{

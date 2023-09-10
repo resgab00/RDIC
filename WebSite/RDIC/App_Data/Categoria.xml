@@ -1,21 +1,46 @@
 <?xml version="1.0"?>
-<ArrayOfCategoria xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfCategoria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Categoria>
-    <Id>1</Id>
-    <DescriptionIT>Orologi</DescriptionIT>
-    <DescriptionEN>Clocks</DescriptionEN>
+    <Id>2</Id>
+    <DescriptionIT>Orologeria meccanica </DescriptionIT>
+    <DescriptionEN>Spring wound clock </DescriptionEN>
     <DescriptionFR />
     <Order>0</Order>
     <SubCategorias>
       <SubCategoria>
         <Id>1</Id>
-        <DescriptionIT>Meccanico</DescriptionIT>
-        <DescriptionEN>Mechanical</DescriptionEN>
+        <DescriptionIT>Orologeria meccanica per registratori a tamburo</DescriptionIT>
+        <DescriptionEN>Mechanical chart drive for drum chart recorders</DescriptionEN>
+        <DescriptionFR />
+        <Order>0</Order>
+        <Visible>false</Visible>
+      </SubCategoria>
+      <SubCategoria>
+        <Id>2</Id>
+        <DescriptionIT>Orologeria meccanica per registratori circolari</DescriptionIT>
+        <DescriptionEN>Mechanical chart drive for circular chart recorders</DescriptionEN>
+        <DescriptionFR />
+        <Order>0</Order>
+        <Visible>false</Visible>
+      </SubCategoria>
+      <SubCategoria>
+        <Id>3</Id>
+        <DescriptionIT>Orologio trasportatore meccanico a carta continua</DescriptionIT>
+        <DescriptionEN>Continuous tape chart mechanisms</DescriptionEN>
         <DescriptionFR />
         <Order>0</Order>
         <Visible>false</Visible>
       </SubCategoria>
     </SubCategorias>
+    <Visible>false</Visible>
+  </Categoria>
+  <Categoria>
+    <Id>3</Id>
+    <DescriptionIT>Accessori per registratori</DescriptionIT>
+    <DescriptionEN>Accessories for recorders</DescriptionEN>
+    <DescriptionFR />
+    <Order>0</Order>
+    <SubCategorias />
     <Visible>false</Visible>
   </Categoria>
 </ArrayOfCategoria>

@@ -228,9 +228,13 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\banner_1.jpg" />
+    <Content Include="img\banner_1.png" />
     <Content Include="img\banner_2.jpg" />
+    <Content Include="img\banner_2.png" />
     <Content Include="img\banner_3.jpg" />
+    <Content Include="img\banner_3.png" />
     <Content Include="img\banner_4.jpg" />
+    <Content Include="img\banner_4.png" />
     <Content Include="img\banner_50_anni.jpg" />
     <Content Include="img\Categoria\last_item.jpg" />
     <Content Include="img\Certificazioni01.jpg" />
@@ -257,6 +261,7 @@
     <Content Include="img\product-ok.png" />
     <Content Include="img\termaf.jpg" />
     <Content Include="img\termaf_big.jpg" />
+    <Content Include="img\termaf_big.png" />
     <Content Include="img\termaf_camera_commercio.jpeg" />
     <Content Include="img\termaf_camera_commercio.jpg" />
     <Content Include="img\tool1.jpeg" />

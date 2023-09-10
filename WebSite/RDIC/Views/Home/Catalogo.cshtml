@@ -7,8 +7,8 @@
 @{
 
     string Testo01 = "Catalogo prodotti";
-    string Testo02 = "STRUMENTAZIONI DI MISURAZIONE E CONTROLLO";
-    string Testo03 = "I prodotti Termaf sono frutto di un attenta progettazione e di aggiornamento costante da parte di ingegneri e tecnici specializzati. Siamo specializzati nella produzione di:";
+    string Testo02 = "OROLOGERIE PER USI TECNICI E SCIENTIFICI";
+    string Testo03 = "I prodotti RD sono di altissima qualità essendo testati e tarati singolarmente.</BR>Nel nostro catalogo potete trovare:";
 
     if (Session["Culture"] == null)
     {
@@ -28,17 +28,9 @@
     if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("en-US"))
     {
         Testo01 = "PRODUCT CATALOGUE";
-        Testo02 = "MEASUREMENT AND CONTROL INSTRUMENTS";
-        Testo03 = "The Termaf products are the result of careful design and constant updating by skilled engineers and technicians. We specialise in the manufacture of:";
+        Testo02 = "CHART DRIVE FOR TECHNICAL AND SCIENTIFIC USES";
+        Testo03 = "RD products are of highest quality as they are individually tested and calibrated.</BR>In our catalogue you can find:";
     }
-
-    if (Session["Culture"] != null && ((string)Session["Culture"]).Equals("fr-FR"))
-    {
-        Testo01 = "catalogue des produits";
-        Testo02 = "instruments de mesure et de contrôle";
-        Testo03 = "Les produits Termaf sont le fruit d'une planification minutieuse et d'une mise à jour constante par des ingénieurs et des techniciens spécialisés. Nous sommes spécialisés dans la fabrication de:";
-    }
-
 }
 
 @section Content{

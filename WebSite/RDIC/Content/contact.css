@@ -6,8 +6,8 @@
     border-top:15px solid #0486c2;
 }
 
-.title_separator{
-    border-bottom: 10px solid #fdcc07;
+.title_separator {
+    border-bottom: 10px solid #FF6600;
     margin-bottom: 50px;
 }
 
@@ -32,8 +32,8 @@ h1.title{
     color: #0486c2;
     font-size:39px;
 }
-.description h3{
-    color: #fdcc07;
+.description h3 {
+    color: #FF6600;
     font-size: 30px;
 }
 .description p{
@@ -52,10 +52,10 @@ h1.title{
     background-color: #0486c2;
     border-color: #0486c2;
 }
-.contact_form form button[type="submit"]:hover{
-    background-color: #fdcc07;
-    border-color: #fdcc07;
-}
+    .contact_form form button[type="submit"]:hover {
+        background-color: #FF6600;
+        border-color: #FF6600;
+    }
 .contact_form form .privacy{font-size: 14px;}
 
 .address{

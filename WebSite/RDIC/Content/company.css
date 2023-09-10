@@ -1,9 +1,10 @@
-.bkg_company{
-    background: url('../img/termaf_big.jpg') center no-repeat;
+.bkg_company {
+    background: url('../img/termaf_big.png') center no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    height: 500px;
-    border-bottom: 20px solid #fdcc07;
+    background-position-y:-50px;
+    height: 600px;
+    border-bottom: 20px solid #FF6600;
 }
 
 .box_container{

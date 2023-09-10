@@ -6,8 +6,8 @@
     border-top:15px solid #0486c2;
 }
 
-.title_separator{
-    border-bottom: 10px solid #fdcc07;
+.title_separator {
+    border-bottom: 10px solid #FF6600;
     margin-bottom: 50px;
 }
 
@@ -50,10 +50,10 @@ h1.title{
 .news .title h4{
     font-size: 1.8rem;
 }
-.news:hover{
-    border-color: #fdcc07;
-    background-color: #f7f7f7;
-}
+    .news:hover {
+        border-color: #FF6600;
+        background-color: #f7f7f7;
+    }
 .news:hover .img img{
     width: 120%;
     height:120%;

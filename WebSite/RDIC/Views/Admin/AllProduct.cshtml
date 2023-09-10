@@ -22,7 +22,14 @@
                 </div>
                 <div class="text">
                     <h5>Categoria: @Categoria.Where(cat => cat.Id == item.IdCategoria).First().DescriptionIT </h5>
-                    <h5>Sotto Categoria: @Categoria.Where(cat => cat.Id == item.IdCategoria).First().SubCategorias.Where(sc => sc.Id == item.IdSubCategoria).First().DescriptionIT</h5>
+                    @{ 
+                        string Des = "";
+                        RDIC.Models.SubCategoria subCat = Categoria.Where(cat => cat.Id == item.IdCategoria).First().SubCategorias.Where(sc => sc.Id == item.IdSubCategoria).FirstOrDefault();
+                        if (subCat!=null) {
+                            Des = subCat.DescriptionIT;
+                        }
+                    }
+                    <h5>Sotto Categoria: @subCat</h5>
                     <h5>Titolo: @item.TitoloIT</h5>
                 </div>
                 <div class="actions">
