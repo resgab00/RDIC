@@ -1,11 +1,83 @@
 <?xml version="1.0"?>
-<ArrayOfProdotto xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfProdotto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Prodotto>
+    <Id>2</Id>
+    <TitoloIT>Pennini</TitoloIT>
+    <TitoloEN>Pens  ( Marking Systems)</TitoloEN>
+    <TitoloFR />
+    <DescriptionIT>Siamo in grado di fornire pennini scriventi per qualsiasi produttore di registratori a carta.
+Forniamo anche piccole quantità.</DescriptionIT>
+    <DescriptionEN>We can supply writing nibs for any manufacturer of chart recorders.
+We also supply small quantities.</DescriptionEN>
+    <DescriptionFR />
+    <Immagini>
+      <Immagine>
+        <Id>1</Id>
+        <FileName>~/Public/Prodotto/2/Immagine/Diagrammi e pennini per catalogo.jpg</FileName>
+        <AltIT>Diagrammi e pennini per catalogo.jpg</AltIT>
+        <AltFR>Diagrammi e pennini per catalogo.jpg</AltFR>
+        <AltEN>Diagrammi e pennini per catalogo.jpg</AltEN>
+      </Immagine>
+    </Immagini>
+    <Allegati />
+    <IdCategoria>3</IdCategoria>
+    <IdSubCategoria>1</IdSubCategoria>
+    <Order>0</Order>
+    <GlobalOrder>0</GlobalOrder>
+    <Visible>true</Visible>
+  </Prodotto>
+  <Prodotto>
+    <Id>3</Id>
+    <TitoloIT>Orologeria meccanica FS/5 per rotazione circolare a 2 velocità</TitoloIT>
+    <TitoloEN>Spring wound clock model FS/5 DW  Dual Speed</TitoloEN>
+    <TitoloFR />
+    <DescriptionIT>Orologio meccanico per registratori a rotazione circolare a 2 velocità.
+Rotazione standard 24h / 7 giorni.
+
+Altre rotazioni doppie disponibili: (1 h / 15 min), (1 h / 4 h), (30 min / 2 h), (2 h / 8 h), (8 h /24 h).
+
+Prodotti secondo la DIN58658 Prodotto con materiali di elevata qualità e con scappamento svizzero antishock ed antimagnetico. Precisione ± 5 sec/°C/24hrs, secondo DIN 8300. Temperatura di utilizzo: -35°C...+ 65°C (-31 °F ... + 149 °F) secondo DIN 8300-A e DIN 8300-B.</DescriptionIT>
+    <DescriptionEN>Mechanical clock for double-speed circular recorders. 
+Standard rotations: 
+1 rev. 1 day / 7 days
+
+Other dual speed available: (1 hr / 15 min), (1 hr / 4 hrs), (30 min / 2 hrs), (2 hrs / 8 hrs), (8 hrs/24 hrs).
+
+
+Manufactured according to DIN58658.
+Manufactured with high quality materials and Swiss anti-shock and anti-magnetic escapement.
+Accuracy ± 5 sec/°C/24hrs, according to DIN 8300.
+Operating temperature: -35°C...+ 65°C (-31 °F ... + 149 °F) according to DIN 8300-A and DIN 8300-B.</DescriptionEN>
+    <DescriptionFR />
+    <Immagini>
+      <Immagine>
+        <Id>1</Id>
+        <FileName>~/Public/Prodotto/3/Immagine/FS5 dual speed 24h-7h 1000x750.jpg</FileName>
+        <AltIT>FS5 dual speed 24h-7h 1000x750.jpg</AltIT>
+        <AltFR>FS5 dual speed 24h-7h 1000x750.jpg</AltFR>
+        <AltEN>FS5 dual speed 24h-7h 1000x750.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>2</Id>
+        <FileName>~/Public/Prodotto/3/Immagine/FS5 dual speed 24h-7h 1000x750 di lato.jpg</FileName>
+        <AltIT>FS5 dual speed 24h-7h 1000x750 di lato.jpg</AltIT>
+        <AltFR>FS5 dual speed 24h-7h 1000x750 di lato.jpg</AltFR>
+        <AltEN>FS5 dual speed 24h-7h 1000x750 di lato.jpg</AltEN>
+      </Immagine>
+    </Immagini>
+    <Allegati />
+    <IdCategoria>2</IdCategoria>
+    <IdSubCategoria>4</IdSubCategoria>
+    <Order>0</Order>
+    <GlobalOrder>0</GlobalOrder>
+    <Visible>true</Visible>
+  </Prodotto>
   <Prodotto>
     <Id>1</Id>
     <TitoloIT>Orologeria meccanica per registratori circolari FS/5 a singola rotazione</TitoloIT>
-    <TitoloEN>Spring woud clock model FS/5 single speed</TitoloEN>
+    <TitoloEN>Spring wound clock model FS/5 single speed</TitoloEN>
     <TitoloFR />
-    <DescriptionIT>Orologio meccanico per registratori a rotazione circolare a singola velocità.
+    <DescriptionIT>Orologeria meccanica FS/5 per rotazione circolare ad 1 velocità.
 Rotazioni standard:
 1 giro / 24 ore
 1 giro / 7 giorni
@@ -34,10 +106,24 @@ Operating temperature: -35°C...+ 65°C (-31 °F ... + 149 °F) according to DIN
     <Immagini>
       <Immagine>
         <Id>1</Id>
-        <FileName>~/Public/Prodotto/1/Immagine/FS5  1 ROTAZIONE MECCANICO per sito.jpg</FileName>
-        <AltIT>FS5  1 ROTAZIONE MECCANICO per sito.jpg</AltIT>
-        <AltFR>FS5  1 ROTAZIONE MECCANICO per sito.jpg</AltFR>
-        <AltEN>FS5  1 ROTAZIONE MECCANICO per sito.jpg</AltEN>
+        <FileName>~/Public/Prodotto/1/Immagine/FS5 1000x750.jpg</FileName>
+        <AltIT>FS5 1000x750.jpg</AltIT>
+        <AltFR>FS5 1000x750.jpg</AltFR>
+        <AltEN>FS5 1000x750.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>2</Id>
+        <FileName>~/Public/Prodotto/1/Immagine/FS5 744h 1000x750.jpg</FileName>
+        <AltIT>FS5 744h 1000x750.jpg</AltIT>
+        <AltFR>FS5 744h 1000x750.jpg</AltFR>
+        <AltEN>FS5 744h 1000x750.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>3</Id>
+        <FileName>~/Public/Prodotto/1/Immagine/FS5 RTTM 1000x750.jpg</FileName>
+        <AltIT>FS5 RTTM 1000x750.jpg</AltIT>
+        <AltFR>FS5 RTTM 1000x750.jpg</AltFR>
+        <AltEN>FS5 RTTM 1000x750.jpg</AltEN>
       </Immagine>
     </Immagini>
     <Allegati />
@@ -47,24 +133,49 @@ Operating temperature: -35°C...+ 65°C (-31 °F ... + 149 °F) according to DIN
     <GlobalOrder>0</GlobalOrder>
     <Visible>true</Visible>
   </Prodotto>
-	<Prodotto>
-		<Id>2</Id>
-		<TitoloIT>Pennini</TitoloIT>
-		<TitoloEN>Pens  ( Marking Systems)</TitoloEN>
-		<TitoloFR />
-		<DescriptionIT>
-			Siamo in grado di fornire pennini scriventi per qualsiasi produttore di registratori a carta.
-			Forniamo anche piccole quantità.
-		</DescriptionIT>
-		<DescriptionEN>
-			We can supply writing nibs for any manufacturer of chart recorders.
-			We also supply small quantities.
-		</DescriptionEN>
-		<DescriptionFR />
-		<IdCategoria>3</IdCategoria>
-		<IdSubCategoria>-1</IdSubCategoria>
-		<Order>0</Order>
-		<GlobalOrder>0</GlobalOrder>
-		<Visible>true</Visible>
-	</Prodotto>
+  <Prodotto>
+    <Id>4</Id>
+    <TitoloIT>Lancette per registratori, manometri, termometri e per strumenti con contatti elettrici</TitoloIT>
+    <TitoloEN>Pointers for recorders, pressure gauges, thermometers and for instruments with electrical contacts</TitoloEN>
+    <TitoloFR />
+    <DescriptionIT>Produciamo qualsiasi tipo di lancetta su disegno del cliente.</DescriptionIT>
+    <DescriptionEN>We produce any type of pointer according to customer drawing.</DescriptionEN>
+    <DescriptionFR />
+    <Immagini>
+      <Immagine>
+        <Id>1</Id>
+        <FileName>~/Public/Prodotto/4/Immagine/Lancetta L100 1000x750.jpg</FileName>
+        <AltIT>Lancetta L100 1000x750.jpg</AltIT>
+        <AltFR>Lancetta L100 1000x750.jpg</AltFR>
+        <AltEN>Lancetta L100 1000x750.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>2</Id>
+        <FileName>~/Public/Prodotto/4/Immagine/Lancetta L300 1000x750.jpg</FileName>
+        <AltIT>Lancetta L300 1000x750.jpg</AltIT>
+        <AltFR>Lancetta L300 1000x750.jpg</AltFR>
+        <AltEN>Lancetta L300 1000x750.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>3</Id>
+        <FileName>~/Public/Prodotto/4/Immagine/Lancetta per contatti doppi 1000x750.jpg</FileName>
+        <AltIT>Lancetta per contatti doppi 1000x750.jpg</AltIT>
+        <AltFR>Lancetta per contatti doppi 1000x750.jpg</AltFR>
+        <AltEN>Lancetta per contatti doppi 1000x750.jpg</AltEN>
+      </Immagine>
+      <Immagine>
+        <Id>4</Id>
+        <FileName>~/Public/Prodotto/4/Immagine/Lancetta per contatti multipli 1000x750.jpg</FileName>
+        <AltIT>Lancetta per contatti multipli 1000x750.jpg</AltIT>
+        <AltFR>Lancetta per contatti multipli 1000x750.jpg</AltFR>
+        <AltEN>Lancetta per contatti multipli 1000x750.jpg</AltEN>
+      </Immagine>
+    </Immagini>
+    <Allegati />
+    <IdCategoria>3</IdCategoria>
+    <IdSubCategoria>2</IdSubCategoria>
+    <Order>0</Order>
+    <GlobalOrder>0</GlobalOrder>
+    <Visible>true</Visible>
+  </Prodotto>
 </ArrayOfProdotto>

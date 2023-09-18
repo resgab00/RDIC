@@ -5,7 +5,9 @@
 }
 
 @media screen and (max-width:800px){
-    #language{background-color: #fff;}
+    #language {
+
+    }
     #main_carousel{
         height: 300px;
     }

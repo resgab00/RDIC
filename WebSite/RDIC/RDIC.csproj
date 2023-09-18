@@ -227,6 +227,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\Azienda_bkg.png" />
+    <Content Include="img\Azienta_testo.png" />
     <Content Include="img\banner_1.jpg" />
     <Content Include="img\banner_1.png" />
     <Content Include="img\banner_2.jpg" />

@@ -17,8 +17,8 @@
       </SubCategoria>
       <SubCategoria>
         <Id>2</Id>
-        <DescriptionIT>Orologeria meccanica per registratori circolari</DescriptionIT>
-        <DescriptionEN>Mechanical chart drive for circular chart recorders</DescriptionEN>
+        <DescriptionIT>Orologeria meccanica FS/5 per rotazione circolare 1 velocità</DescriptionIT>
+        <DescriptionEN>Spring wound clock model FS/5 single speed</DescriptionEN>
         <DescriptionFR />
         <Order>0</Order>
         <Visible>false</Visible>
@@ -31,16 +31,41 @@
         <Order>0</Order>
         <Visible>false</Visible>
       </SubCategoria>
+      <SubCategoria>
+        <Id>4</Id>
+        <DescriptionIT>Orologeria meccanica FS/5 per rotazione circolare 2 velocità</DescriptionIT>
+        <DescriptionEN>Spring wound clock model FS/5 DW  switchable dual speed</DescriptionEN>
+        <DescriptionFR />
+        <Order>0</Order>
+        <Visible>false</Visible>
+      </SubCategoria>
     </SubCategorias>
     <Visible>false</Visible>
   </Categoria>
   <Categoria>
     <Id>3</Id>
-    <DescriptionIT>Accessori per registratori</DescriptionIT>
-    <DescriptionEN>Accessories for recorders</DescriptionEN>
+    <DescriptionIT>Accessori </DescriptionIT>
+    <DescriptionEN>Accessories </DescriptionEN>
     <DescriptionFR />
     <Order>0</Order>
-    <SubCategorias />
+    <SubCategorias>
+      <SubCategoria>
+        <Id>1</Id>
+        <DescriptionIT>Pennini, penne e movimenti</DescriptionIT>
+        <DescriptionEN>Nibs, pens and movements</DescriptionEN>
+        <DescriptionFR>Plumes, stylos et mouvements</DescriptionFR>
+        <Order>0</Order>
+        <Visible>false</Visible>
+      </SubCategoria>
+      <SubCategoria>
+        <Id>2</Id>
+        <DescriptionIT>Lancette</DescriptionIT>
+        <DescriptionEN>Pointers</DescriptionEN>
+        <DescriptionFR />
+        <Order>0</Order>
+        <Visible>false</Visible>
+      </SubCategoria>
+    </SubCategorias>
     <Visible>false</Visible>
   </Categoria>
 </ArrayOfCategoria>
